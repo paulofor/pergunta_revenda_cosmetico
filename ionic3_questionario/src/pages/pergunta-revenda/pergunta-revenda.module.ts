@@ -10,4 +10,6 @@ import { PerguntaRevendaPage } from './pergunta-revenda';
     IonicPageModule.forChild(PerguntaRevendaPage),
   ],
 })
-export class PerguntaRevendaPageModule {}
+export class PerguntaRevendaPageModule {
+  
+}
