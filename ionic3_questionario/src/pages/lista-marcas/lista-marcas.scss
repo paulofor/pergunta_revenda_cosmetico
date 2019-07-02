@@ -1,3 +1,15 @@
 page-lista-marcas {
 
+    .caixaInput {
+        border: 1px solid #999;
+        margin-bottom: 8px;
+    }
+
+    .item-input-has-focus {
+        border: none !important;
+    }
+    .input-has-focus {
+        border: none !important;
+    }
+   
 }

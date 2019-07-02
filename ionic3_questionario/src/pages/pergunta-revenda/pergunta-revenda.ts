@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ListaMarcasPage } from '../lista-marcas/lista-marcas';
 
 /**
  * Generated class for the PerguntaRevendaPage page.
@@ -27,6 +28,7 @@ export class PerguntaRevendaPage {
 
   respostaSim1() {
     console.log('Resposta Sim 1');
+    this.mudaTela();
   }
 
   respostaNao1() {
@@ -36,10 +38,18 @@ export class PerguntaRevendaPage {
 
   respostaSim2() {
     console.log('Resposta Sim 2');
+    this.mudaTela();
   }
 
   respostaNao2() {
     console.log('Resposta Não 2');
+    this.mudaTela();
   }
 
+  mudaTela() {
+    this.navCtrl.push(ListaMarcasPage, {
+    })
+  }
+
+  
 }
