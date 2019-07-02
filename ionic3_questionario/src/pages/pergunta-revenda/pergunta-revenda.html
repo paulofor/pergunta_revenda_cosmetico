@@ -9,13 +9,20 @@
     <img width="100%" heigth="100%" src="assets/imgs/ImagemCosmetico.png" />
   </div>
 
-  <ion-card>
+  <ion-card  *ngIf="exibeQuadro1">
     <ion-card-content>
       <p>Você trabalhar com revenda de cosméticos atualmente ?</p>
     </ion-card-content>
-    <button ion-button clear item-bottom (click)="respostaSim()">Sim</button>
-    <button ion-button clear item-bottom (click)="respostaNao()">Não</button>
+    <button ion-button clear item-bottom (click)="respostaSim1()">Sim</button>
+    <button ion-button clear item-bottom (click)="respostaNao1()">Não</button>
   </ion-card>
 
+  <ion-card *ngIf="exibeQuadro2">
+    <ion-card-content>
+      <p>Tem interesse em revender ?</p>
+    </ion-card-content>
+    <button ion-button clear item-bottom (click)="respostaSim2()">Sim</button>
+    <button ion-button clear item-bottom (click)="respostaNao2()">Não</button>
+  </ion-card>
 
 </ion-content>
