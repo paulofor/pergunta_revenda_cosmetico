@@ -11,7 +11,7 @@
 
   <ion-card  *ngIf="exibeQuadro1">
     <ion-card-content>
-      <p>Você trabalhar com revenda de cosméticos atualmente ?</p>
+      <p>{{textoPergunta1}}</p>
     </ion-card-content>
     <button ion-button clear item-bottom (click)="respostaSim1()">Sim</button>
     <button ion-button clear item-bottom (click)="respostaNao1()">Não</button>
@@ -19,7 +19,7 @@
 
   <ion-card *ngIf="exibeQuadro2">
     <ion-card-content>
-      <p>Tem interesse em revender ?</p>
+      <p>{{textoPergunta2}}</p>
     </ion-card-content>
     <button ion-button clear item-bottom (click)="respostaSim2()">Sim</button>
     <button ion-button clear item-bottom (click)="respostaNao2()">Não</button>

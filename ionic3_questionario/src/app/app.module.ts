@@ -8,6 +8,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PerguntaRevendaPage } from '../pages/pergunta-revenda/pergunta-revenda';
 import { ListaMarcasPage } from '../pages/lista-marcas/lista-marcas';
+import { RespostaVersaoApi, SDKModels, LoopBackAuth, InternalStorage, SDKBrowserModule } from './shared/sdk/index';
+import { SocketDriver } from './shared/sdk/sockets/socket.driver';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { ListaMarcasPage } from '../pages/lista-marcas/lista-marcas';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CommonModule,
+		HttpClientModule,
+		SDKBrowserModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,7 +37,12 @@ import { ListaMarcasPage } from '../pages/lista-marcas/lista-marcas';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SocketDriver,
+		SDKModels,
+		LoopBackAuth,
+		InternalStorage,
+    RespostaVersaoApi
   ]
 })
 export class AppModule {}
