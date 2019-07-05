@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListaMarcasPage } from '../lista-marcas/lista-marcas';
-import { RespostaVersao, RespostaVersaoApi } from '../../app/shared/sdk/index';
-
+import { RespostaVersao, RespostaVersaoApi, VisitanteApi, Visitante } from '../../app/shared/sdk/index';
+import { CookieService } from 'ngx-cookie-service';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PerguntaRevendaPage page.
  *
@@ -23,16 +24,22 @@ export class PerguntaRevendaPage {
   resposta1: RespostaVersao = new RespostaVersao();
   resposta2: RespostaVersao = new RespostaVersao();
 
-  textoPergunta1 = 'Você trabalhar com revenda de cosméticos atualmente ?';
+  textoPergunta1 = 'Você trabalha com revenda de cosméticos atualmente ?';
   textoPergunta2 = 'Tem interesse em revender ?';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private srv: RespostaVersaoApi) {
+  cookieValue = 'UNKNOWN';
+  visitanteCorrente = null;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private srv: RespostaVersaoApi, 
+    private cookieService: CookieService,
+    private visitanteSrv: VisitanteApi, protected storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntaRevendaPage');
     this.resposta1.pergunta = this.textoPergunta1;
     this.resposta2.pergunta = this.textoPergunta2;
+    this.trataCookie();
   }
 
   respostaSim1() {
@@ -76,9 +83,43 @@ export class PerguntaRevendaPage {
   }
 
   mudaTela() {
-    this.navCtrl.push(ListaMarcasPage, {
+    this.storage.set("user",this.visitanteCorrente).then((successData)=>{
+      this.navCtrl.push(ListaMarcasPage, {
+      })
     })
   }
+
+  
+  trataCookie() {
+    this.cookieValue = this.cookieService.get('idDigicom');
+    console.log('Cookie: ', this.cookieValue);
+    if (!this.cookieValue) {
+      console.log('Cookie vazio');
+      this.visitanteSrv.proximoCookie()
+        .subscribe((result: any) => {
+          console.log('Result Cookie: ', result);
+          this.cookieService.set('idDigicom', result.codigoCookie);
+          this.cookieValue = result.codigoCookie;
+          this.registraVisita();
+        })
+    } else {
+      console.log('Meu Cookie:', this.cookieValue);
+      this.registraVisita();
+    }
+  }
+
+  registraVisita() {
+    let visita = new Visitante();
+    visita.codigoCookie = this.cookieValue;
+    console.log('Visita: ', visita);
+    this.visitanteSrv.create(visita)
+      .subscribe((resultado: any) => {
+        console.log('Resultado visitante: ', resultado);
+        this.visitanteCorrente = resultado;
+      })
+  }
+
+
 
 
 }

@@ -12,6 +12,8 @@ import { RespostaVersaoApi, SDKModels, LoopBackAuth, InternalStorage, SDKBrowser
 import { SocketDriver } from './shared/sdk/sockets/socket.driver';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(MyApp),
     CommonModule,
 		HttpClientModule,
-		SDKBrowserModule.forRoot(),
+    SDKBrowserModule.forRoot(),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
 		SDKModels,
 		LoopBackAuth,
 		InternalStorage,
-    RespostaVersaoApi
+    RespostaVersaoApi,
+    CookieService ,
+    Storage
   ]
 })
 export class AppModule {}

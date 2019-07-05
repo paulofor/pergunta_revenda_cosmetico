@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RespostaVersao, RespostaVersaoApi } from '../../app/shared/sdk/index';
+import { RespostaVersao, RespostaVersaoApi, Visitante } from '../../app/shared/sdk/index';
 import { ListaLojasPage } from '../lista-lojas/lista-lojas';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ListaMarcasPage page.
@@ -24,18 +25,33 @@ export class ListaMarcasPage {
   marca4: String;
   marca5: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private srv: RespostaVersaoApi) {
+  marca1txt: String;
+  marca2txt: String;
+  marca3txt: String;
+  marca4txt: String;
+  marca5txt: String;
+
+  visitante: Visitante;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private srv: RespostaVersaoApi, protected storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaMarcasPage');
     this.respostaMarcas.pergunta = 'Suas marcas preferidas';
+    this.carregaVisitante();
   }
 
+  carregaVisitante () {
+    this.storage.get('user').then((val: Visitante) => {
+      this.visitante = val;
+    })
+  }
 
   submit() {
     console.log('Chamou submit');
-    //this.respostaMarcas.resposta = this.marca1 + ' , ' + this.marca2 + ' , ' + this.marca3 + ' , ' + this.marca4 + ' , ' + this.marca5;
+    this.respostaMarcas.resposta = this.marca1txt + ' , ' + this.marca2txt + ' , ' + this.marca3txt + ' , ' + this.marca4txt + ' , ' + this.marca5txt;
+    this.respostaMarcas.visitanteId = this.visitante.id;
     this.srv.create(this.respostaMarcas)
       .subscribe((resultado) => {
         console.log('Resultado Marcas: ', resultado);
