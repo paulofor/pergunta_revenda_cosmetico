@@ -7,7 +7,7 @@
     <ion-card-content>
       <p>{{respostaMarcas.pergunta}}</p>
     </ion-card-content>
-    <form (submit)="submit()" #itemSerieForm="ngForm">
+    <form (submit)="submit()" #itemSerieForm="ngForm" >
       <ion-item lines="none">
         <ion-label>1</ion-label>
         <ion-input type="text" class="caixaInput" [(ngModel)]="marca1txt" name="marca1" #marca1="ngModel"></ion-input>
@@ -28,7 +28,7 @@
         <ion-label>5</ion-label>
         <ion-input type="text" class="caixaInput" [(ngModel)]="marca5txt" name="marca5" #marca5="ngModel"></ion-input>
       </ion-item>
-      <button ion-button clear item-bottom type="submit">Ok</button>
+      <button ion-button item-bottom float-right type="submit">Enviar</button>
     </form>
 
 

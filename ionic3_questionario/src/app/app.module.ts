@@ -14,13 +14,15 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { IonicStorageModule } from '@ionic/storage';
+import { ListaLojasPage } from '../pages/lista-lojas/lista-lojas';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     PerguntaRevendaPage,
-    ListaMarcasPage
+    ListaMarcasPage,
+    ListaLojasPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { IonicStorageModule } from '@ionic/storage';
     MyApp,
     HomePage,
     PerguntaRevendaPage,
-    ListaMarcasPage
+    ListaMarcasPage,
+    ListaLojasPage
   ],
   providers: [
     StatusBar,
