@@ -1,0 +1,43 @@
+<ion-content>
+  <div id="logo">
+    <img width="100%" heigth="100%" src="assets/imgs/ImagemCosmetico.png" />
+  </div>
+
+  <ion-card *ngIf="exibeForm">
+    <ion-card-content>
+      <p>{{respostaLojas.pergunta}}</p>
+    </ion-card-content>
+    <form (submit)="submit()" #itemSerieForm="ngForm">
+      <ion-item lines="none">
+        <ion-label>1</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="loja1txt" name="loja1" #loja1="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>2</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="loja2txt" name="loja2" #loja2="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>3</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="loja3txt" name="loja3" #loja3="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>4</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="loja4txt" name="loja4" #loja4="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>5</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="loja5txt" name="loja5" #loja5="ngModel"></ion-input>
+      </ion-item>
+      <button ion-button item-bottom float-right type="submit">Enviar</button>
+    </form>
+  </ion-card>
+
+
+  <ion-card *ngIf="exibeAgradecimento">
+    <ion-card-content>
+      Obrigado por sua participação
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

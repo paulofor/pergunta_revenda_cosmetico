@@ -40,7 +40,7 @@ export class ListaLojasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaMarcasPage');
-    this.respostaLojas.pergunta = 'Suas lojas preferidas';
+    this.respostaLojas.pergunta = 'Quais são suas lojas online de maquiagens e cosméticos preferidas ?';
     this.carregaVisitante();
   }
 
@@ -54,6 +54,7 @@ export class ListaLojasPage {
     console.log('Chamou submit');
     this.respostaLojas.resposta = this.loja1txt + ' , ' + this.loja2txt + ' , ' + this.loja3txt + ' , ' + this.loja4txt + ' , ' + this.loja5txt;
     this.respostaLojas.visitanteId = this.visitante.id;
+    this.respostaLojas.versaoAppId = this.visitante.versaoAppId;
     this.srv.create(this.respostaLojas)
       .subscribe((resultado) => {
         console.log('Resultado Lojas: ', resultado);

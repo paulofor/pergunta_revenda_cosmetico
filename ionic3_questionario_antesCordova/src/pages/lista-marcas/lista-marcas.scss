@@ -1,0 +1,25 @@
+page-lista-marcas {
+
+    .caixaInput {
+        border: 1px solid #999;
+        margin-bottom: 8px;
+    }
+
+    .item-input-has-focus > div {
+        border: none !important;
+    }
+    .input-has-focus > div{
+        border: none !important;
+    }
+    ion-item {
+        border: none !important;
+    }
+    .item-inner {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .input-wrapper {
+        border: none !important;
+    }
+   
+}

@@ -38,7 +38,7 @@ export class ListaMarcasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaMarcasPage');
-    this.respostaMarcas.pergunta = 'Suas marcas preferidas';
+    this.respostaMarcas.pergunta = 'Quais são suas marcas de maquiagens e cosméticos preferidas ?';
     this.carregaVisitante();
   }
 
@@ -52,6 +52,7 @@ export class ListaMarcasPage {
     console.log('Chamou submit');
     this.respostaMarcas.resposta = this.marca1txt + ' , ' + this.marca2txt + ' , ' + this.marca3txt + ' , ' + this.marca4txt + ' , ' + this.marca5txt;
     this.respostaMarcas.visitanteId = this.visitante.id;
+    this.respostaMarcas.versaoAppId = this.visitante.versaoAppId;
     this.srv.create(this.respostaMarcas)
       .subscribe((resultado) => {
         console.log('Resultado Marcas: ', resultado);

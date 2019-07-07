@@ -1,0 +1,39 @@
+<ion-content>
+  <div id="logo">
+    <img width="100%" heigth="100%" src="assets/imgs/ImagemCosmetico.png" />
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <p>{{respostaMarcas.pergunta}}</p>
+    </ion-card-content>
+    <form (submit)="submit()" #itemSerieForm="ngForm" >
+      <ion-item lines="none">
+        <ion-label>1</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="marca1txt" name="marca1" #marca1="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>2</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="marca2txt" name="marca2" #marca2="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>3</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="marca3txt" name="marca3" #marca3="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>4</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="marca4txt" name="marca4" #marca4="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>5</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="marca5txt" name="marca5" #marca5="ngModel"></ion-input>
+      </ion-item>
+      <button ion-button item-bottom float-right type="submit">Enviar</button>
+    </form>
+
+
+  </ion-card>
+
+
+
+</ion-content>
