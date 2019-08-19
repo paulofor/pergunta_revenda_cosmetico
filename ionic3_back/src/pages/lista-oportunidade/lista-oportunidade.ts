@@ -1,45 +1,29 @@
 
-
-
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
-import { Screenshot } from '@ionic-native/screenshot';
+import { IonicPage, NavController } from 'ionic-angular';
+import { Page } from 'ionic-angular/navigation/nav-util';
+import { ListaOportunidadePageBase } from './lista-oportunidade-base';
+import { OportunidadeDiaApi, LoopBackFilter } from '../../shared/sdk';
+import { Storage } from '@ionic/storage';
 
-
-import { OportunidadeDia, OportunidadeDiaApi } from '../../shared/sdk';
 
 @IonicPage()
 @Component({
   selector: 'page-lista-oportunidade',
   templateUrl: 'lista-oportunidade.html'
 })
-export class ListaOportunidadePage {
-  listaItem: OportunidadeDia[];
+export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
-  constructor(public navCtrl: NavController, public srv: OportunidadeDiaApi, 
-  				 private screenshot: Screenshot, public modalCtrl: ModalController) {
+  inicializacao() {
   }
 
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter ListaOportunidadePage');
-    this.carregaLista();
+  constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,protected storage: Storage) {
+    super(navCtrl,srv,storage);
   }
 
-  ionViewDidLoad() {
-  	console.log('ionViewDidLoad ListaOportunidadePage');
-  }
-  
-  carregaLista() {
-    this.srv.obtemLista()
-      .subscribe((result: OportunidadeDia[]) => {
-        console.log('Result', JSON.stringify(result));
-        this.listaItem = result;
-      });
-  }
-  
-  testaFoto() {
-    this.screenshot.save('jpg', 100, 'ListaOportunidadePage');
-  }
 
+  protected getFiltro(): LoopBackFilter {
+    return {};
+  }
   
 }

@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { ComandosZeroPage } from '../comandos-zero/comandos-zero';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
+import { ListaOportunidadePage } from '../lista-oportunidade/lista-oportunidade';
 
 
 /**
@@ -29,7 +30,7 @@ export class LoginPage extends LoginPageBase {
 
 
   getPaginaInicial(): Page {
-    var proxima = ComandosZeroPage;
+    var proxima = ListaOportunidadePage;
     console.log('Proxima: ' , proxima);
     return proxima;
   }

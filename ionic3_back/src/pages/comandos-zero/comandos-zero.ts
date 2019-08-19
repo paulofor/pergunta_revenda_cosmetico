@@ -1,11 +1,11 @@
-import { IonicPage } from "ionic-angular";
-import { Component } from "@angular/core";
-import { ComandosZeroPageBase } from "./comandos-zero-base";
-
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the GeradorDigicom
+ * Generated class for the ComandosZeroPage page.
  *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
  */
 
 @IonicPage()
@@ -13,44 +13,13 @@ import { ComandosZeroPageBase } from "./comandos-zero-base";
   selector: 'page-comandos-zero',
   templateUrl: 'comandos-zero.html',
 })
-export class ComandosZeroPage extends ComandosZeroPageBase {
+export class ComandosZeroPage {
 
-  
-  protected inicializacao() {
-    throw new Error("Method not implemented.");
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-
-
-
-
-  protected getNomeAplicacao(): string {
-    return "Treino 365";
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ComandosZeroPage');
   }
-
-
-  executaConsulta() {
-    console.log('ExecutaConsulta');
-  }
-  existeConsulta() {
-    return false;
-  }
-
-  executaDiaTreino() {
-    console.log('executaDiaTreino');
-  }
-  existeDiaTreino() {
-    return false;
-  }
-
-  executaSerie() {
-    console.log('executaSerie');
-  }
-  existeSerie() {
-    return false;
-  }
-
-
-
 
 }
