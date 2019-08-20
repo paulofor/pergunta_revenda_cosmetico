@@ -23,7 +23,7 @@
           <img src="{{item.imagemProduto}}">
           <h3 class="texto-preco">R$ {{item.precoVendaAtual | number: '1.2-2' }}</h3>
           <h3 class="texto-loja">Loja: {{item.nomeLojaVirtual}}</h3>
-          <button rounded ion-button>Ir para loja</button>
+          <a button href="{{item.urlProduto}}" rounded ion-button>Ir para loja</a>
         </ion-card-content>
       </ion-card>
 

@@ -23,6 +23,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OportunidadeDiaApi } from '../shared/sdk';
 import { UsuarioApi } from '../shared/sdk';
 import { AcaoApi } from '../shared/sdk';
+import { VisitanteApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -72,6 +73,8 @@ registerLocaleData(localePt, 'pt-BR');
 	UsuarioApi,
 	
 	AcaoApi,
+	
+	VisitanteApi,
 	
     Screenshot,
     Storage,

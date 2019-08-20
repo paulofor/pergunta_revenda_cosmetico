@@ -55,6 +55,7 @@ import { ContainerApi } from './services/custom/Container';
 import { OportunidadeDiaApi } from './services/custom/OportunidadeDia';
 import { UsuarioApi } from './services/custom/Usuario';
 import { AcaoApi } from './services/custom/Acao';
+import { VisitanteApi } from './services/custom/Visitante';
 
 /**
 * @module SDKBrowserModule
@@ -94,6 +95,8 @@ export class SDKBrowserModule {
 		UsuarioApi,
 	
 		AcaoApi,
+	
+		VisitanteApi,
 	
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
