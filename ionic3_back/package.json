@@ -32,6 +32,8 @@
         "brmasker-ionic-3": "^1.6.3",
         "chart.js": "^2.7.3",
         "com.darktalker.cordova.screenshot": "0.1.6",
+        "cordova-android": "^8.0.0",
+        "cordova-res": "^0.6.0",
         "ionic-angular": "3.9.2",
         "ionicons": "3.0.0",
         "ng2-charts": "^1.6.0",
@@ -60,8 +62,13 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-device": {},
             "cordova-plugin-splashscreen": {},
-            "cordova-plugin-ionic-webview": {},
+            "cordova-plugin-ionic-webview": {
+                "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+            },
             "cordova-plugin-ionic-keyboard": {}
-        }
+        },
+        "platforms": [
+            "android"
+        ]
     }
 }

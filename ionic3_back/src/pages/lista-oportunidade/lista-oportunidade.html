@@ -19,11 +19,11 @@
 
       <ion-card *ngFor="let item of listaItem">
         <ion-card-content text-wrap>
-          <h2 style="word-wrap: normal">{{item.nomeProduto}}</h2>
+          <h2 class="texto-produto" style="word-wrap: normal">{{item.nomeProduto}}</h2>
           <img src="{{item.imagemProduto}}">
-          <h3>R$ {{item.precoVendaAtual | number: '1.2-2' }}</h3>
-          <h3>Loja: {{item.nomeLojaVirtual}}</h3>
-          <button ion-button>Ir para loja</button>
+          <h3 class="texto-preco">R$ {{item.precoVendaAtual | number: '1.2-2' }}</h3>
+          <h3 class="texto-loja">Loja: {{item.nomeLojaVirtual}}</h3>
+          <button rounded ion-button>Ir para loja</button>
         </ion-card-content>
       </ion-card>
 
