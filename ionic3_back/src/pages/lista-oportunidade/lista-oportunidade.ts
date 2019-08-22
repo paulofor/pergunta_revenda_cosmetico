@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 import { CookieService } from 'ngx-cookie-service';
 import { VisitanteApi } from '../../shared/sdk/services/custom/Visitante';
 import { Visitante } from '../../shared/sdk/models/Visitante';
-
+import { FCM } from '@ionic-native/fcm';
 
 @IonicPage()
 @Component({
@@ -24,10 +24,13 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
   inicializacao() {
     this.trataCookie();
+    this.fcm.getToken().then(token => {
+      console.log('Token:' + token);
+    });
   }
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
-    private cookieService: CookieService, private visitanteSrv: VisitanteApi, protected storage: Storage) {
+    private cookieService: CookieService, private visitanteSrv: VisitanteApi, protected storage: Storage, private fcm: FCM) {
     super(navCtrl,srv,storage);
   }
 

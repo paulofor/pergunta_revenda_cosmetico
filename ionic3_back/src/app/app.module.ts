@@ -28,6 +28,7 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { FCM } from '@ionic-native/fcm';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -79,7 +80,8 @@ registerLocaleData(localePt, 'pt-BR');
     Screenshot,
     Storage,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
-    CookieService
+    CookieService,
+    FCM
   ]
 })
 export class AppModule {}
