@@ -9,6 +9,8 @@ export interface VisitanteInterface {
   "id"?: number;
   "dispositivo"?: string;
   "versaoAppId"?: number;
+  "fcmToken"?: string;
+  "dataHoraNotificacao"?: Date;
 }
 
 export class Visitante implements VisitanteInterface {
@@ -17,6 +19,8 @@ export class Visitante implements VisitanteInterface {
   "id": number;
   "dispositivo": string;
   "versaoAppId": number;
+  "fcmToken": string;
+  "dataHoraNotificacao": Date;
   constructor(data?: VisitanteInterface) {
     Object.assign(this, data);
   }
@@ -70,6 +74,14 @@ export class Visitante implements VisitanteInterface {
           name: 'versaoAppId',
           type: 'number'
         },
+        "fcmToken": {
+          name: 'fcmToken',
+          type: 'string'
+        },
+        "dataHoraNotificacao": {
+          name: 'dataHoraNotificacao',
+          type: 'Date'
+        }
       },
       relations: {
       }

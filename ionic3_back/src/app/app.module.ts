@@ -17,6 +17,7 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
 import { PagSeguroApi } from '../shared/sdk/services/integracao/PagSeguro';
 import { VisitanteApi } from '../shared/sdk/services/custom/Visitante';
 import { CookieService } from 'ngx-cookie-service';
+import { FCM } from '@ionic-native/fcm';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 
@@ -28,7 +29,6 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { FCM } from '@ionic-native/fcm';
 
 registerLocaleData(localePt, 'pt-BR');
 

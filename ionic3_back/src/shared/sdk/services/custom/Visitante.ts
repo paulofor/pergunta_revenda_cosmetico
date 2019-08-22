@@ -129,7 +129,15 @@ export class VisitanteApi extends BaseLoopBackApi {
     ].join('/'), undefined, undefined, { data }, null, customHeaders)
     .pipe(map((data: Visitante) => this.model.factory(data)));
   }
-
+  public atualizaItem(id: any, data: Visitante, customHeaders?: Function): Observable<Visitante> {
+    return this.request('PUT', [
+      VisitanteApi.pathValidador,
+      LoopBackConfig.getApiVersion(),
+      this.model.getModelDefinition().path,
+      ':id'
+    ].join('/'), { id }, undefined, { data }, null, customHeaders)
+    .pipe(map((data: Visitante) => this.model.factory(data)));
+  }
 
   /**
    * The name of the model represented by this $resource,
