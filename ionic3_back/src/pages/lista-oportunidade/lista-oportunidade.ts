@@ -52,32 +52,32 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
   private obtemToken() {
     this.fcm.subscribeToTopic('all');
-    alert('inscreveu');
+    //alert('inscreveu');
     this.fcm.getToken().then(token => {
-      alert(token);
+      //alert(token);
       localStorage.setItem('token', token);
       this.visitanteCorrente.fcmToken = token;
       this.visitanteCorrente.dataHoraNotificacao = new Date();
-      alert(JSON.stringify(this.visitanteCorrente));
+      //alert(JSON.stringify(this.visitanteCorrente));
       this.visitanteSrv.atualizaItem(this.visitanteCorrente.id, this.visitanteCorrente)
         .subscribe(
           (resultado: any) => {
-            alert('Sucesso:' + JSON.stringify(resultado))
+            //alert('Sucesso:' + JSON.stringify(resultado))
           },
           (erro: any) => {
-            alert('Erro:' + JSON.stringify(erro))
+            //alert('Erro:' + JSON.stringify(erro))
           });
     });
     this.fcm.onNotification().subscribe(data => {
       alert('Recebu notificacao')
       if (data.wasTapped) {
-        alert('background');
+        //alert('background');
       } else {
-        alert('foreground');
+        //alert('foreground');
       }
     });
     this.fcm.onTokenRefresh().subscribe(token => {
-      alert('token')
+      //alert('token')
     });
 
   }

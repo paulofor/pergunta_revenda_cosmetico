@@ -40,7 +40,7 @@ registerLocaleData(localePt, 'pt-BR');
     SignupPage,
     ComandosZeroPage,
     ListaOportunidadePage,
-	
+
   ],
   imports: [
     BrowserModule,
@@ -59,24 +59,24 @@ registerLocaleData(localePt, 'pt-BR');
     SignupPage,
     ComandosZeroPage,
     ListaOportunidadePage,
-	
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     SocketDriver,
     SDKModels,
     LoopBackAuth,
     InternalStorage,
     PagSeguroApi,
     VisitanteApi,
-	OportunidadeDiaApi,
-	
-	UsuarioApi,
-	
-	AcaoApi,
-	
+    OportunidadeDiaApi,
+
+    UsuarioApi,
+
+    AcaoApi,
+
     Screenshot,
     Storage,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
@@ -84,4 +84,4 @@ registerLocaleData(localePt, 'pt-BR');
     FCM
   ]
 })
-export class AppModule {}
+export class AppModule { }
