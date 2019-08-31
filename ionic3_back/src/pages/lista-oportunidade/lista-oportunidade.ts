@@ -28,26 +28,19 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
   }
 
 
-  private obtemTokenFake() {
+  private obtemToken1() {
     var token = '2156432135435125647561'
     console.log('Token fake: ', token);
     this.visitanteCorrente.fcmToken = token;
     this.visitanteCorrente.dataHoraNotificacao = new Date();
     this.visitanteSrv.atualizaItem(this.visitanteCorrente.id, this.visitanteCorrente)
       .subscribe((resultado: any) => {
-        console.log('Ressultado:', resultado);
+        console.log('Resultado:', resultado);
       })
   }
 
 
-  private obtemTokenOld() {
-    this.fcm.getToken().then(token => {
-      //console.log('Token:' + token);
-      this.visitanteCorrente.fcmToken = token;
-      this.visitanteCorrente.dataHoraNotificacao = new Date();
-      this.visitanteSrv.atualizaItem(this.visitanteCorrente.id, this.visitanteCorrente);
-    });
-  }
+  
 
 
   private obtemToken() {
@@ -91,7 +84,7 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
 
   protected getFiltro(): LoopBackFilter {
-    return {};
+    return {'order' : 'posicaoProduto'};
   }
 
   trataCookie() {
