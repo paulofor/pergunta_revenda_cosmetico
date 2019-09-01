@@ -20,7 +20,7 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
   visitanteCorrente: Visitante = null;
   cookieValue = 'UNKNOWN';
 
-  ID_VERSAOAPP = 3;
+  ID_VERSAOAPP = 4;
 
   inicializacao() {
     this.trataCookie();
