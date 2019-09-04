@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { ListaOportunidadePageBase } from './lista-oportunidade-base';
-import { OportunidadeDiaApi, LoopBackFilter } from '../../shared/sdk';
+import { OportunidadeDiaApi, LoopBackFilter, OportunidadeDia } from '../../shared/sdk';
 import { Storage } from '@ionic/storage';
 import { CookieService } from 'ngx-cookie-service';
 import { VisitanteApi } from '../../shared/sdk/services/custom/Visitante';
@@ -22,13 +22,15 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
   ID_VERSAOAPP = 4;
 
+
+
   inicializacao() {
     this.trataCookie();
 
   }
 
 
-  private obtemToken1() {
+  private obtemToken() {
     var token = '2156432135435125647561'
     console.log('Token fake: ', token);
     this.visitanteCorrente.fcmToken = token;
@@ -43,7 +45,7 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
   
 
 
-  private obtemToken() {
+  private obtemToken1() {
     this.fcm.subscribeToTopic('all');
     //alert('inscreveu');
     this.fcm.getToken().then(token => {
@@ -116,6 +118,10 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
         this.visitanteCorrente = resultado;
         this.obtemToken();
       })
+  }
+
+  top50( oportunidade: OportunidadeDia) : boolean{
+    return oportunidade.posicaoProduto <= 50;
   }
 
 }
