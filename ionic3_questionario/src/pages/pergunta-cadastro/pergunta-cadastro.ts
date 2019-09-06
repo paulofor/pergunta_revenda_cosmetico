@@ -16,13 +16,17 @@ import { ClienteExperimental } from '../../app/shared/sdk';
 })
 export class PerguntaCadastroPage {
 
-  cadastro: ClienteExperimental
+  cadastro: ClienteExperimental = new ClienteExperimental();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntaCadastroPage');
+  }
+
+  submit() {
+
   }
 
 }

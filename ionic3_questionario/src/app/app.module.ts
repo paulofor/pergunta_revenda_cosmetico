@@ -42,6 +42,7 @@ import { PerguntaCadastroPage } from '../pages/pergunta-cadastro/pergunta-cadast
     ListaMarcasPage,
     ListaLojasPage,
     PerguntaCadastroPage
+
   ],
   providers: [
     StatusBar,
