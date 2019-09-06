@@ -4,6 +4,7 @@ import { ListaMarcasPage } from '../lista-marcas/lista-marcas';
 import { RespostaVersao, RespostaVersaoApi, VisitanteApi, Visitante } from '../../app/shared/sdk/index';
 import { CookieService } from 'ngx-cookie-service';
 import { Storage } from '@ionic/storage';
+import { PerguntaCadastroPage } from '../pergunta-cadastro/pergunta-cadastro';
 /**
  * Generated class for the PerguntaRevendaPage page.
  *
@@ -18,7 +19,7 @@ import { Storage } from '@ionic/storage';
 })
 export class PerguntaRevendaPage {
 
-  ID_VERSAOAPP = 1;
+  ID_VERSAOAPP = 999;
 
   exibeQuadro1: boolean = true;
   exibeQuadro2: boolean = false;
@@ -92,7 +93,7 @@ export class PerguntaRevendaPage {
 
   mudaTela() {
     this.storage.set("user",this.visitanteCorrente).then((successData)=>{
-      this.navCtrl.push(ListaMarcasPage, {
+      this.navCtrl.push(PerguntaCadastroPage, {
       })
     })
   }

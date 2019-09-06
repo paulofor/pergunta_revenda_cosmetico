@@ -10,7 +10,9 @@ import {
   ConceitoProduto,
   PaginaInstalacaoApp,
   AnuncioAplicativo,
-  VersaoApp
+  VersaoApp,
+  PresencaLoja,
+  ClienteExperimental
 } from '../index';
 
 declare var Object: any;
@@ -39,6 +41,8 @@ export interface ProjetoMySqlInterface {
   paginaInstalacaoApps?: PaginaInstalacaoApp[];
   anuncioAplicativos?: AnuncioAplicativo[];
   versaoApps?: VersaoApp[];
+  presencaLojas?: PresencaLoja[];
+  clienteExperimentals?: ClienteExperimental[];
 }
 
 export class ProjetoMySql implements ProjetoMySqlInterface {
@@ -66,6 +70,8 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
   paginaInstalacaoApps: PaginaInstalacaoApp[];
   anuncioAplicativos: AnuncioAplicativo[];
   versaoApps: VersaoApp[];
+  presencaLojas: PresencaLoja[];
+  clienteExperimentals: ClienteExperimental[];
   constructor(data?: ProjetoMySqlInterface) {
     Object.assign(this, data);
   }
@@ -237,6 +243,22 @@ export class ProjetoMySql implements ProjetoMySqlInterface {
           name: 'versaoApps',
           type: 'VersaoApp[]',
           model: 'VersaoApp',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'projetoMySqlId'
+        },
+        presencaLojas: {
+          name: 'presencaLojas',
+          type: 'PresencaLoja[]',
+          model: 'PresencaLoja',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'projetoMySqlId'
+        },
+        clienteExperimentals: {
+          name: 'clienteExperimentals',
+          type: 'ClienteExperimental[]',
+          model: 'ClienteExperimental',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'projetoMySqlId'

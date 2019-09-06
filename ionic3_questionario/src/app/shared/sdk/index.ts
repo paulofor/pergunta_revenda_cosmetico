@@ -108,6 +108,11 @@ import { PaginaInstalacaoAppApi } from './services/custom/PaginaInstalacaoApp';
 import { AnuncioAplicativoApi } from './services/custom/AnuncioAplicativo';
 import { VersaoAppApi } from './services/custom/VersaoApp';
 import { RespostaVersaoApi } from './services/custom/RespostaVersao';
+import { PresencaLojaApi } from './services/custom/PresencaLoja';
+import { IdeiaMelhoriaApi } from './services/custom/IdeiaMelhoria';
+import { RecursoApi } from './services/custom/Recurso';
+import { GrupoAnuncioAplicativoApi } from './services/custom/GrupoAnuncioAplicativo';
+import { ClienteExperimentalApi } from './services/custom/ClienteExperimental';
 /**
 * @module SDKBrowserModule
 * @description
@@ -198,9 +203,13 @@ export class SDKBrowserModule {
         AnuncioAplicativoApi,
         VersaoAppApi,
         RespostaVersaoApi,
+        PresencaLojaApi,
+        IdeiaMelhoriaApi,
+        RecursoApi,
+        GrupoAnuncioAplicativoApi,
+        ClienteExperimentalApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
-
       ]
     };
   }

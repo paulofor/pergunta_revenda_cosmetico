@@ -9,7 +9,11 @@ import {
   SetupCampanha,
   PaginaInstalacaoApp,
   AnuncioAplicativo,
-  VersaoApp
+  VersaoApp,
+  PresencaLoja,
+  IdeiaMelhoria,
+  GrupoAnuncioAplicativo,
+  ClienteExperimental
 } from '../index';
 
 declare var Object: any;
@@ -46,6 +50,8 @@ export interface CampanhaAdsInterface {
   "paginaInstalacaoAppId"?: number;
   "anuncioAplicativoId"?: number;
   "versaoAppId"?: number;
+  "presencaLojaId"?: number;
+  "ideiaMelhoriaId"?: number;
   anuncioAds?: AnuncioAds[];
   paginaValidacaoWeb?: PaginaValidacaoWeb;
   palavraChaveAds?: PalavraChaveAds[];
@@ -56,6 +62,10 @@ export interface CampanhaAdsInterface {
   paginaInstalacaoApp?: PaginaInstalacaoApp;
   anuncioAplicativo?: AnuncioAplicativo;
   versaoApp?: VersaoApp;
+  presencaLoja?: PresencaLoja;
+  ideiaMelhoria?: IdeiaMelhoria;
+  grupoAnuncioAplicativos?: GrupoAnuncioAplicativo[];
+  clienteExperimentals?: ClienteExperimental[];
 }
 
 export class CampanhaAds implements CampanhaAdsInterface {
@@ -91,6 +101,8 @@ export class CampanhaAds implements CampanhaAdsInterface {
   "paginaInstalacaoAppId": number;
   "anuncioAplicativoId": number;
   "versaoAppId": number;
+  "presencaLojaId": number;
+  "ideiaMelhoriaId": number;
   anuncioAds: AnuncioAds[];
   paginaValidacaoWeb: PaginaValidacaoWeb;
   palavraChaveAds: PalavraChaveAds[];
@@ -101,6 +113,10 @@ export class CampanhaAds implements CampanhaAdsInterface {
   paginaInstalacaoApp: PaginaInstalacaoApp;
   anuncioAplicativo: AnuncioAplicativo;
   versaoApp: VersaoApp;
+  presencaLoja: PresencaLoja;
+  ideiaMelhoria: IdeiaMelhoria;
+  grupoAnuncioAplicativos: GrupoAnuncioAplicativo[];
+  clienteExperimentals: ClienteExperimental[];
   constructor(data?: CampanhaAdsInterface) {
     Object.assign(this, data);
   }
@@ -262,6 +278,14 @@ export class CampanhaAds implements CampanhaAdsInterface {
           name: 'versaoAppId',
           type: 'number'
         },
+        "presencaLojaId": {
+          name: 'presencaLojaId',
+          type: 'number'
+        },
+        "ideiaMelhoriaId": {
+          name: 'ideiaMelhoriaId',
+          type: 'number'
+        },
       },
       relations: {
         anuncioAds: {
@@ -347,6 +371,38 @@ export class CampanhaAds implements CampanhaAdsInterface {
           relationType: 'belongsTo',
                   keyFrom: 'versaoAppId',
           keyTo: 'id'
+        },
+        presencaLoja: {
+          name: 'presencaLoja',
+          type: 'PresencaLoja',
+          model: 'PresencaLoja',
+          relationType: 'belongsTo',
+                  keyFrom: 'presencaLojaId',
+          keyTo: 'id'
+        },
+        ideiaMelhoria: {
+          name: 'ideiaMelhoria',
+          type: 'IdeiaMelhoria',
+          model: 'IdeiaMelhoria',
+          relationType: 'belongsTo',
+                  keyFrom: 'ideiaMelhoriaId',
+          keyTo: 'id'
+        },
+        grupoAnuncioAplicativos: {
+          name: 'grupoAnuncioAplicativos',
+          type: 'GrupoAnuncioAplicativo[]',
+          model: 'GrupoAnuncioAplicativo',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'campanhaAdsId'
+        },
+        clienteExperimentals: {
+          name: 'clienteExperimentals',
+          type: 'ClienteExperimental[]',
+          model: 'ClienteExperimental',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'campanhaAdsId'
         },
       }
     }

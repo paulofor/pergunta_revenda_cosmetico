@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { IonicStorageModule } from '@ionic/storage';
 import { ListaLojasPage } from '../pages/lista-lojas/lista-lojas';
+import { PerguntaCadastroPage } from '../pages/pergunta-cadastro/pergunta-cadastro';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListaLojasPage } from '../pages/lista-lojas/lista-lojas';
     HomePage,
     PerguntaRevendaPage,
     ListaMarcasPage,
-    ListaLojasPage
+    ListaLojasPage,
+    PerguntaCadastroPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ListaLojasPage } from '../pages/lista-lojas/lista-lojas';
     HomePage,
     PerguntaRevendaPage,
     ListaMarcasPage,
-    ListaLojasPage
+    ListaLojasPage,
+    PerguntaCadastroPage
   ],
   providers: [
     StatusBar,

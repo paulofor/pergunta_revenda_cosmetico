@@ -1,4 +1,8 @@
 /* tslint:disable */
+import {
+  GrupoAnuncioAplicativo,
+  ClienteExperimental
+} from '../index';
 
 declare var Object: any;
 export interface AnuncioAplicativoInterface {
@@ -11,6 +15,8 @@ export interface AnuncioAplicativoInterface {
   "id"?: number;
   "projetoMySqlId"?: number;
   "conceitoProdutoId"?: number;
+  grupoAnuncioAplicativos?: GrupoAnuncioAplicativo[];
+  clienteExperimentals?: ClienteExperimental[];
 }
 
 export class AnuncioAplicativo implements AnuncioAplicativoInterface {
@@ -23,6 +29,8 @@ export class AnuncioAplicativo implements AnuncioAplicativoInterface {
   "id": number;
   "projetoMySqlId": number;
   "conceitoProdutoId": number;
+  grupoAnuncioAplicativos: GrupoAnuncioAplicativo[];
+  clienteExperimentals: ClienteExperimental[];
   constructor(data?: AnuncioAplicativoInterface) {
     Object.assign(this, data);
   }
@@ -94,6 +102,22 @@ export class AnuncioAplicativo implements AnuncioAplicativoInterface {
         },
       },
       relations: {
+        grupoAnuncioAplicativos: {
+          name: 'grupoAnuncioAplicativos',
+          type: 'GrupoAnuncioAplicativo[]',
+          model: 'GrupoAnuncioAplicativo',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'anuncioAplicativoId'
+        },
+        clienteExperimentals: {
+          name: 'clienteExperimentals',
+          type: 'ClienteExperimental[]',
+          model: 'ClienteExperimental',
+          relationType: 'hasMany',
+                  keyFrom: 'id',
+          keyTo: 'anuncioAplicativoId'
+        },
       }
     }
   }

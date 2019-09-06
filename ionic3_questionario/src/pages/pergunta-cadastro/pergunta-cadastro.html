@@ -1,0 +1,50 @@
+<ion-content>
+  <div id="logo">
+    <img width="100%" heigth="100%" src="assets/imgs/ImagemCosmetico.png" />
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <p>{{respostaMarcas.pergunta}}</p>
+    </ion-card-content>
+    <form (submit)="submit()" #itemSerieForm="ngForm">
+
+      <ion-item lines="none">
+        <ion-label>Nome</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="nome" name="nome" #nome="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input type="text" class="caixaInput" [(ngModel)]="email" name="email" #email="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tempo Disponível por dia</ion-label>
+        <ion-select placeholder="Por favor escolha">
+          <ion-option value="menos 1">menos de 1 hora</ion-option>
+          <ion-option value="entre 1 e 2">entre 1 e 2 horas</ion-option>
+          <ion-option value="entre 2 e 4">entre 2 e 4 horas</ion-option>
+          <ion-option value="mais 4">acima de 4 horas</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Faixa Etária</ion-label>
+        <ion-select placeholder="Por favor escolha">
+            <ion-option value="f">entre 18 e 21 anos</ion-option>
+            <ion-option value="m">entre 22 e 27 anos</ion-option>
+            <ion-option value="m">entre 28 e 36 anos</ion-option>
+            <ion-option value="m">entre 37 e 49 anos</ion-option>
+            <ion-option value="m">entre 50 e 59 anos</ion-option>
+            <ion-option value="m">entre 60 e 69 anos</ion-option>
+            <ion-option value="m">acima de 70 anos</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <button ion-button item-bottom float-right type="submit">Enviar</button>
+    </form>
+
+
+  </ion-card>
+
+
+
+</ion-content>
