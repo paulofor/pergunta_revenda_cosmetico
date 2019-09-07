@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ClienteExperimental } from '../../app/shared/sdk';
+import { ClienteExperimental, ClienteExperimentalApi } from '../../app/shared/sdk';
+import { FormGroup, FormControl } from '@angular/forms';
 
 /**
  * Generated class for the PerguntaCadastroPage page.
@@ -16,9 +17,14 @@ import { ClienteExperimental } from '../../app/shared/sdk';
 })
 export class PerguntaCadastroPage {
 
-  cadastro: ClienteExperimental = new ClienteExperimental();
+  exibeForm: boolean = true;
+  exibeAgradecimento: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cadastro: ClienteExperimental = new ClienteExperimental();
+  
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private srv:ClienteExperimentalApi) {
+
   }
 
   ionViewDidLoad() {
@@ -26,7 +32,12 @@ export class PerguntaCadastroPage {
   }
 
   submit() {
-
+    console.log('Model: ' , this.cadastro);
+    this.srv.create(this.cadastro)
+      .subscribe((result:ClienteExperimental) => {
+        this.exibeForm = false;
+        this.exibeAgradecimento = true;  
+      })
   }
 
 }

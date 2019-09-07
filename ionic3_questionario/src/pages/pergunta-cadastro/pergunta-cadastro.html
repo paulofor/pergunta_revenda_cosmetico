@@ -3,24 +3,24 @@
     <img width="100%" heigth="100%" src="assets/imgs/ImagemCosmetico.png" />
   </div>
 
-  <ion-card>
+  <ion-card  *ngIf="exibeForm">
     <ion-card-content>
-      <p>Cadastro</p>
+      <p>Cadastro para receber informações</p>
     </ion-card-content>
 
 
     <form (submit)="submit()" #itemSerieForm="ngForm">
       <ion-item>
-        <ion-label>Nome</ion-label>
-        <ion-input type="text" class="caixaInput" [(ngModel)]="cadastro.nome" name="nome" #nome="ngModel"></ion-input>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="cadastro.nome" name="nome" #nome="ngModel" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Email</ion-label>
-        <ion-input type="text" class="caixaInput" [(ngModel)]="cadastro.email" name="email" #email="ngModel"></ion-input>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="cadastro.email" name="email" #email="ngModel" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Tempo Disponível por dia</ion-label>
-        <ion-select>
+        <ion-label floating>Tempo Disponível por dia</ion-label>
+        <ion-select [(ngModel)]="cadastro.tempoDisponivel" name="tempoDisponivel" #tempoDisponivel="ngModel">
           <ion-option value="menos 1">menos de 1 hora</ion-option>
           <ion-option value="entre 1 e 2">entre 1 e 2 horas</ion-option>
           <ion-option value="entre 2 e 4">entre 2 e 4 horas</ion-option>
@@ -29,8 +29,8 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Faixa Etária</ion-label>
-        <ion-select>
+        <ion-label floating>Faixa Etária</ion-label>
+        <ion-select [(ngModel)]="cadastro.faixaEtaria" name="faixaEtaria" #faixaEtaria="ngModel">
           <ion-option value="18-21">entre 18 e 21 anos</ion-option>
           <ion-option value="22-27">entre 22 e 27 anos</ion-option>
           <ion-option value="28-36">entre 28 e 36 anos</ion-option>
@@ -45,4 +45,13 @@
     </form>
 
   </ion-card>
+
+
+  <ion-card *ngIf="exibeAgradecimento">
+    <ion-card-content>
+      <p>Obrigado por sua participação.</p>
+      <p>Em breve entraremos em contato.</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -12,6 +12,8 @@ export interface ClienteExperimentalInterface {
   "anuncioAplicativoId"?: number;
   "versaoAppId"?: number;
   "presencaLojaId"?: number;
+  "faixaEtaria"?: string;
+  "tempoDisponivel"?: string;
 }
 
 export class ClienteExperimental implements ClienteExperimentalInterface {
@@ -25,6 +27,8 @@ export class ClienteExperimental implements ClienteExperimentalInterface {
   "anuncioAplicativoId": number;
   "versaoAppId": number;
   "presencaLojaId": number;
+  "faixaEtaria": string;
+  "tempoDisponivel": string;
   constructor(data?: ClienteExperimentalInterface) {
     Object.assign(this, data);
   }
@@ -97,6 +101,14 @@ export class ClienteExperimental implements ClienteExperimentalInterface {
         "presencaLojaId": {
           name: 'presencaLojaId',
           type: 'number'
+        },
+        "faixaEtaria": {
+          name: 'faixaEtaria',
+          type: 'string'
+        },
+        "tempoDisponivel": {
+          name: 'tempoDisponivel',
+          type: 'string'
         },
       },
       relations: {
