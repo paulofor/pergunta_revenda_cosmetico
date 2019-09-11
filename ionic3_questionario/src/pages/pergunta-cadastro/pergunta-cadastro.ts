@@ -20,25 +20,30 @@ export class PerguntaCadastroPage {
   exibeForm: boolean = true;
   exibeAgradecimento: boolean = false;
 
-  
-  
+
+
   // React
   cadastroForm: FormGroup;
   cadastro: ClienteExperimental;
+  submitted: boolean = false;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private srv:ClienteExperimentalApi,
-              private fb:FormBuilder) {
-      this.criaForm();
+  constructor(public navCtrl: NavController, public navParams: NavParams, private srv: ClienteExperimentalApi,
+    private fb: FormBuilder) {
+    this.criaForm();
 
   }
 
+
+  get frm() { return this.cadastroForm.controls; }
+
   criaForm() {
     this.cadastroForm = this.fb.group({
-        nome : ['', Validators.required ], 
-        email: ['', Validators.compose([Validators.maxLength(70), Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'), Validators.required])],
-        tempoDisponivel : ['', Validators.required ], 
-        faixaEtaria : ['', Validators.required ]
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      //email: ['', Validators.compose([Validators.maxLength(70), Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'), Validators.required])],
+      tempoDisponivel: ['', Validators.required],
+      faixaEtaria: ['', Validators.required]
 
     });
   }
@@ -47,13 +52,18 @@ export class PerguntaCadastroPage {
     console.log('ionViewDidLoad PerguntaCadastroPage');
   }
 
-  submit() {
+  submit(value: any) {
+    this.submitted = true;
+    // Stop if the form validation has failed
+    if (this.cadastroForm.invalid) {
+      return;
+    }
     this.cadastro = this.cadastroForm.value;
-    console.log('Model: ' , this.cadastro);
+    console.log('Model: ', this.cadastro);
     this.srv.create(this.cadastro)
-      .subscribe((result:ClienteExperimental) => {
+      .subscribe((result: ClienteExperimental) => {
         this.exibeForm = false;
-        this.exibeAgradecimento = true;  
+        this.exibeAgradecimento = true;
         this.cadastroForm.reset();
       })
   }

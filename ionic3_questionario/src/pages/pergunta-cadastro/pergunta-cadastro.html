@@ -9,20 +9,24 @@
     </ion-card-content>
 
 
-    <form (submit)="submit()" [formGroup]="cadastroForm" novalidate>
+    <form [formGroup]="cadastroForm" (ngSubmit)="submit(cadastroForm.value)">
+
       <ion-item>
         <ion-label floating>Nome*</ion-label>
         <ion-input type="text" formControlName="nome" required></ion-input>
       </ion-item>
+      <div *ngIf="submitted && frm.nome.errors" class="invalid-feedback">
+        <p style="color:red">Por favor, digite seu nome</p>
+      </div>
+
 
       <ion-item>
         <ion-label floating>Email*</ion-label>
         <ion-input type="text" formControlName="email" required></ion-input>
       </ion-item>
-      <div class="error-message"
-        *ngIf="cadastroForm.get('email').hasError('required') && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
-        Email inválido
-      </div>
+      <ion-item *ngIf="submitted && frm.email.errors" class="invalid-feedback">
+        <p style="color:red">Por favor, digite seu email</p>
+      </ion-item>
 
       <ion-item>
         <ion-label floating>Tempo Disponível por dia*</ion-label>
@@ -33,6 +37,9 @@
           <ion-option value="mais 4">acima de 4 horas</ion-option>
         </ion-select>
       </ion-item>
+      <div *ngIf="submitted && frm.tempoDisponivel.errors" class="item-md">
+        <p style="color:red">Por favor, escolha o seu tempo disponível</p>
+      </div>
 
       <ion-item>
         <ion-label floating>Faixa Etária*</ion-label>
@@ -46,6 +53,9 @@
           <ion-option value="70-">acima de 70 anos</ion-option>
         </ion-select>
       </ion-item>
+      <div *ngIf="submitted && frm.faixaEtaria.errors" class="item-md">
+        <p style="color:red">Por favor, selecione sua faixa etária</p>
+      </div>
 
       <button ion-button item-bottom float-right type="submit">Enviar</button>
     </form>
