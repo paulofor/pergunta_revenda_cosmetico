@@ -3,26 +3,30 @@
     <img width="100%" heigth="100%" src="assets/imgs/ImagemCosmetico.png" />
   </div>
 
-  <ion-card  *ngIf="exibeForm">
+  <ion-card *ngIf="exibeForm">
     <ion-card-content>
       <p>Cadastro para receber informações</p>
     </ion-card-content>
 
 
-    <form (submit)="submit()" #cadastroForm="ngForm" novalidate>
+    <form (submit)="submit()" [formGroup]="cadastroForm" novalidate>
       <ion-item>
         <ion-label floating>Nome*</ion-label>
-        <ion-input type="text" [(ngModel)]="cadastro.nome" name="nome" #nome="ngModel" required></ion-input>
-        <span *ngIf="nome.errors?.required">Nome é obrigatório</span>
+        <ion-input type="text" formControlName="nome" required></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-label floating>Email*</ion-label>
-        <ion-input type="text" [(ngModel)]="cadastro.email" name="email" #email="ngModel" required email></ion-input>
-        <span *ngIf="email.errors?.required">Email é obrigatório</span>
+        <ion-input type="text" formControlName="email" required></ion-input>
       </ion-item>
+      <div class="error-message"
+        *ngIf="cadastroForm.get('email').hasError('required') && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+        Email inválido
+      </div>
+
       <ion-item>
         <ion-label floating>Tempo Disponível por dia*</ion-label>
-        <ion-select [(ngModel)]="cadastro.tempoDisponivel" name="tempoDisponivel" #tempoDisponivel="ngModel" required>
+        <ion-select formControlName="tempoDisponivel" required>
           <ion-option value="menos 1">menos de 1 hora</ion-option>
           <ion-option value="entre 1 e 2">entre 1 e 2 horas</ion-option>
           <ion-option value="entre 2 e 4">entre 2 e 4 horas</ion-option>
@@ -32,7 +36,7 @@
 
       <ion-item>
         <ion-label floating>Faixa Etária*</ion-label>
-        <ion-select [(ngModel)]="cadastro.faixaEtaria" name="faixaEtaria" #faixaEtaria="ngModel" required>
+        <ion-select formControlName="faixaEtaria" required>
           <ion-option value="18-21">entre 18 e 21 anos</ion-option>
           <ion-option value="22-27">entre 22 e 27 anos</ion-option>
           <ion-option value="28-36">entre 28 e 36 anos</ion-option>
@@ -43,7 +47,7 @@
         </ion-select>
       </ion-item>
 
-      <button ion-button item-bottom float-right type="submit" [disabled]="cadastroForm.form.invalid">Enviar</button>
+      <button ion-button item-bottom float-right type="submit">Enviar</button>
     </form>
 
   </ion-card>
