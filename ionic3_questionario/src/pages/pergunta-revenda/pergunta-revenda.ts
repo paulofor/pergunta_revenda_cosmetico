@@ -19,7 +19,7 @@ import { PerguntaCadastroPage } from '../pergunta-cadastro/pergunta-cadastro';
 })
 export class PerguntaRevendaPage {
 
-  ID_VERSAOAPP = 999;
+  ID_VERSAOAPP = 4;
 
   exibeQuadro1: boolean = true;
   exibeQuadro2: boolean = false;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ClienteExperimental, ClienteExperimentalApi } from '../../app/shared/sdk';
+import { ClienteExperimental, ClienteExperimentalApi, Visitante } from '../../app/shared/sdk';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
@@ -27,13 +27,20 @@ export class PerguntaCadastroPage {
   cadastro: ClienteExperimental;
   submitted: boolean = false;
 
+  visitante: Visitante;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private srv: ClienteExperimentalApi,
-    private fb: FormBuilder) {
+    private fb: FormBuilder, protected storage: Storage) {
     this.criaForm();
+    this.carregaVisitante();
 
   }
 
+  carregaVisitante () {
+    this.storage.get('user').then((val: Visitante) => {
+      this.visitante = val;
+    })
+  }
 
   get frm() { return this.cadastroForm.controls; }
 
@@ -59,6 +66,8 @@ export class PerguntaCadastroPage {
       return;
     }
     this.cadastro = this.cadastroForm.value;
+    this.cadastro.visitanteId = this.visitante.id;
+    this.cadastro.versaoAppId = this.visitante.versaoAppId;
     console.log('Model: ', this.cadastro);
     this.srv.create(this.cadastro)
       .subscribe((result: ClienteExperimental) => {
