@@ -5,6 +5,7 @@ import { RespostaVersao, RespostaVersaoApi, VisitanteApi, Visitante } from '../.
 import { CookieService } from 'ngx-cookie-service';
 import { Storage } from '@ionic/storage';
 import { PerguntaCadastroPage } from '../pergunta-cadastro/pergunta-cadastro';
+import { PerguntaCadastro2Page } from '../pergunta-cadastro2/pergunta-cadastro2';
 /**
  * Generated class for the PerguntaRevendaPage page.
  *

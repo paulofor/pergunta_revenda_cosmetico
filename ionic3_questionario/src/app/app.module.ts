@@ -16,6 +16,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { IonicStorageModule } from '@ionic/storage';
 import { ListaLojasPage } from '../pages/lista-lojas/lista-lojas';
 import { PerguntaCadastroPage } from '../pages/pergunta-cadastro/pergunta-cadastro';
+import { FormBuilder } from '@angular/forms';
+import { PerguntaCadastro2Page } from '../pages/pergunta-cadastro2/pergunta-cadastro2';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { PerguntaCadastroPage } from '../pages/pergunta-cadastro/pergunta-cadast
     PerguntaRevendaPage,
     ListaMarcasPage,
     ListaLojasPage,
-    PerguntaCadastroPage
+    PerguntaCadastroPage,
+    PerguntaCadastro2Page
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { PerguntaCadastroPage } from '../pages/pergunta-cadastro/pergunta-cadast
     PerguntaRevendaPage,
     ListaMarcasPage,
     ListaLojasPage,
-    PerguntaCadastroPage
+    PerguntaCadastroPage,
+    PerguntaCadastro2Page
 
   ],
   providers: [
@@ -54,7 +58,8 @@ import { PerguntaCadastroPage } from '../pages/pergunta-cadastro/pergunta-cadast
 		InternalStorage,
     RespostaVersaoApi,
     CookieService ,
-    Storage
+    Storage,
+    FormBuilder
   ]
 })
 export class AppModule {}

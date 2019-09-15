@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClienteExperimental, ClienteExperimentalApi, Visitante } from '../../app/shared/sdk';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PerguntaCadastroPage page.
  *
