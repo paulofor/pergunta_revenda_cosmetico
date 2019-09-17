@@ -9,6 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { VisitanteApi } from '../../shared/sdk/services/custom/Visitante';
 import { Visitante } from '../../shared/sdk/models/Visitante';
 import { FCM } from '@ionic-native/fcm';
+import { AcessaFcmService } from '../../servico/acesssa-fcm-service';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,7 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
   visitanteCorrente: Visitante = null;
   cookieValue = 'UNKNOWN';
 
-  ID_VERSAOAPP = 4;
+  ID_VERSAOAPP = 999;
 
 
 
@@ -30,64 +31,11 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
   }
 
 
-  private obtemToken1() {
-    var token = '2156432135435125647561'
-    console.log('Token fake: ', token);
-    this.visitanteCorrente.fcmToken = token;
-    this.visitanteCorrente.dataHoraNotificacao = new Date();
-    this.visitanteSrv.atualizaItem(this.visitanteCorrente.id, this.visitanteCorrente)
-      .subscribe((resultado: any) => {
-        console.log('Resultado:', resultado);
-      })
-  }
-
-
-  
-
-
-  private obtemToken() {
-    this.fcm.subscribeToTopic('all');
-    alert('inscreveu');
-    this.fcm.getToken().then(token => {
-      alert(token);
-      localStorage.setItem('token', token);
-      this.visitanteCorrente.fcmToken = token;
-      this.visitanteCorrente.dataHoraNotificacao = new Date();
-      alert(JSON.stringify(this.visitanteCorrente));
-      this.visitanteSrv.atualizaItem(this.visitanteCorrente.id, this.visitanteCorrente)
-        .subscribe(
-          (resultado: any) => {
-            alert('Sucesso:' + JSON.stringify(resultado))
-          },
-          (erro: any) => {
-            alert('Erro:' + JSON.stringify(erro))
-          });
-    });
-    this.fcm.onNotification().subscribe(data => {
-      alert('Recebeu notificacao')
-      if (data.wasTapped) {
-        alert('background');
-      } else {
-        alert('foreground');
-      }
-      let visitaNotificacao = new Visitante();
-      visitaNotificacao.versaoAppId = 789;
-      this.visitanteSrv.criaItem(visitaNotificacao)
-        .subscribe((resultado: any) => {
-          alert('notificacao: ' + JSON.stringify(resultado));
-        })
-      
-    });
-    this.fcm.onTokenRefresh().subscribe(token => {
-      //alert('token')
-    });
-
-  }
-
 
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
-    private cookieService: CookieService, private visitanteSrv: VisitanteApi, protected storage: Storage, private fcm: FCM) {
+    private cookieService: CookieService, private visitanteSrv: VisitanteApi, protected storage: Storage, private fcm: FCM,
+    private srvToken: AcessaFcmService) {
     super(navCtrl, srv, storage);
   }
 
@@ -123,7 +71,7 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
       .subscribe((resultado: any) => {
         console.log('Resultado visitante: ', resultado);
         this.visitanteCorrente = resultado;
-        this.obtemToken();
+        this.srvToken.obtemToken(this.visitanteCorrente);
       })
   }
 
