@@ -18,6 +18,8 @@ import { PagSeguroApi } from '../shared/sdk/services/integracao/PagSeguro';
 import { VisitanteApi } from '../shared/sdk/services/custom/Visitante';
 import { CookieService } from 'ngx-cookie-service';
 import { FCM } from '@ionic-native/fcm';
+import { AcessaFcmService } from '../servico/AcessaFcmService';
+import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 
@@ -29,8 +31,6 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { AcessaFcmProvider } from '../providers/acessa-fcm/acessa-fcm';
-import { AcessaFcmService } from '../servico/acesssa-fcm-service';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -84,8 +84,8 @@ registerLocaleData(localePt, 'pt-BR');
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     CookieService,
     FCM,
-    AcessaFcmProvider,
-    AcessaFcmService
+    AcessaFcmService,
+    DispositivoUsuarioApi
   ]
 })
 export class AppModule {}

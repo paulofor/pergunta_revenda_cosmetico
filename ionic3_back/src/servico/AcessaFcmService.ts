@@ -2,15 +2,65 @@ import { Injectable, Inject } from "@angular/core";
 import { FCM } from "@ionic-native/fcm";
 import { VisitanteApi } from "../shared/sdk/services/custom/Visitante";
 import { Visitante } from "../shared/sdk/models/Visitante";
+import { DispositivoUsuarioApi } from "../shared/sdk/services/custom/DispositivoUsuario";
+import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
 
 @Injectable()
 export class AcessaFcmService {
 
     constructor(
         @Inject(FCM) protected fcm: FCM,
+        @Inject(DispositivoUsuarioApi) protected dispositivoUsuarioSrv: DispositivoUsuarioApi,
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi
     ) {
     }
+
+    public obtemTokenDispostivoUsuario() {
+        var token = '112231213215415615151515'
+        console.log('Token fake: ', token);
+        let disppositivoUsuario : DispositivoUsuario = new DispositivoUsuario();
+        disppositivoUsuario.tokenFcm = token;
+        disppositivoUsuario.dataHoraCriacao = new Date();
+        this.dispositivoUsuarioSrv.criaItem(disppositivoUsuario)
+            .subscribe((resultado: any) => {
+                console.log('Resultado:', resultado);
+            })
+    }
+    public obtemTokenDispostivoUsuario1() {
+        this.fcm.subscribeToTopic('all');
+        alert('inscreveu');
+        let disppositivoUsuario : DispositivoUsuario = new DispositivoUsuario();
+        this.fcm.getToken().then(token => {
+            alert(token);
+            disppositivoUsuario.tokenFcm = token;
+            disppositivoUsuario.dataHoraCriacao = new Date();
+            alert(JSON.stringify(disppositivoUsuario));
+            this.dispositivoUsuarioSrv.criaItem(disppositivoUsuario)
+            .subscribe((resultado: any) => {
+                console.log('Resultado:', resultado);
+            })
+        });
+        this.fcm.onNotification().subscribe(data => {
+            alert('Recebeu notificacao')
+            if (data.wasTapped) {
+                alert('background');
+            } else {
+                alert('foreground');
+            }
+            //let visitaNotificacao = new Visitante();
+            //visitaNotificacao.versaoAppId = 789;
+            //this.visitanteSrv.criaItem(visitaNotificacao)
+            //    .subscribe((resultado: any) => {
+            //        alert('notificacao: ' + JSON.stringify(resultado));
+            //    })
+
+        });
+        this.fcm.onTokenRefresh().subscribe(token => {
+            //alert('token')
+        });
+
+    }
+
 
     
     public obtemToken(visitanteCorrente: Visitante) {

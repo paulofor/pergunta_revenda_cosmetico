@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { AcessaFcmService } from '../servico/AcessaFcmService';
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { timer } from 'rxjs/observable/timer';
 
@@ -15,12 +16,13 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListaOportunidadePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+  				private fcmSrv:AcessaFcmService ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -34,6 +36,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.fcmSrv.obtemTokenDispostivoUsuario();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(3000).subscribe(() => this.showSplash = false)

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Container } from '../../models/Container';
 import { User } from '../../models/User';
 import { Visitante } from '../../models/Visitante';
+import { DispositivoUsuario } from '../../models/DispositivoUsuario';
 import { OportunidadeDia } from '../../models/OportunidadeDia';
 import { Usuario } from '../../models/Usuario';
 import { Acao } from '../../models/Acao';
@@ -17,7 +18,8 @@ export class SDKModels {
 	Acao: Acao,
 	User: User,
     Container: Container,
-    Visitante : Visitante 
+    Visitante : Visitante,
+    DispositivoUsuario : DispositivoUsuario
   };
 
   public get(modelName: string): any {
