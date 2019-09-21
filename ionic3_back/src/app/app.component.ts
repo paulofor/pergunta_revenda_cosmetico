@@ -6,7 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { AcessaFcmService } from '../servico/AcessaFcmService';
+import { AcessaFcmService } from '../servico/acessa-fcm-service';
+import { VERSAO_APP_ID } from './const';
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { timer } from 'rxjs/observable/timer';
 
@@ -16,7 +17,7 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = ListaOportunidadePage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
@@ -36,7 +37,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.fcmSrv.obtemTokenDispostivoUsuario();
+      this.fcmSrv.obtemTokenDispostivoUsuario(VERSAO_APP_ID);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(3000).subscribe(() => this.showSplash = false)

@@ -10,7 +10,8 @@ import { VisitanteApi } from '../../shared/sdk/services/custom/Visitante';
 import { Visitante } from '../../shared/sdk/models/Visitante';
 import { FCM } from '@ionic-native/fcm';
 import { DispositivoUsuarioApi } from '../../shared/sdk/services/custom/DispositivoUsuario';
-import { AcessaFcmService } from '../../servico/AcessaFcmService';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
+
 
 
 @IonicPage()
@@ -25,13 +26,13 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
   ID_VERSAOAPP = 999;
 
-  fcmSrv:AcessaFcmService;
+  //fcmSrv:AcessaFcmService;
 
   inicializacao() {
     this.trataCookie();
-    this.fcmSrv = new AcessaFcmService(this.fcm,this.dispositivoUsuarioSrv, this.visitanteSrv);
-    console.log('DispositivoSrv: ' , this.dispositivoUsuarioSrv);
-    this.fcmSrv.obtemTokenDispostivoUsuario();
+    //this.fcmSrv = new AcessaFcmService(this.fcm,this.dispositivoUsuarioSrv, this.visitanteSrv);
+    //console.log('DispositivoSrv: ' , this.dispositivoUsuarioSrv);
+    //this.fcmSrv.obtemTokenDispostivoUsuario();
 
   }
 
@@ -40,7 +41,7 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
     private cookieService: CookieService, private visitanteSrv: VisitanteApi, protected storage: Storage, private fcm: FCM,
-    private dispositivoUsuarioSrv: DispositivoUsuarioApi
+    private dispositivoUsuarioSrv: DispositivoUsuarioApi,private fcmSrv:AcessaFcmService
    ) {
     super(navCtrl, srv, storage);
   }
