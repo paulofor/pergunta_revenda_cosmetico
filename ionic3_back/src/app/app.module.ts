@@ -22,6 +22,7 @@ import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
+import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -43,6 +44,8 @@ registerLocaleData(localePt, 'pt-BR');
     ComandosZeroPage,
     ListaOportunidadePage,
 	
+    ListaOportunidadePrecoPage,
+	
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,8 @@ registerLocaleData(localePt, 'pt-BR');
     SignupPage,
     ComandosZeroPage,
     ListaOportunidadePage,
+	
+    ListaOportunidadePrecoPage,
 	
   ],
   providers: [

@@ -17,6 +17,7 @@ import { OPORTUNIDADEDIA } from '../../../../dados/oportunidadeDia';
 //Versao Ionic
 import { of } from 'rxjs/observable/of';
 import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPAGE} from  '../../../../dados/oportunidadeDia';
+import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOPAGE} from  '../../../../dados/oportunidadeDia';
 /**
  * Api services for the `Aplicacao` model.
  */
@@ -99,6 +100,9 @@ export class OportunidadeDiaApi extends BaseLoopBackApi {
 
 	getListaOportunidadePageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
 		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPAGE);
+	}
+	getListaOportunidadePrecoPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
+		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOPAGE);
 	}
 
   

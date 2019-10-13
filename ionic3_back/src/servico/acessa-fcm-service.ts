@@ -39,7 +39,7 @@ export class AcessaFcmService {
             //alert(JSON.stringify(disppositivoUsuario));
             this.dispositivoUsuarioSrv.criaItem(dispositivoUsuario)
             .subscribe((resultado: any) => {
-                //console.log('Resultado:', resultado);
+                console.log('Resultado:', resultado);
             })
         });
         this.fcm.onNotification().subscribe(data => {
