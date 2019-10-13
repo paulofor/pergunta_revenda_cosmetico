@@ -5,6 +5,7 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 import { ListaOportunidadePrecoPageBase } from './lista-oportunidade-preco-base';
 import { OportunidadeDiaApi, LoopBackFilter } from '../../shared/sdk';
 import { Storage } from '@ionic/storage';
+import { Visitante } from '../../shared/sdk/models/Visitante';
 
 
 @IonicPage()
@@ -13,6 +14,12 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'lista-oportunidade-preco.html'
 })
 export class ListaOportunidadePrecoPage extends ListaOportunidadePrecoPageBase {
+
+  visitanteCorrente: Visitante = null;
+  cookieValue = 'UNKNOWN';
+
+  ID_VERSAOAPP = 999;
+
 
   inicializacao() {
   }
