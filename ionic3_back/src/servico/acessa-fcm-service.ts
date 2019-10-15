@@ -5,20 +5,39 @@ import { Visitante } from "../shared/sdk/models/Visitante";
 import { DispositivoUsuarioApi } from "../shared/sdk/services/custom/DispositivoUsuario";
 import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
 
+import { Storage } from '@ionic/storage';
+
+
 @Injectable()
 export class AcessaFcmService {
 
     constructor(
         @Inject(FCM) protected fcm: FCM,
         @Inject(DispositivoUsuarioApi) protected dispositivoUsuarioSrv: DispositivoUsuarioApi,
-        @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi
+        @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
+        @Inject(Storage) protected storage: Storage,
     ) {
     }
 
-    public obtemTokenDispostivoUsuarioFake(versaoAppId:number) {
+
+    public verificaPresenca(): boolean {
+        this.storage.get("dispositivo")
+    }
+
+    public registraMobile(dispositivo) {
+        this.storage.set("dispositivo", dispositivo).then((successData) => {
+            this.registraVisita();
+        })
+    }
+    private registraVisita() {
+
+    }
+
+
+    public obtemTokenDispostivoUsuarioFake(versaoAppId: number) {
         var token = '112231213215415615151515'
         console.log('Token fake: ', token);
-        let dispositivoUsuario : DispositivoUsuario = new DispositivoUsuario();
+        let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         dispositivoUsuario.tokenFcm = token;
         dispositivoUsuario.versaoAppId = versaoAppId;
         dispositivoUsuario.dataHoraCriacao = new Date();
@@ -27,10 +46,10 @@ export class AcessaFcmService {
                 console.log('Resultado:', resultado);
             })
     }
-    public obtemTokenDispostivoUsuario(versaoAppId:number) {
+    public obtemTokenDispostivoUsuario(versaoAppId: number) {
         this.fcm.subscribeToTopic('all');
         //alert('inscreveu');
-        let dispositivoUsuario : DispositivoUsuario = new DispositivoUsuario();
+        let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         this.fcm.getToken().then(token => {
             //alert(token);
             dispositivoUsuario.tokenFcm = token;
@@ -38,9 +57,10 @@ export class AcessaFcmService {
             dispositivoUsuario.versaoAppId = versaoAppId;
             //alert(JSON.stringify(disppositivoUsuario));
             this.dispositivoUsuarioSrv.criaItem(dispositivoUsuario)
-            .subscribe((resultado: any) => {
-                console.log('Resultado:', resultado);
-            })
+                .subscribe((resultado: any) => {
+                    console.log('Resultado:', resultado);
+                    this.registraMobile(resultado);
+                })
         });
         this.fcm.onNotification().subscribe(data => {
             //alert('Recebeu notificacao')
@@ -64,7 +84,7 @@ export class AcessaFcmService {
     }
 
 
-    
+
     public obtemToken(visitanteCorrente: Visitante) {
         var token = '112231213215415615151515'
         console.log('Token fake: ', token);
@@ -89,12 +109,12 @@ export class AcessaFcmService {
             alert(JSON.stringify(visitanteCorrente));
             this.visitanteSrv.atualizaItem(visitanteCorrente.id, visitanteCorrente)
                 .subscribe(
-                    (resultado: any) => {
-                        alert('Sucesso:' + JSON.stringify(resultado))
-                    },
-                    (erro: any) => {
-                        alert('Erro:' + JSON.stringify(erro))
-                    });
+                (resultado: any) => {
+                    alert('Sucesso:' + JSON.stringify(resultado))
+                },
+                (erro: any) => {
+                    alert('Erro:' + JSON.stringify(erro))
+                });
         });
         this.fcm.onNotification().subscribe(data => {
             alert('Recebeu notificacao')
