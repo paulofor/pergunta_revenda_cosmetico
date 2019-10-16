@@ -18,8 +18,7 @@ import { PagSeguroApi } from '../shared/sdk/services/integracao/PagSeguro';
 import { VisitanteApi } from '../shared/sdk/services/custom/Visitante';
 import { CookieService } from 'ngx-cookie-service';
 import { FCM } from '@ionic-native/fcm';
-import { AcessaFcmService } from '../servico/acessa-fcm-service';
-import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
+import { Storage } from '@ionic/storage';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
@@ -88,9 +87,7 @@ registerLocaleData(localePt, 'pt-BR');
     Storage,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     CookieService,
-    FCM,
-    AcessaFcmService,
-    DispositivoUsuarioApi
+    FCM
   ]
 })
 export class AppModule {}
