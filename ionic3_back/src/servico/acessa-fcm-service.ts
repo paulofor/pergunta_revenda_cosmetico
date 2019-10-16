@@ -40,12 +40,14 @@ export class AcessaFcmService {
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         dispositivoUsuario.tokenFcm = token;
         dispositivoUsuario.versaoAppId = versaoAppId;
-        dispositivoUsuario.dataHoraCriacao = new Date();
-        this.dispositivoUsuarioSrv.criaItem(dispositivoUsuario)
+
+        this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
             .subscribe((resultado: any) => {
                 console.log('Resultado:', resultado);
+                this.registraMobile(resultado);
             })
     }
+
     public obtemTokenDispostivoUsuario(versaoAppId: number) {
         this.fcm.subscribeToTopic('all');
         //alert('inscreveu');
@@ -53,10 +55,9 @@ export class AcessaFcmService {
         this.fcm.getToken().then(token => {
             //alert(token);
             dispositivoUsuario.tokenFcm = token;
-            dispositivoUsuario.dataHoraCriacao = new Date();
             dispositivoUsuario.versaoAppId = versaoAppId;
             //alert(JSON.stringify(disppositivoUsuario));
-            this.dispositivoUsuarioSrv.criaItem(dispositivoUsuario)
+            this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
                 .subscribe((resultado: any) => {
                     console.log('Resultado:', resultado);
                     this.registraMobile(resultado);
