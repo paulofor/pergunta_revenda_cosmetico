@@ -20,6 +20,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FCM } from '@ionic-native/fcm';
 import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
+import { VisitaAppApi } from '../shared/sdk/services/custom/VisitaApp';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
@@ -89,7 +90,8 @@ registerLocaleData(localePt, 'pt-BR');
     CookieService,
     FCM,
     AcessaFcmService,
-    DispositivoUsuarioApi
+    DispositivoUsuarioApi,
+    VisitaAppApi
   ]
 })
 export class AppModule {}
