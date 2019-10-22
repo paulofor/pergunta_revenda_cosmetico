@@ -4,8 +4,6 @@ import { VisitanteApi } from "../shared/sdk/services/custom/Visitante";
 import { Visitante } from "../shared/sdk/models/Visitante";
 import { DispositivoUsuarioApi } from "../shared/sdk/services/custom/DispositivoUsuario";
 import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
-import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
-
 import { Storage } from '@ionic/storage';
 
 @Injectable()
@@ -16,12 +14,23 @@ export class AcessaFcmService {
     constructor(
         @Inject(FCM) protected fcm: FCM,
         @Inject(DispositivoUsuarioApi) protected dispositivoUsuarioSrv: DispositivoUsuarioApi,
-        @Inject(VisitaAppApi) protected visitaAppSrv: VisitaAppApi,
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
         @Inject(Storage) protected storage: Storage
     ) {
     }
 
+
+ 	// Chamada externa para as paginas
+    public registraVisitaPagina(chavePagina) {
+        this.storage.get("chave").then((chaveUsuario) => {
+            if (chaveUsuario) {
+                this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario,chavePagina)
+                .subscribe((resultado: any) => {
+                    console.log('Resultado-Visita' , resultado);
+                })
+            }
+        });
+    }
 
     public executaValidacao(versaoAppId: number) {
         this.storage.get("chave").then((dado) => {
@@ -50,15 +59,9 @@ export class AcessaFcmService {
             this.registraVisitaApp(chave, versaoAppId);
         })
     }
-    
     private registraVisitaApp(chave, versaoAppId) {
         console.log('Passou em visita: ', chave);
-        this.visitaAppSrv.RegistraVisitaVersaoApp(chave,versaoAppId)
-            .subscribe((resultado: any) => {
-                console.log('Resultado-Visita' , resultado);
-            })
     }
-
     private obtemTokenDispostivoUsuarioFake(versaoAppId: number) {
         var token = '112231213215415615151515'
         console.log('Token fake: ', token);
