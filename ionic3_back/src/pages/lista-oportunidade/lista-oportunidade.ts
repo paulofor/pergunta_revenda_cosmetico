@@ -41,9 +41,9 @@ export class ListaOportunidadePage extends ListaOportunidadePageBase {
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
     private cookieService: CookieService, private visitanteSrv: VisitanteApi, protected storage: Storage, private fcm: FCM,
-    private dispositivoUsuarioSrv: DispositivoUsuarioApi,private fcmSrv:AcessaFcmService
+    private dispositivoUsuarioSrv: DispositivoUsuarioApi,protected fcmSrv:AcessaFcmService
    ) {
-    super(navCtrl, srv, storage);
+    super(navCtrl, srv, storage, fcmSrv);
   }
 
 

@@ -34,7 +34,7 @@ export abstract class ListaOportunidadePageBase extends ComponenteBase{
   	}
 
 	constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
-		protected storage: Storage, private fcmSrv: AcessaFcmService) {
+		protected storage: Storage, protected fcmSrv: AcessaFcmService) {
 		super();
 	}
 

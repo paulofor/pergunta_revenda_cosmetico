@@ -5,8 +5,8 @@ import { Visitante } from "../shared/sdk/models/Visitante";
 import { DispositivoUsuarioApi } from "../shared/sdk/services/custom/DispositivoUsuario";
 import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
 import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
-
 import { Storage } from '@ionic/storage';
+
 
 @Injectable()
 export class AcessaFcmService {
@@ -22,7 +22,7 @@ export class AcessaFcmService {
     ) {
     }
 
-	// Chamada externa para as paginas
+	// Chamada externa
     public registraVisitaPagina(chavePagina) {
         this.storage.get("chave").then((chaveUsuario) => {
             if (chaveUsuario) {
@@ -33,8 +33,6 @@ export class AcessaFcmService {
             }
         });
     }
-    
-    
     public executaValidacao(versaoAppId: number) {
         this.storage.get("chave").then((dado) => {
             if (dado) {
