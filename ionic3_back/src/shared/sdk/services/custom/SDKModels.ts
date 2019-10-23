@@ -4,6 +4,7 @@ import { Container } from '../../models/Container';
 import { User } from '../../models/User';
 import { Visitante } from '../../models/Visitante';
 import { DispositivoUsuario } from '../../models/DispositivoUsuario';
+import { VisitaApp } from '../../models/VisitaApp';
 import { OportunidadeDia } from '../../models/OportunidadeDia';
 import { Usuario } from '../../models/Usuario';
 import { Acao } from '../../models/Acao';
@@ -19,7 +20,8 @@ export class SDKModels {
 	User: User,
     Container: Container,
     Visitante : Visitante,
-    DispositivoUsuario : DispositivoUsuario
+    DispositivoUsuario : DispositivoUsuario,
+    VisitaApp : VisitaApp
   };
 
   public get(modelName: string): any {

@@ -6,6 +6,7 @@ import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { Storage } from '@ionic/storage';
 import { MSG_SEM_INTERNET } from '../../app/const';
 import { ComponenteBase } from '../componente-base';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 
 // Tipo: LISTA
@@ -17,6 +18,8 @@ export abstract class ListaOportunidadePrecoPageBase extends ComponenteBase{
 	protected abstract inicializacao();
 	protected abstract getFiltro(): LoopBackFilter;
 	protected erroMsg: string;
+	
+	private chave : string = '85527ccbb2019bf0833cf7f07b7514b544300b4e';
 	
 	 
 	getPageEdicao(): Page {
@@ -30,11 +33,13 @@ export abstract class ListaOportunidadePrecoPageBase extends ComponenteBase{
     	
   	}
 
-	constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,protected storage: Storage) {
+	constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
+		protected storage: Storage, protected fcmSrv: AcessaFcmService) {
 		super();
 	}
 
 	ionViewWillEnter() {
+		this.fcmSrv.registraVisitaPagina(this.chave);
 		console.log('');
     		console.log('Tela: ListaOportunidadePrecoPage<<LISTA>> : OportunidadeDia');
     		this.carregaUsuario();

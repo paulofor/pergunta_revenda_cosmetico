@@ -6,6 +6,8 @@ import { ListaOportunidadePrecoPageBase } from './lista-oportunidade-preco-base'
 import { OportunidadeDiaApi, LoopBackFilter } from '../../shared/sdk';
 import { Storage } from '@ionic/storage';
 import { Visitante } from '../../shared/sdk/models/Visitante';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
+
 
 
 @IonicPage()
@@ -24,8 +26,9 @@ export class ListaOportunidadePrecoPage extends ListaOportunidadePrecoPageBase {
   inicializacao() {
   }
 
-  constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,protected storage: Storage) {
-    super(navCtrl,srv,storage);
+  constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
+		protected storage: Storage, protected fcmSrv: AcessaFcmService) {
+         super(navCtrl,srv,storage, fcmSrv);
   }
 
 
