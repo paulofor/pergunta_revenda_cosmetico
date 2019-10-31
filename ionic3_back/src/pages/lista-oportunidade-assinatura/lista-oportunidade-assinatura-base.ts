@@ -10,7 +10,7 @@ import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 
 // Tipo: LISTA
-export abstract class ListaOportunidadePrecoPageBase extends ComponenteBase{
+export abstract class ListaOportunidadeAssinaturaPageBase extends ComponenteBase{
 
     protected usuario: Usuario;
 
@@ -19,17 +19,17 @@ export abstract class ListaOportunidadePrecoPageBase extends ComponenteBase{
 	protected abstract getFiltro(): LoopBackFilter;
 	protected erroMsg: string;
 	
-	private chave : string = '85527ccbb2019bf0833cf7f07b7514b544300b4e';
+	private chave : string = 'f1d7c648455842d2f0bd1770368ceec3f872b296';
 	
 	 
 	getPageEdicao(): Page {
 	
-    	throw new Error("ListaOportunidadePrecoPage sem tela de edicao.");
+    	throw new Error("ListaOportunidadeAssinaturaPage sem tela de edicao.");
     	
   	}
   	getPageDetalhe(): Page {
 	
-    	throw new Error("ListaOportunidadePrecoPage sem tela de detalhe.");
+    	throw new Error("ListaOportunidadeAssinaturaPage sem tela de detalhe.");
     	
   	}
 
@@ -41,7 +41,7 @@ export abstract class ListaOportunidadePrecoPageBase extends ComponenteBase{
 	ionViewWillEnter() {
 		this.fcmSrv.registraVisitaPagina(this.chave);
 		console.log('');
-    		console.log('Tela: ListaOportunidadePrecoPage<<LISTA>> : OportunidadeDia');
+    		console.log('Tela: ListaOportunidadeAssinaturaPage<<LISTA>> : OportunidadeDia');
     		this.carregaUsuario();
     		this.inicializacao();
     		

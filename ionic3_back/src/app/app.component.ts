@@ -11,6 +11,7 @@ import { VERSAO_APP_ID } from './const';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
+import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
 import { timer } from 'rxjs/observable/timer';
 
 @Component({
@@ -19,7 +20,7 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListaOportunidadePrecoPage;
+  rootPage: any = ListaOportunidadeAssinaturaPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;

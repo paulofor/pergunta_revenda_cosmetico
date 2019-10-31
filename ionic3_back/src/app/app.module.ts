@@ -24,6 +24,7 @@ import { VisitaAppApi } from '../shared/sdk/services/custom/VisitaApp';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
+import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -47,6 +48,8 @@ registerLocaleData(localePt, 'pt-BR');
 	
     ListaOportunidadePrecoPage,
 	
+    ListaOportunidadeAssinaturaPage,
+	
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,8 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadePage,
 	
     ListaOportunidadePrecoPage,
+	
+    ListaOportunidadeAssinaturaPage,
 	
   ],
   providers: [
