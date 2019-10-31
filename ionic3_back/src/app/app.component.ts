@@ -19,7 +19,7 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = ListaOportunidadePrecoPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
