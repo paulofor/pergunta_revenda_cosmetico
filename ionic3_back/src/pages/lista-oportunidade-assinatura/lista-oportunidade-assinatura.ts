@@ -7,6 +7,7 @@ import { OportunidadeDiaApi, LoopBackFilter, OportunidadeDia } from '../../share
 import { Storage } from '@ionic/storage';
 import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 import { Visitante } from '../../shared/sdk/models/Visitante';
+import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pag-seguro-assinatura-dado-identificacao/pag-seguro-assinatura-dado-identificacao';
 
 
 @IonicPage()
@@ -37,6 +38,10 @@ export class ListaOportunidadeAssinaturaPage extends ListaOportunidadeAssinatura
 
   top50( oportunidade: OportunidadeDia) : boolean{
     return oportunidade.posicaoProduto <= 50;
+  }
+
+  inicioFluxo() {
+    this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
   }
   
 }

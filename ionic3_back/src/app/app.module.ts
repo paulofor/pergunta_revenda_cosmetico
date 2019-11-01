@@ -21,6 +21,9 @@ import { FCM } from '@ionic-native/fcm';
 import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
 import { VisitaAppApi } from '../shared/sdk/services/custom/VisitaApp';
+import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pages/pag-seguro-assinatura-dado-identificacao/pag-seguro-assinatura-dado-identificacao';
+import { PagSeguroAssinaturaDadoClientePage } from '../pages/pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
+import { PagSeguroAssinaturaDadoCartaoPage } from '../pages/pag-seguro-assinatura-dado-cartao/pag-seguro-assinatura-dado-cartao';
 
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
@@ -44,6 +47,9 @@ registerLocaleData(localePt, 'pt-BR');
     LoginPage,
     SignupPage,
     ComandosZeroPage,
+    PagSeguroAssinaturaDadoIdentificacaoPage,
+    PagSeguroAssinaturaDadoClientePage,
+    PagSeguroAssinaturaDadoCartaoPage,
     ListaOportunidadePage,
 	
     ListaOportunidadePrecoPage,
@@ -67,6 +73,9 @@ registerLocaleData(localePt, 'pt-BR');
     LoginPage,
     SignupPage,
     ComandosZeroPage,
+    PagSeguroAssinaturaDadoIdentificacaoPage,
+    PagSeguroAssinaturaDadoClientePage,
+    PagSeguroAssinaturaDadoCartaoPage,
     ListaOportunidadePage,
 	
     ListaOportunidadePrecoPage,
