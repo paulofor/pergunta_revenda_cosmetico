@@ -18,13 +18,25 @@ import { DatePipe } from '@angular/common';
 })
 export class PagSeguroAssinaturaDadoIdentificacaoPage {
 
+  erroNome: string;
+  erroEmail: string;
+  erroNomeMsg: string;
+  erroTelDDD: string;
+  erroTelNumero: string;
+  erroCpf: string;
+  erroNascimento: string;
+
+
+
+
+
   dataNascimento: Date = new Date();
 
   sender = {
     "name": "",
     "email": "",
 
-    "hash" : "",
+    "hash": "",
     "phone": {
       "areaCode": "",
       "number": ""
@@ -56,10 +68,12 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
   }
 
   avancar() {
-    var datePipe:DatePipe = new DatePipe('en-US');
+    var datePipe: DatePipe = new DatePipe('en-US');
     Assinatura.paymentMethod.creditCard.holder.birthDate = datePipe.transform(this.dataNascimento, 'dd/MM/yyyy');
-    console.log('PagSeguroAssinaturaDadoIdentificacaoPage:Assinatura: ' , Assinatura);
-    this.navCtrl.push(PagSeguroAssinaturaDadoClientePage);
+    console.log('PagSeguroAssinaturaDadoIdentificacaoPage:Assinatura: ', Assinatura);
+    if (this.validacao()) {
+      this.navCtrl.push(PagSeguroAssinaturaDadoClientePage);
+    }
   }
 
   preenhcer() {
@@ -68,6 +82,11 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
     this.sender.phone.areaCode = '21';
     this.sender.phone.number = '992902732';
     this.sender.documents[0].value = '01114740780'
+  }
+
+  validacao(): boolean {
+    this.erroNomeMsg = "Nome inválido";
+    return false;
   }
 
 }
