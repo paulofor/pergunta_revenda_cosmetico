@@ -71,46 +71,46 @@ export class PagSeguroAssinaturaDadoClientePage {
   validacao(): boolean {
     let saida = true;
     if (!this.address.street) {
-      this.erroNome = "Coloque seu nome";
+      this.erroRua = "Coloque o nome da rua do seu endereço";
       saida = false;
     } else {
-      this.erroNome = null;
+      this.erroRua = null;
     }
     if (!this.address.number) {
-      this.erroEmail = "Coloque seu email";
+      this.erroNumero = "Coloque o número do seu endereço";
       saida = false;
     } else {
-      this.erroEmail = null;
+      this.erroNumero = null;
     }
     if (! this.address.complement) {
-      this.erroTelDDD = "Coloque o DDD do seu telefone";
+      this.erroComplemento = "Coloque o complemento do seu endereço";
       saida = false;
     } else {
-      this.erroTelDDD = null;
+      this.erroComplemento = null;
     }
     if (!this.address.district) {
-      this.erroTelNumero = "Coloque seu número de telefone";
+      this.erroBairro = "Coloque o bairro do seu endereço";
       saida = false;
     } else {
-      this.erroTelNumero = null;
+      this.erroBairro = null;
     }
     if (!this.address.city) {
-      this.erroCpf = "Coloque seu cpf";
+      this.erroCidade = "Coloque a cidade do seu endereço";
       saida = false;
     } else {
-      this.erroCpf = null;
+      this.erroCidade = null;
     }
     if (! this.address.state) {
-      this.erroNascimento = "Coloque sua data de nascimento";
+      this.erroEstado = "Coloque o estado do seu endereço";
       saida = false;
     } else {
-      this.erroNascimento = null;
+      this.erroEstado = null;
     }
     if (! this.address.postalCode) {
-      this.erroNascimento = "Coloque sua data de nascimento";
+      this.erroCep = "Coloque o cep do seu endereço";
       saida = false;
     } else {
-      this.erroNascimento = null;
+      this.erroCep = null;
     }
     return saida;
   }
