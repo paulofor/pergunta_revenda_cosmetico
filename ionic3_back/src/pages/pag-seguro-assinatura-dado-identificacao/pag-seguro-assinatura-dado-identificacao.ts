@@ -30,7 +30,7 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
 
 
 
-  dataNascimento: Date = new Date();
+  dataNascimento: Date;
 
   sender = {
     "name": "",
@@ -85,8 +85,44 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
   }
 
   validacao(): boolean {
-    this.erroNomeMsg = "Nome inválido";
-    return false;
+    let saida = true;
+    if (!this.sender.name) {
+      this.erroNome = "Coloque seu nome";
+      saida = false;
+    } else {
+      this.erroNome = null;
+    }
+    if (!this.sender.email) {
+      this.erroEmail = "Coloque seu email";
+      saida = false;
+    } else {
+      this.erroEmail = null;
+    }
+    if (!this.sender.phone.areaCode) {
+      this.erroTelDDD = "Coloque o DDD do seu telefone";
+      saida = false;
+    } else {
+      this.erroTelDDD = null;
+    }
+    if (!this.sender.phone.number) {
+      this.erroTelNumero = "Coloque seu número de telefone";
+      saida = false;
+    } else {
+      this.erroTelNumero = null;
+    }
+    if (!this.sender.documents[0].value) {
+      this.erroCpf = "Coloque seu cpf";
+      saida = false;
+    } else {
+      this.erroCpf = null;
+    }
+    if (!this.dataNascimento) {
+      this.erroNascimento = "Coloque sua data de nascimento";
+      saida = false;
+    } else {
+      this.erroNascimento = null;
+    }
+    return saida;
   }
 
 }

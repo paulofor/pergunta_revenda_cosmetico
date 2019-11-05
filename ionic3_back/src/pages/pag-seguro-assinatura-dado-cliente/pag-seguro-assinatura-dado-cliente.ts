@@ -18,6 +18,15 @@ import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pag-seguro-assinatu
 })
 export class PagSeguroAssinaturaDadoClientePage {
 
+  erroRua: string;
+  erroNumero: string;
+  erroComplemento: string;
+  erroEstado: string;
+  erroCidade: string;
+  erroBairro: string;
+  erroCep: string;
+
+
 
   address = {
     "street": "",
@@ -40,7 +49,9 @@ export class PagSeguroAssinaturaDadoClientePage {
   }
 
   avancar() {
-    this.navCtrl.push(PagSeguroAssinaturaDadoCartaoPage);
+    if (this.validacao()) {
+      this.navCtrl.push(PagSeguroAssinaturaDadoCartaoPage);
+    }
   }
   voltar() {
     this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
@@ -56,4 +67,51 @@ export class PagSeguroAssinaturaDadoClientePage {
     this.address.postalCode = '20511190';
   }
 
+
+  validacao(): boolean {
+    let saida = true;
+    if (!this.address.street) {
+      this.erroNome = "Coloque seu nome";
+      saida = false;
+    } else {
+      this.erroNome = null;
+    }
+    if (!this.address.number) {
+      this.erroEmail = "Coloque seu email";
+      saida = false;
+    } else {
+      this.erroEmail = null;
+    }
+    if (! this.address.complement) {
+      this.erroTelDDD = "Coloque o DDD do seu telefone";
+      saida = false;
+    } else {
+      this.erroTelDDD = null;
+    }
+    if (!this.address.district) {
+      this.erroTelNumero = "Coloque seu número de telefone";
+      saida = false;
+    } else {
+      this.erroTelNumero = null;
+    }
+    if (!this.address.city) {
+      this.erroCpf = "Coloque seu cpf";
+      saida = false;
+    } else {
+      this.erroCpf = null;
+    }
+    if (! this.address.state) {
+      this.erroNascimento = "Coloque sua data de nascimento";
+      saida = false;
+    } else {
+      this.erroNascimento = null;
+    }
+    if (! this.address.postalCode) {
+      this.erroNascimento = "Coloque sua data de nascimento";
+      saida = false;
+    } else {
+      this.erroNascimento = null;
+    }
+    return saida;
+  }
 }

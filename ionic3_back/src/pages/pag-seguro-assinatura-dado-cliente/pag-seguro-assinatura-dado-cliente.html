@@ -5,36 +5,56 @@
 </ion-header>
 
 <ion-content padding>
-  <form >
+  <form>
     <ion-item>
-      <ion-label floating>Rua</ion-label>
+      <ion-label floating>Rua*</ion-label>
       <ion-input [(ngModel)]="address.street" name="street"></ion-input>
     </ion-item>
+    <ion-item no-lines *ngIf="erroRua">
+      <p class="erroMsg">{{erroRua}}</p>
+    </ion-item>
     <ion-item>
-      <ion-label floating>Número</ion-label>
+      <ion-label floating>Número*</ion-label>
       <ion-input [(ngModel)]="address.number" name="number"></ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="erroNumero">
+      <p class="erroMsg">{{erroNumero}}</p>
     </ion-item>
     <ion-item>
       <ion-label floating>Complemento</ion-label>
       <ion-input [(ngModel)]="address.complement" name="complement"></ion-input>
     </ion-item>
+    <ion-item no-lines *ngIf="erroComplemento">
+      <p class="erroMsg">{{erroComplemento}}</p>
+    </ion-item>
     <ion-item>
-      <ion-label floating>Bairro</ion-label>
+      <ion-label floating>Bairro*</ion-label>
       <ion-input [(ngModel)]="address.district" name="district"></ion-input>
     </ion-item>
+    <ion-item no-lines *ngIf="erroBairro">
+      <p class="erroMsg">{{erroBairro}}</p>
+    </ion-item>
     <ion-item>
-      <ion-label floating>Município</ion-label>
+      <ion-label floating>Município*</ion-label>
       <ion-input [(ngModel)]="address.city" name="city"></ion-input>
     </ion-item>
+    <ion-item no-lines *ngIf="erroCidade">
+      <p class="erroMsg">{{erroCidade}}</p>
+    </ion-item>
     <ion-item>
-      <ion-label floating>Estado</ion-label>
+      <ion-label floating>Estado*</ion-label>
       <ion-input [(ngModel)]="address.state" name="state"></ion-input>
     </ion-item>
+    <ion-item no-lines *ngIf="erroEstado">
+      <p class="erroMsg">{{erroEstado}}</p>
+    </ion-item>
     <ion-item>
-      <ion-label floating>CEP</ion-label>
+      <ion-label floating>CEP* (somente números)</ion-label>
       <ion-input [(ngModel)]="address.postalCode" name="postalCode"></ion-input>
     </ion-item>
-    
+    <ion-item no-lines *ngIf="erroCep">
+      <p class="erroMsg">{{erroCep}}</p>
+    </ion-item>
     <button ion-button (click)="voltar()">Voltar</button>
     <button ion-button (click)="avancar()">Avançar</button>
   </form>
