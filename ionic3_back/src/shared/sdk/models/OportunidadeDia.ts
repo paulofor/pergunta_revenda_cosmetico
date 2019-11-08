@@ -17,6 +17,7 @@ export interface OportunidadeDiaInterface {
 	"precoSugestao"?: number;
 	"posicaoProduto"?: number;
 	"dataUltimaPrecoAnterior"?: Date;
+	"percentualAjusteVenda"?: number;
 }
 
 export class OportunidadeDia implements OportunidadeDiaInterface {
@@ -32,6 +33,7 @@ export class OportunidadeDia implements OportunidadeDiaInterface {
 	precoSugestao?: number;
 	posicaoProduto?: number;
 	dataUltimaPrecoAnterior?: Date;
+	percentualAjusteVenda?: number;
   constructor(data?: OportunidadeDiaInterface) {
     Object.assign(this, data);
   }
@@ -113,6 +115,10 @@ export class OportunidadeDia implements OportunidadeDiaInterface {
         "dataUltimaPrecoAnterior" : {
         	name : "dataUltimaPrecoAnterior",
         	type : "Date"
+        },
+        "percentualAjusteVenda" : {
+        	name : "percentualAjusteVenda",
+        	type : "number"
         },
       },
       relations: {
