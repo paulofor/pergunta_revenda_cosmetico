@@ -28,6 +28,7 @@ import { PagSeguroAssinaturaDadoCartaoPage } from '../pages/pag-seguro-assinatur
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
 import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
+import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -56,6 +57,8 @@ registerLocaleData(localePt, 'pt-BR');
 	
     ListaOportunidadeAssinaturaPage,
 	
+    ListaOportunidadeGenericaPage,
+	
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,8 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadePrecoPage,
 	
     ListaOportunidadeAssinaturaPage,
+	
+    ListaOportunidadeGenericaPage,
 	
   ],
   providers: [
