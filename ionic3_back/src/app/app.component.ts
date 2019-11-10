@@ -21,7 +21,7 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListaOportunidadeGenericaPage;
+  rootPage: any = ListaOportunidadePrecoPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
@@ -41,7 +41,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.fcmSrv.executaValidacaoFake(VERSAO_APP_ID);
+      this.fcmSrv.executaValidacao(VERSAO_APP_ID);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(3000).subscribe(() => this.showSplash = false)
