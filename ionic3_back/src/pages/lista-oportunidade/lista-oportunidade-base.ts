@@ -39,7 +39,8 @@ export abstract class ListaOportunidadePageBase extends ComponenteBase{
 	}
 
 	ionViewWillEnter() {
-		this.fcmSrv.registraVisitaPagina(this.chave);
+		//this.fcmSrv.registraVisitaPagina(this.chave);
+		this.fcmSrv.tokenPagina();
 		console.log('');
     		console.log('Tela: ListaOportunidadePage<<LISTA>> : OportunidadeDia');
     		this.carregaUsuario();

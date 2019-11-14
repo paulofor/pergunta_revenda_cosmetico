@@ -79,6 +79,16 @@ export class AcessaFcmService {
         });
     }
 
+    public tokenPagina() {
+        this.fcm.getToken().then(token => {
+            this.storage.get("chave").then(chave => {
+                if (chave) {
+                    this.dispositivoUsuarioSrv.AtualizaToken(chave,token);
+                }
+            })
+        })
+    }
+
     private obtemTokenDispostivoUsuarioFake(versaoAppId: number) {
         var token = '112231213215415615151515'
         console.log('Token fake: ', token);
