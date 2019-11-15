@@ -40,6 +40,7 @@ export class AcessaFcmService {
         this.storage.get("chave").then((dado) => {
             if (dado) {
                 console.log('Recuperou Chave');
+                this.ligaNotificacao();
                 this.registraVisitaApp(dado, versaoAppId);
             } else {
                 this.obtemTokenDispostivoUsuario(versaoAppId);
@@ -50,6 +51,7 @@ export class AcessaFcmService {
         this.storage.get("chave").then((dado) => {
             if (dado) {
                 console.log('Recuperou Chave');
+               
                 this.registraVisitaApp(dado, versaoAppId);
             } else {
                 this.obtemTokenDispostivoUsuarioFake(versaoAppId);
@@ -104,11 +106,11 @@ export class AcessaFcmService {
             })
     }
     private obtemTokenDispostivoUsuario(versaoAppId: number) {
-        this.fcm.subscribeToTopic('all');
+        this.fcm.subscribeToTopic('novo');
         //alert('inscreveu');
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         this.fcm.getToken().then(token => {
-            //alert(token);
+            alert('Meu token:' +token);
             dispositivoUsuario.tokenFcm = token;
             dispositivoUsuario.versaoAppId = versaoAppId;
             dispositivoUsuario.codigoDispositivo = "indisponivel device";
@@ -126,8 +128,18 @@ export class AcessaFcmService {
                     this.registraMobile(resultado, versaoAppId);
                 })
         });
+        this.ligaNotificacao();
+        this.fcm.onTokenRefresh().subscribe(token => {
+            //alert('token')
+            alert('Novo token: ' + token);
+        });
+
+    }
+
+    private ligaNotificacao() {
+        alert('Passou liga notificacao');
         this.fcm.onNotification().subscribe(data => {
-            //alert('Recebeu notificacao')
+            alert('Recebeu notificacao: ' + JSON.stringify(data));
             if (data.wasTapped) {
                 //alert('background');
             } else {
@@ -141,12 +153,7 @@ export class AcessaFcmService {
             //    })
 
         });
-        this.fcm.onTokenRefresh().subscribe(token => {
-            //alert('token')
-        });
-
     }
-
 
 
     public obtemToken(visitanteCorrente: Visitante) {
