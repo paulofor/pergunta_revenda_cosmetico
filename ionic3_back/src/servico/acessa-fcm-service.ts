@@ -6,7 +6,7 @@ import { DispositivoUsuarioApi } from "../shared/sdk/services/custom/Dispositivo
 import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
 import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
 import { Storage } from '@ionic/storage';
-import { Device } from '@ionic-native/device/ngx';
+import { Device } from '@ionic-native/device';
 
 
 @Injectable()
@@ -23,6 +23,16 @@ export class AcessaFcmService {
         @Inject(Device) protected device: Device
     ) {
     }
+
+
+    public testaDevice() {
+        alert('Testa device');
+        alert(this.device.serial);
+        alert(this.device.uuid);
+        alert(this.device.platform);
+        alert('SO:' + this.device.version);
+    }
+
 
 	// Chamada externa
     public registraVisitaPagina(chavePagina) {
