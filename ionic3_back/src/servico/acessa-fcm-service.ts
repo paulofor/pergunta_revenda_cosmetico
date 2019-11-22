@@ -20,17 +20,19 @@ export class AcessaFcmService {
         @Inject(VisitaAppApi) protected visitaAppSrv: VisitaAppApi,
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
         @Inject(Storage) protected storage: Storage,
-        @Inject(Device) protected device: Device
+        @Inject(Device) protected device : Device
     ) {
     }
 
 
     public testaDevice() {
         alert('Testa device');
-        alert(this.device.serial);
-        alert(this.device.uuid);
-        alert(this.device.platform);
+        //console.log('Device: ' , JSON.stringify(this.device));
+        alert('Serial:' + this.device.serial);
+        alert('UUID:' + this.device.uuid);
+        alert('Plataforma:' + this.device.platform);
         alert('SO:' + this.device.version);
+        alert('Modelo:' + this.device.model);
     }
 
 
@@ -124,7 +126,7 @@ export class AcessaFcmService {
             dispositivoUsuario.tokenFcm = token;
             dispositivoUsuario.versaoAppId = versaoAppId;
             dispositivoUsuario.codigoDispositivo = "indisponivel device";
-            dispositivoUsuario.versaoOs = "indisponivel os";
+            dispositivoUsuario.versaoOs = this.device.version;
             //if (this.device) {
             //    dispositivoUsuario.codigoDispositivo = this.device.model;
             //} else {
