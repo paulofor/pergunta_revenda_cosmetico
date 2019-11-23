@@ -43,7 +43,7 @@ export class AcessaFcmService {
                 this.atualizacaoToken(chaveUsuario);
                 this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario,chavePagina)
                 .subscribe((resultado: any) => {
-                    console.log('Resultado-VisitaPagina' , resultado);
+                    //console.log('Resultado-VisitaPagina' , resultado);
                 })
             }
         });
@@ -51,7 +51,7 @@ export class AcessaFcmService {
     public executaValidacao(versaoAppId: number) {
         this.storage.get("chave").then((dado) => {
             if (dado) {
-                console.log('Recuperou Chave');
+                //console.log('Recuperou Chave');
                 this.ligaNotificacao();
                 this.registraVisitaApp(dado, versaoAppId);
             } else {
@@ -62,7 +62,7 @@ export class AcessaFcmService {
     public executaValidacaoFake(versaoAppId: number) {
         this.storage.get("chave").then((dado) => {
             if (dado) {
-                console.log('Recuperou Chave');
+                //console.log('Recuperou Chave');
                
                 this.registraVisitaApp(dado, versaoAppId);
             } else {
@@ -109,8 +109,11 @@ export class AcessaFcmService {
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         dispositivoUsuario.tokenFcm = token;
         dispositivoUsuario.versaoAppId = versaoAppId;
-        dispositivoUsuario.codigoDispositivo = 'fakeDevice';
-        dispositivoUsuario.versaoOs = 'fakeOs';
+        dispositivoUsuario.codigoDispositivo = this.device.model;
+        dispositivoUsuario.versaoSo = this.device.version;
+        dispositivoUsuario.fabricante = this.device.manufacturer;
+        dispositivoUsuario.serial = this.device.serial;
+        dispositivoUsuario.uuid = this.device.uuid;
         this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
             .subscribe((resultado: any) => {
                 console.log('Chave-Server:', resultado);
@@ -122,11 +125,14 @@ export class AcessaFcmService {
         //alert('inscreveu');
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         this.fcm.getToken().then(token => {
-            alert('Meu token:' +token);
+            //alert('Meu token:' +token);
             dispositivoUsuario.tokenFcm = token;
             dispositivoUsuario.versaoAppId = versaoAppId;
-            dispositivoUsuario.codigoDispositivo = "indisponivel device";
-            dispositivoUsuario.versaoOs = this.device.version;
+            dispositivoUsuario.codigoDispositivo = this.device.model;
+            dispositivoUsuario.versaoSo = this.device.version;
+            dispositivoUsuario.fabricante = this.device.manufacturer;
+            dispositivoUsuario.serial = this.device.serial;
+            dispositivoUsuario.uuid = this.device.uuid;
             //if (this.device) {
             //    dispositivoUsuario.codigoDispositivo = this.device.model;
             //} else {
@@ -143,15 +149,15 @@ export class AcessaFcmService {
         this.ligaNotificacao();
         this.fcm.onTokenRefresh().subscribe(token => {
             //alert('token')
-            alert('Novo token: ' + token);
+            //alert('Novo token: ' + token);
         });
 
     }
 
     private ligaNotificacao() {
-        alert('Passou liga notificacao');
+        //alert('Passou liga notificacao');
         this.fcm.onNotification().subscribe(data => {
-            alert('Recebeu notificacao: ' + JSON.stringify(data));
+            //alert('Recebeu notificacao: ' + JSON.stringify(data));
             if (data.wasTapped) {
                 //alert('background');
             } else {
