@@ -155,7 +155,7 @@ export class AcessaFcmService {
     }
 
     private ligaNotificacao() {
-        //alert('Passou liga notificacao');
+        alert('Passou liga notificacao');
         this.fcm.onNotification().subscribe(data => {
             alert('Recebeu notificacao: ' + JSON.stringify(data));
             if (data.wasTapped) {
