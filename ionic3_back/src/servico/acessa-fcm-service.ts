@@ -157,12 +157,13 @@ export class AcessaFcmService {
     private ligaNotificacao() {
         alert('Passou liga notificacao');
         this.fcm.onNotification().subscribe(data => {
+            alert('Recebu not');
             alert('Recebeu notificacao: ' + JSON.stringify(data));
             if (data.wasTapped) {
-                //alert('background');
+                alert('background');
                 alert('Meu Token' + data.tokenNotificacao);
             } else {
-                //alert('foreground');
+                alert('foreground');
             }
             //let visitaNotificacao = new Visitante();
             //visitaNotificacao.versaoAppId = 789;
