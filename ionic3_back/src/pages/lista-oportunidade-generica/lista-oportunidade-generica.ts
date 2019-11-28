@@ -17,6 +17,7 @@ export class ListaOportunidadeGenericaPage extends ListaOportunidadeGenericaPage
 
   inicializacao() {
     //this.fcmSrv.testaDevice();
+    this.fcmSrv.mostraToken();
   }
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
