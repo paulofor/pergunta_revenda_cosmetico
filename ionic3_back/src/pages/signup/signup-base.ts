@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 import { ComandosZeroPage } from "../comandos-zero/comandos-zero";
 import { ComponenteBase } from '../componente-base';
 import { MSG_CADASTRO_TAMANHO_SENHA, MSG_CADASTRO_EMAIL } from "../../app/const";
+import { UsuarioProdutoApi } from "../../shared/sdk/services/custom/UsuarioProduto";
 
 
 export abstract class SignupPageBase extends ComponenteBase{
@@ -18,7 +19,7 @@ export abstract class SignupPageBase extends ComponenteBase{
   protected msgSenha:string = MSG_CADASTRO_TAMANHO_SENHA;
   protected msgEmail:string = MSG_CADASTRO_EMAIL;
 
-  constructor(public navCtrl: NavController, protected formBuilder: FormBuilder, protected storage: Storage, protected srv: UsuarioApi) {
+  constructor(public navCtrl: NavController, protected formBuilder: FormBuilder, protected storage: Storage, protected srv: UsuarioProdutoApi) {
     super();
     this.signupForm = this.formBuilder.group({
       login: ['', Validators.email],

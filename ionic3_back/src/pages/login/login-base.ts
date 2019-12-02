@@ -8,6 +8,7 @@ import { MSG_SEM_INTERNET, MSG_ERRO_LOGIN } from '../../app/const';
 import { SignupPage } from '../signup/signup';
 import { ComponenteBase } from '../componente-base';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 
 
 export abstract class LoginPageBase extends ComponenteBase{
@@ -21,7 +22,7 @@ export abstract class LoginPageBase extends ComponenteBase{
  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    protected formBuilder: FormBuilder, protected srv: UsuarioApi, protected srvAcao: AcaoApi, protected storage: Storage
+    protected formBuilder: FormBuilder, protected srv: UsuarioProdutoApi, protected srvAcao: AcaoApi, protected storage: Storage
     , protected pagSeguro:PagSeguroApi) {
     super();
     this.loginForm = this.formBuilder.group({
