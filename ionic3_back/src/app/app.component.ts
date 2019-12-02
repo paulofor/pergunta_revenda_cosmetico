@@ -21,7 +21,7 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = ListaOportunidadePage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
@@ -29,12 +29,6 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
   				private fcmSrv:AcessaFcmService ) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-	
-     ];
-
   }
 
   initializeApp() {
