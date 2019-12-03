@@ -14,6 +14,7 @@ import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/li
 import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
 import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 import { timer } from 'rxjs/observable/timer';
+import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,7 @@ import { timer } from 'rxjs/observable/timer';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListaOportunidadePage;
+  rootPage: any = ListaOportunidadePrecoAssinaturaPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
@@ -29,6 +30,12 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
   				private fcmSrv:AcessaFcmService ) {
     this.initializeApp();
+
+    // used for an example of ngFor and navigation
+    this.pages = [
+	
+     ];
+
   }
 
   initializeApp() {

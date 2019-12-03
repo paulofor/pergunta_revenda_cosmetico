@@ -39,6 +39,7 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -59,6 +60,7 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeAssinaturaPage,
 	
     ListaOportunidadeGenericaPage,
+    ListaOportunidadePrecoAssinaturaPage
 	
   ],
   imports: [
@@ -87,6 +89,7 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeAssinaturaPage,
 	
     ListaOportunidadeGenericaPage,
+    ListaOportunidadePrecoAssinaturaPage
 	
   ],
   providers: [

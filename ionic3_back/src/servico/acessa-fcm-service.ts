@@ -70,6 +70,8 @@ export class AcessaFcmService {
         });
     }
 
+    
+
 
     private registraMobile(chave, versaoAppId) {
         this.storage.set("chave", chave).then((successData) => {

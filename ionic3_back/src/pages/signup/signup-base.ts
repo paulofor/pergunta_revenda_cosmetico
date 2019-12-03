@@ -6,7 +6,6 @@ import { Storage } from '@ionic/storage';
 import { ComandosZeroPage } from "../comandos-zero/comandos-zero";
 import { ComponenteBase } from '../componente-base';
 import { MSG_CADASTRO_TAMANHO_SENHA, MSG_CADASTRO_EMAIL } from "../../app/const";
-import { UsuarioProdutoApi } from "../../shared/sdk/services/custom/UsuarioProduto";
 
 
 export abstract class SignupPageBase extends ComponenteBase{
@@ -19,7 +18,7 @@ export abstract class SignupPageBase extends ComponenteBase{
   protected msgSenha:string = MSG_CADASTRO_TAMANHO_SENHA;
   protected msgEmail:string = MSG_CADASTRO_EMAIL;
 
-  constructor(public navCtrl: NavController, protected formBuilder: FormBuilder, protected storage: Storage, protected srv: UsuarioProdutoApi) {
+  constructor(public navCtrl: NavController, protected formBuilder: FormBuilder, protected storage: Storage, protected srv: UsuarioApi) {
     super();
     this.signupForm = this.formBuilder.group({
       login: ['', Validators.email],
@@ -50,21 +49,34 @@ export abstract class SignupPageBase extends ComponenteBase{
     }
   }
 
-  registraLogin(login, senha) {
-    
-  }
-
 
   processaSubmit() {
-    let email = this.signupForm.get("login").value;
+    this.usuario = new Usuario();
+    this.usuario.email = this.signupForm.get("login").value;
     let senha1 = this.signupForm.get("senha1").value;
     let senha2 = this.signupForm.get("senha2").value;
     if (senha1!=senha2) {
+      //console.log('Entrou diferente');
       this.erroMsg = 'Senhas diferentes';
       return;
     } else {
-      this.registraLogin(email, senha1);      
-    }
+      this.usuario.senha = senha1;
+      this.usuario.dataHoraCriacao = new Date();
+      this.usuario.dataHoraUltimoAcesso = new Date();
+      console.log('Usuario-Enviado: ' , this.usuario);
+      this.srv.create(this.usuario)
+        .subscribe(
+          (result) => {
+            this.storage.set('user' , result);
+            console.log('SignUp: ' , result);
+            this.navCtrl.push(ComandosZeroPage);
+          },
+          (error) => {
+            console.log('Erro: ' , error);
+            this.erroMsg = 'Ocorreu um erro, tente novamente';
+          }
+        )
+     }
   }
 
 }
