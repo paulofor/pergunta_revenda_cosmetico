@@ -7,7 +7,6 @@ import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
 import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
 import { Storage } from '@ionic/storage';
 import { Device } from '@ionic-native/device';
-import { NotificacaoAppApi } from "../shared/sdk/services/custom/NotificacaoApp";
 
 
 @Injectable()
@@ -21,8 +20,7 @@ export class AcessaFcmService {
         @Inject(VisitaAppApi) protected visitaAppSrv: VisitaAppApi,
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
         @Inject(Storage) protected storage: Storage,
-        @Inject(Device) protected device : Device,
-        @Inject(NotificacaoAppApi) protected notificacaoSrv : NotificacaoAppApi
+        @Inject(Device) protected device : Device
     ) {
     }
 
@@ -50,6 +48,9 @@ export class AcessaFcmService {
             }
         });
     }
+  
+
+
     public executaValidacao(versaoAppId: number) {
         this.storage.get("chave").then((dado) => {
             if (dado) {
@@ -61,6 +62,20 @@ export class AcessaFcmService {
             }
         });
     }
+    public executaValidacaoRemote(versaoAppId: number) {
+        let filtro = { "include" : "usuarioProduto", "where" : { "and" : [{"serial": this.device.serial},{"uuid":this.device.uuid}] } }
+        this.dispositivoUsuarioSrv.findOne(filtro)
+            .subscribe((dispositivo:DispositivoUsuario) => {
+                if (dispositivo) {
+                    this.ligaNotificacao();
+                    this.registraVisitaApp(dispositivo.usuarioProduto.chave, versaoAppId);
+                } else {
+                    this.obtemTokenDispostivoUsuario(versaoAppId);
+                }
+            })
+    }
+
+
     public executaValidacaoFake(versaoAppId: number) {
         this.storage.get("chave").then((dado) => {
             if (dado) {
@@ -72,7 +87,9 @@ export class AcessaFcmService {
         });
     }
 
-    
+    private verificaNovaInstalacao() {
+        
+    }
 
 
     private registraMobile(chave, versaoAppId) {
@@ -163,22 +180,28 @@ export class AcessaFcmService {
         this.fcm.onNotification().subscribe(data => {
             alert('Recebeu notificacao-01: ' + JSON.stringify(data));
             alert('Token:' + data.tokenNotificacao);
+            this.registraNotificacao(data.tokenNotificacao);
             if (data.wasTapped) {
-                this.registraNotificacao(data.tokenNotificacao);
+                
                 alert('background-01');
                 //alert('Meu Token' + data.tokenNotificacao);
             } else {
                 alert('foreground-01');
             }
+            //let visitaNotificacao = new Visitante();
+            //visitaNotificacao.versaoAppId = 789;
+            //this.visitanteSrv.criaItem(visitaNotificacao)
+            //    .subscribe((resultado: any) => {
+            //        alert('notificacao: ' + JSON.stringify(resultado));
+            //    })
         });
     }
 
 
-    private registraNotificacao(tokenNotificacao) {
-        this.notificacaoSrv.RegistraAcesso(tokenNotificacao);
+    private registraNotificacao(token:string) {
+        this.storage.set("token", token).then((successData) => {
+        })
     }
-
-  
     public mostraToken() {
         this.storage.get("token").then((dado) => {
             if (dado) {
