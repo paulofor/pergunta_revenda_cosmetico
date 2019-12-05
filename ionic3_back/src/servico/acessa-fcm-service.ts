@@ -66,6 +66,7 @@ export class AcessaFcmService {
         let filtro = { "include" : "usuarioProduto", "where" : { "and" : [{"serial": this.device.serial},{"uuid":this.device.uuid}] } }
         this.dispositivoUsuarioSrv.findOne(filtro)
             .subscribe((dispositivo:DispositivoUsuario) => {
+                alert('Device: ' + JSON.stringify(dispositivo));
                 if (dispositivo) {
                     this.ligaNotificacao();
                     this.registraVisitaApp(dispositivo.usuarioProduto.chave, versaoAppId);
@@ -145,7 +146,7 @@ export class AcessaFcmService {
         //alert('inscreveu');
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         this.fcm.getToken().then(token => {
-            //alert('Meu token:' +token);
+            alert('Meu token:' +token);
             dispositivoUsuario.tokenFcm = token;
             dispositivoUsuario.versaoAppId = versaoAppId;
             dispositivoUsuario.codigoDispositivo = this.device.model;
@@ -176,7 +177,7 @@ export class AcessaFcmService {
 
 
     private ligaNotificacao() {
-        alert('Passou liga notificacao');
+        alert('Passou liga notificacaos');
         this.fcm.onNotification().subscribe(data => {
             alert('Recebeu notificacao-01: ' + JSON.stringify(data));
             alert('Token:' + data.tokenNotificacao);
