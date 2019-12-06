@@ -21,8 +21,8 @@ export class AcessaFcmService {
         @Inject(VisitaAppApi) protected visitaAppSrv: VisitaAppApi,
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
         @Inject(Storage) protected storage: Storage,
-        @Inject(Device) protected device : Device,
-        @Inject(NotificacaoAppApi) protected notificacaoAppSrv : NotificacaoAppApi
+        @Inject(Device) protected device: Device,
+        @Inject(NotificacaoAppApi) protected notificacaoAppSrv: NotificacaoAppApi
     ) {
     }
 
@@ -38,19 +38,19 @@ export class AcessaFcmService {
     }
 
 
-	// Chamada externa
+    // Chamada externa
     public registraVisitaPagina(chavePagina) {
         this.storage.get("chave").then((chaveUsuario) => {
             if (chaveUsuario) {
                 this.atualizacaoToken(chaveUsuario);
-                this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario,chavePagina)
-                .subscribe((resultado: any) => {
-                    //console.log('Resultado-VisitaPagina' , resultado);
-                })
+                this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario, chavePagina)
+                    .subscribe((resultado: any) => {
+                        //console.log('Resultado-VisitaPagina' , resultado);
+                    })
             }
         });
     }
-  
+
 
 
     public executaValidacao(versaoAppId: number) {
@@ -65,9 +65,9 @@ export class AcessaFcmService {
         });
     }
     public executaValidacaoRemote(versaoAppId: number) {
-        let filtro = { "include" : "usuarioProduto", "where" : { "and" : [{"serial": this.device.serial},{"uuid":this.device.uuid}] } }
+        let filtro = { "include": "usuarioProduto", "where": { "and": [{ "serial": this.device.serial }, { "uuid": this.device.uuid }] } }
         this.dispositivoUsuarioSrv.findOne(filtro)
-            .subscribe((dispositivo:DispositivoUsuario) => {
+            .subscribe((dispositivo: DispositivoUsuario) => {
                 alert('Device: ' + JSON.stringify(dispositivo));
                 if (dispositivo) {
                     this.ligaNotificacao();
@@ -92,14 +92,19 @@ export class AcessaFcmService {
 
     public testaNotificacaoApp(tokenNotificacao) {
         this.notificacaoAppSrv.RegistraAcesso(tokenNotificacao)
-            //.subscribe((resultado) => {
-            //    console.log('Resultado: ' , resultado);
-            //})
-        .subscribe(
+            .subscribe(
             data => alert('Dado:' + data),
-            err => alert('Erro: ' + err),
-            () => alert('yay')
-          );
+            err => alert('Erro: ' + err)
+            );
+    }
+
+    public testeChaveRemota() {
+        let filtro = { "include": "usuarioProduto", "where": { "and": [{ "uuid": this.device.uuid }] } }
+        alert('Filtro para chave:' + JSON.stringify(filtro));
+        this.dispositivoUsuarioSrv.findOne(filtro)
+            .subscribe((dispositivo: DispositivoUsuario) => {
+                alert('Device: ' + JSON.stringify(dispositivo));
+            })
     }
 
 
@@ -108,19 +113,19 @@ export class AcessaFcmService {
             this.registraVisitaApp(chave, versaoAppId);
         })
     }
-    
+
     private registraVisitaApp(chave, versaoAppId) {
         console.log('Passou em visita: ', chave);
-        this.visitaAppSrv.RegistraVisitaVersaoApp(chave,versaoAppId)
+        this.visitaAppSrv.RegistraVisitaVersaoApp(chave, versaoAppId)
             .subscribe((resultado: any) => {
-                console.log('Resultado-VisitaApp' , resultado);
+                console.log('Resultado-VisitaApp', resultado);
             })
     }
-    
-    
+
+
     private atualizacaoToken(chave) {
         this.fcm.getToken().then(token => {
-            this.dispositivoUsuarioSrv.AtualizaToken(chave,token);
+            this.dispositivoUsuarioSrv.AtualizaToken(chave, token);
         });
     }
 
@@ -128,7 +133,7 @@ export class AcessaFcmService {
         this.fcm.getToken().then(token => {
             this.storage.get("chave").then(chave => {
                 if (chave) {
-                    this.dispositivoUsuarioSrv.AtualizaToken(chave,token);
+                    this.dispositivoUsuarioSrv.AtualizaToken(chave, token);
                 }
             })
         })
@@ -156,7 +161,7 @@ export class AcessaFcmService {
         //alert('inscreveu');
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         this.fcm.getToken().then(token => {
-            alert('Meu token:' +token);
+            alert('Meu token:' + token);
             dispositivoUsuario.tokenFcm = token;
             dispositivoUsuario.versaoAppId = versaoAppId;
             dispositivoUsuario.codigoDispositivo = this.device.model;
@@ -190,15 +195,15 @@ export class AcessaFcmService {
         alert('Passou liga notificacaos');
         this.fcm.onNotification().subscribe(data => {
             alert('Recebeu notificacao-01: ' + JSON.stringify(data));
-           
+
             this.registraNotificacao(data.tokenNotificacao);
             if (data.wasTapped) {
                 alert('Token:' + data.tokenNotificacao);
                 // Encapsular as chamadas de servidor ?
                 this.notificacaoAppSrv.RegistraAcesso(data.tokenNotificacao)
-                .subscribe((resultado) => {
-                    console.log('Resultado: ' , resultado);
-                });
+                    .subscribe((resultado) => {
+                        console.log('Resultado: ', resultado);
+                    });
                 alert('background-01');
                 //alert('Meu Token' + data.tokenNotificacao);
             } else {
@@ -214,7 +219,7 @@ export class AcessaFcmService {
     }
 
 
-    private registraNotificacao(token:string) {
+    private registraNotificacao(token: string) {
         this.storage.set("token", token).then((successData) => {
         })
     }
