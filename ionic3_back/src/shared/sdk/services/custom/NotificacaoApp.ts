@@ -19,6 +19,8 @@ import { SocketConnection } from '../../sockets/socket.connections';
 @Injectable()
 export class NotificacaoAppApi extends BaseLoopBackApi {
 
+  private static pathValidador : string = '//validacao.kinghost.net:21040';
+
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
     @Inject(SocketConnection) protected connection: SocketConnection,
@@ -170,7 +172,7 @@ export class NotificacaoAppApi extends BaseLoopBackApi {
    */
   public RegistraAcesso(tokenNotificacao: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string =  NotificacaoAppApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/NotificacaoApps/registraAcesso";
     let _routeParams: any = {};
     let _postBody: any = {};

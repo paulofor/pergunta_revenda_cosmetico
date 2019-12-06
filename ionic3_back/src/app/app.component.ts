@@ -42,7 +42,8 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.fcmSrv.executaValidacaoRemote(VERSAO_APP_ID);
+      this.fcmSrv.testaNotificacaoApp('abcd');
+      this.fcmSrv.executaValidacao(VERSAO_APP_ID);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(3000).subscribe(() => this.showSplash = false)

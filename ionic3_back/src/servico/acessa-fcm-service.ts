@@ -7,6 +7,7 @@ import { DispositivoUsuario } from "../shared/sdk/models/DispositivoUsuario";
 import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
 import { Storage } from '@ionic/storage';
 import { Device } from '@ionic-native/device';
+import { NotificacaoAppApi } from "../shared/sdk/services/custom/NotificacaoApp";
 
 
 @Injectable()
@@ -20,7 +21,8 @@ export class AcessaFcmService {
         @Inject(VisitaAppApi) protected visitaAppSrv: VisitaAppApi,
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
         @Inject(Storage) protected storage: Storage,
-        @Inject(Device) protected device : Device
+        @Inject(Device) protected device : Device,
+        @Inject(NotificacaoAppApi) protected notificacaoAppSrv : NotificacaoAppApi
     ) {
     }
 
@@ -88,8 +90,16 @@ export class AcessaFcmService {
         });
     }
 
-    private verificaNovaInstalacao() {
-        
+    public testaNotificacaoApp(tokenNotificacao) {
+        this.notificacaoAppSrv.RegistraAcesso(tokenNotificacao)
+            //.subscribe((resultado) => {
+            //    console.log('Resultado: ' , resultado);
+            //})
+        .subscribe(
+            data => alert('Dado:' + data),
+            err => alert('Erro: ' + err),
+            () => alert('yay')
+          );
     }
 
 
@@ -180,10 +190,15 @@ export class AcessaFcmService {
         alert('Passou liga notificacaos');
         this.fcm.onNotification().subscribe(data => {
             alert('Recebeu notificacao-01: ' + JSON.stringify(data));
-            alert('Token:' + data.tokenNotificacao);
+           
             this.registraNotificacao(data.tokenNotificacao);
             if (data.wasTapped) {
-                
+                alert('Token:' + data.tokenNotificacao);
+                // Encapsular as chamadas de servidor ?
+                this.notificacaoAppSrv.RegistraAcesso(data.tokenNotificacao)
+                .subscribe((resultado) => {
+                    console.log('Resultado: ' , resultado);
+                });
                 alert('background-01');
                 //alert('Meu Token' + data.tokenNotificacao);
             } else {
