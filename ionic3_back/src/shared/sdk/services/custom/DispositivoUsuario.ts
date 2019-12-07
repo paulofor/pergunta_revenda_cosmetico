@@ -129,6 +129,17 @@ export class DispositivoUsuarioApi extends BaseLoopBackApi {
     ].join('/'), undefined, undefined, { data }, null, customHeaders)
     .pipe(map((data: DispositivoUsuario) => this.model.factory(data)));
   }
+
+  public findOneItem<DispositivoUsuario>(filter: LoopBackFilter = {}, customHeaders?: Function): Observable<DispositivoUsuario> {
+    return this.request('GET', [
+      DispositivoUsuarioApi.pathValidador,
+      LoopBackConfig.getApiVersion(),
+      this.model.getModelDefinition().path,
+      'findOne'
+    ].join('/'), undefined, { filter }, undefined, null, customHeaders)
+    .pipe(map((data: DispositivoUsuario) => this.model.factory(data)));
+  }
+
   public atualizaItem(id: any, data: DispositivoUsuario, customHeaders?: Function): Observable<DispositivoUsuario> {
     return this.request('PUT', [
       DispositivoUsuarioApi.pathValidador,

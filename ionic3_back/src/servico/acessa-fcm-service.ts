@@ -93,18 +93,19 @@ export class AcessaFcmService {
     public testaNotificacaoApp(tokenNotificacao) {
         this.notificacaoAppSrv.RegistraAcesso(tokenNotificacao)
             .subscribe(
-            data => alert('Dado:' + data),
-            err => alert('Erro: ' + err)
+                data => alert('Dado:' + data),
+                err => alert('Erro: ' + err)
             );
     }
 
     public testeChaveRemota() {
         let filtro = { "include": "usuarioProduto", "where": { "and": [{ "uuid": this.device.uuid }] } }
         alert('Filtro para chave:' + JSON.stringify(filtro));
-        this.dispositivoUsuarioSrv.findOne(filtro)
-            .subscribe((dispositivo: DispositivoUsuario) => {
-                alert('Device: ' + JSON.stringify(dispositivo));
-            })
+        this.dispositivoUsuarioSrv.findOneItem(filtro)
+            .subscribe(
+                data => alert('Dado:' + JSON.stringify(data)),
+                err => alert('Erro: ' + JSON.stringify(err))
+            );
     }
 
 
@@ -192,29 +193,22 @@ export class AcessaFcmService {
 
 
     private ligaNotificacao() {
-        alert('Passou liga notificacaos');
+        //alert('Passou liga notificacaos');
         this.fcm.onNotification().subscribe(data => {
-            alert('Recebeu notificacao-01: ' + JSON.stringify(data));
-
+            //alert('Recebeu notificacao-01: ' + JSON.stringify(data));
             this.registraNotificacao(data.tokenNotificacao);
             if (data.wasTapped) {
-                alert('Token:' + data.tokenNotificacao);
+                //alert('Token:' + data.tokenNotificacao);
                 // Encapsular as chamadas de servidor ?
                 this.notificacaoAppSrv.RegistraAcesso(data.tokenNotificacao)
                     .subscribe((resultado) => {
-                        console.log('Resultado: ', resultado);
+                        //console.log('Resultado: ', resultado);
                     });
-                alert('background-01');
+                //alert('background-01');
                 //alert('Meu Token' + data.tokenNotificacao);
             } else {
-                alert('foreground-01');
+                //alert('foreground-01');
             }
-            //let visitaNotificacao = new Visitante();
-            //visitaNotificacao.versaoAppId = 789;
-            //this.visitanteSrv.criaItem(visitaNotificacao)
-            //    .subscribe((resultado: any) => {
-            //        alert('notificacao: ' + JSON.stringify(resultado));
-            //    })
         });
     }
 

@@ -74,13 +74,7 @@ export class NotificacaoAppApi extends BaseLoopBackApi {
     return result;
   }
 
-  public testaRegistraAcesso(tokenNotificacao: any) {
-    this.RegistraAcesso(tokenNotificacao)
-      .subscribe(
-      data => alert('Dado:' + data),
-      err => alert('Erro: ' + err)
-      );
-  }
+  
 
 
   /**
