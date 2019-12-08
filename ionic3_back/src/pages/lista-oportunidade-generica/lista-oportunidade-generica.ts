@@ -16,8 +16,6 @@ import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 export class ListaOportunidadeGenericaPage extends ListaOportunidadeGenericaPageBase {
 
   inicializacao() {
-    //this.fcmSrv.testaDevice();
-    this.fcmSrv.mostraToken();
   }
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,

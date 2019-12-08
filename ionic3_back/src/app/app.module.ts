@@ -41,6 +41,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
+import { UsuarioProdutoApi } from '../shared/sdk/services/custom/UsuarioProduto';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -105,6 +106,7 @@ registerLocaleData(localePt, 'pt-BR');
     VisitanteApi,
   OportunidadeDiaApi,
   NotificacaoAppApi,
+  UsuarioProdutoApi,
 	
 	UsuarioApi,
 	

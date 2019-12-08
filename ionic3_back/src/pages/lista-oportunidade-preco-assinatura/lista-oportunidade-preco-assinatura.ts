@@ -6,6 +6,7 @@ import { OportunidadeDiaApi, LoopBackFilter, OportunidadeDia } from '../../share
 import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pag-seguro-assinatura-dado-identificacao/pag-seguro-assinatura-dado-identificacao';
 import { Storage } from '@ionic/storage';
 import { ListaOportunidadeAssinaturaPageBase } from '../lista-oportunidade-assinatura/lista-oportunidade-assinatura-base';
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 
 /**
  * Generated class for the ListaOportunidadePrecoAssinaturaPage page.
@@ -25,13 +26,14 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   cookieValue = 'UNKNOWN';
 
   ID_VERSAOAPP = 999;
-
+  diasGratis;
 
   inicializacao() {
+    this.obtemDiasGratis();
   }
 
   constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
-		protected storage: Storage, protected fcmSrv: AcessaFcmService) {
+		protected storage: Storage, protected fcmSrv: AcessaFcmService, private usuarioSrv: UsuarioProdutoApi) {
          super(navCtrl,srv,storage, fcmSrv);
   }
 
@@ -46,6 +48,23 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
 
   inicioFluxo() {
     this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
+  }
+
+  obtemDiasGratis() {
+    alert('obtemDiasGratis()')
+    this.storage.get("chave").then((chave) => {
+      alert('chaveObtemDiasGratis():' + chave);
+      this.usuarioSrv.PeriodoGratuito(chave)
+        .subscribe(
+          (result) => {
+            this.diasGratis = result.dias + ' dias';
+          },
+          (erro) => {
+            alert('Erro-ObtemDias: ' + JSON.stringify(erro));
+            this.diasGratis = '20 dias';
+          }
+        )
+    });
   }
 
 }

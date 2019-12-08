@@ -40,8 +40,6 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      //this.fcmSrv.testaNotificacaoApp('abcd');
-      //this.fcmSrv.testeChaveRemota();
       this.fcmSrv.executaValidacao(VERSAO_APP_ID);
       this.statusBar.styleDefault();
       this.splashScreen.hide();

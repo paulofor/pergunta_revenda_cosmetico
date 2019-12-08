@@ -27,14 +27,8 @@ export class AcessaFcmService {
     }
 
 
-    public testaDevice() {
-        alert('Testa device');
-        //console.log('Device: ' , JSON.stringify(this.device));
-        alert('Serial:' + this.device.serial);
-        alert('UUID:' + this.device.uuid);
-        alert('Plataforma:' + this.device.platform);
-        alert('SO:' + this.device.version);
-        alert('Modelo:' + this.device.model);
+    public carregaUsuario() {
+
     }
 
 
@@ -42,7 +36,6 @@ export class AcessaFcmService {
     public registraVisitaPagina(chavePagina) {
         this.storage.get("chave").then((chaveUsuario) => {
             if (chaveUsuario) {
-                this.atualizacaoToken(chaveUsuario);
                 this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario, chavePagina)
                     .subscribe((resultado: any) => {
                         //console.log('Resultado-VisitaPagina' , resultado);
@@ -54,62 +47,41 @@ export class AcessaFcmService {
 
 
     public executaValidacao(versaoAppId: number) {
+        alert('executaValidacao(versaoAppId: number)');
         this.storage.get("chave").then((dado) => {
             if (dado) {
-                //console.log('Recuperou Chave');
-                this.ligaNotificacao();
+                alert('Recuperou Chave');
+                this.ligaReceptorNotificacao();
                 this.registraVisitaApp(dado, versaoAppId);
             } else {
-                this.obtemTokenDispostivoUsuario(versaoAppId);
+                alert('Dado null');
+                //this.obtemTokenDispostivoUsuario(versaoAppId);
+                this.executaValidacaoRemote(versaoAppId);
             }
         });
     }
+
+
     public executaValidacaoRemote(versaoAppId: number) {
-        let filtro = { "include": "usuarioProduto", "where": { "and": [{ "serial": this.device.serial }, { "uuid": this.device.uuid }] } }
-        this.dispositivoUsuarioSrv.findOne(filtro)
-            .subscribe((dispositivo: DispositivoUsuario) => {
-                alert('Device: ' + JSON.stringify(dispositivo));
-                if (dispositivo) {
-                    this.ligaNotificacao();
-                    this.registraVisitaApp(dispositivo.usuarioProduto.chave, versaoAppId);
-                } else {
-                    this.obtemTokenDispostivoUsuario(versaoAppId);
-                }
-            })
-    }
-
-
-    public executaValidacaoFake(versaoAppId: number) {
-        this.storage.get("chave").then((dado) => {
-            if (dado) {
-                //console.log('Recuperou Chave');
-                this.registraVisitaApp(dado, versaoAppId);
-            } else {
-                this.obtemTokenDispostivoUsuarioFake(versaoAppId);
-            }
-        });
-    }
-
-    public testaNotificacaoApp(tokenNotificacao) {
-        this.notificacaoAppSrv.RegistraAcesso(tokenNotificacao)
-            .subscribe(
-                data => alert('Dado:' + data),
-                err => alert('Erro: ' + err)
-            );
-    }
-
-    public testeChaveRemota() {
         let filtro = { "include": "usuarioProduto", "where": { "and": [{ "uuid": this.device.uuid }] } }
-        alert('Filtro para chave:' + JSON.stringify(filtro));
+        alert('Filtro: ' + JSON.stringify(filtro));
         this.dispositivoUsuarioSrv.findOneItem(filtro)
             .subscribe(
-                data => alert('Dado:' + JSON.stringify(data)),
-                err => alert('Erro: ' + JSON.stringify(err))
-            );
+                (dispositvo:DispositivoUsuario) => {
+                    this.ligaReceptorNotificacao();
+                    this.registraVisitaApp(dispositvo.usuarioProduto.chave, versaoAppId);
+                },
+                erro => {
+                    this.inscreveFcm(versaoAppId)
+                }
+            )
     }
+
+
 
 
     private registraMobile(chave, versaoAppId) {
+        alert('registraMobile(chave, versaoAppId)');
         this.storage.set("chave", chave).then((successData) => {
             this.registraVisitaApp(chave, versaoAppId);
         })
@@ -124,25 +96,22 @@ export class AcessaFcmService {
     }
 
 
-    private atualizacaoToken(chave) {
+    private inscreveFcm(versaoAppId: number) {
+        alert('inscreveFcm(versaoAppId: number)');
+        this.fcm.subscribeToTopic('novo');
         this.fcm.getToken().then(token => {
-            this.dispositivoUsuarioSrv.AtualizaToken(chave, token);
+            alert('Meu token:' + token);
+            this.registraTokenFcm(token, versaoAppId);
+
+        });
+        this.ligaReceptorNotificacao();
+        this.fcm.onTokenRefresh().subscribe(token => {
+            alert('Novo token: ' + token);
+            this.registraTokenFcm(token, versaoAppId);
         });
     }
 
-    public tokenPagina() {
-        this.fcm.getToken().then(token => {
-            this.storage.get("chave").then(chave => {
-                if (chave) {
-                    this.dispositivoUsuarioSrv.AtualizaToken(chave, token);
-                }
-            })
-        })
-    }
-
-    private obtemTokenDispostivoUsuarioFake(versaoAppId: number) {
-        var token = '112231213215415615151515'
-        console.log('Token fake: ', token);
+    private registraTokenFcm(token, versaoAppId) {
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         dispositivoUsuario.tokenFcm = token;
         dispositivoUsuario.versaoAppId = versaoAppId;
@@ -153,93 +122,50 @@ export class AcessaFcmService {
         dispositivoUsuario.uuid = this.device.uuid;
         this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
             .subscribe((resultado: any) => {
-                console.log('Chave-Server:', resultado);
                 this.registraMobile(resultado, versaoAppId);
             })
     }
-    private obtemTokenDispostivoUsuario(versaoAppId: number) {
-        this.fcm.subscribeToTopic('novo');
-        //alert('inscreveu');
-        let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
-        this.fcm.getToken().then(token => {
-            alert('Meu token:' + token);
-            dispositivoUsuario.tokenFcm = token;
-            dispositivoUsuario.versaoAppId = versaoAppId;
-            dispositivoUsuario.codigoDispositivo = this.device.model;
-            dispositivoUsuario.versaoSo = this.device.version;
-            dispositivoUsuario.fabricante = this.device.manufacturer;
-            dispositivoUsuario.serial = this.device.serial;
-            dispositivoUsuario.uuid = this.device.uuid;
-            //if (this.device) {
-            //    dispositivoUsuario.codigoDispositivo = this.device.model;
-            //} else {
-            //    dispositivoUsuario.codigoDispositivo = "indisponivel";
-            //}
-            //dispositivoUsuario.versaoOs = this.device.version;
-            //alert(JSON.stringify(disppositivoUsuario));
-            this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
-                .subscribe((resultado: any) => {
-                    console.log('Chave-Server:', resultado);
-                    this.registraMobile(resultado, versaoAppId);
-                })
-        });
-        this.ligaNotificacao();
-        this.fcm.onTokenRefresh().subscribe(token => {
-            //alert('token')
-            //alert('Novo token: ' + token);
-        });
-    }
 
 
 
-    private ligaNotificacao() {
-        //alert('Passou liga notificacaos');
+    private ligaReceptorNotificacao() {
+        alert('ligaReceptorNotificacao()');
         this.fcm.onNotification().subscribe(data => {
-            //alert('Recebeu notificacao-01: ' + JSON.stringify(data));
-            this.registraNotificacao(data.tokenNotificacao);
             if (data.wasTapped) {
-                //alert('Token:' + data.tokenNotificacao);
-                // Encapsular as chamadas de servidor ?
                 this.notificacaoAppSrv.RegistraAcesso(data.tokenNotificacao)
                     .subscribe((resultado) => {
                         //console.log('Resultado: ', resultado);
                     });
-                //alert('background-01');
-                //alert('Meu Token' + data.tokenNotificacao);
-            } else {
-                //alert('foreground-01');
             }
         });
     }
 
 
-    private registraNotificacao(token: string) {
-        this.storage.set("token", token).then((successData) => {
-        })
-    }
-    public mostraToken() {
-        this.storage.get("token").then((dado) => {
-            if (dado) {
-                alert('token:' + dado);
-            } else {
-                alert('token nao encontrado');
-            }
-        });
-    }
 
-    public obtemToken(visitanteCorrente: Visitante) {
-        var token = '112231213215415615151515'
-        console.log('Token fake: ', token);
-        visitanteCorrente.fcmToken = token;
-        visitanteCorrente.dataHoraNotificacao = new Date();
-        this.visitanteSrv.atualizaItem(visitanteCorrente.id, visitanteCorrente)
-            .subscribe((resultado: any) => {
-                console.log('Resultado:', resultado);
-            })
+
+
+
+    public testaDevice() {
+        alert('Testa device');
+        //console.log('Device: ' , JSON.stringify(this.device));
+        alert('Serial:' + this.device.serial);
+        alert('UUID:' + this.device.uuid);
+        alert('Plataforma:' + this.device.platform);
+        alert('SO:' + this.device.version);
+        alert('Modelo:' + this.device.model);
     }
 
 
-
-
+    /*
+    .subscribe(
+                (dispositvo:DispositivoUsuario) => {
+                    this.ligaReceptorNotificacao();
+                    this.registraVisitaApp(dispositvo.usuarioProduto.chave, versaoAppId);
+                },
+                erro => {
+                    this.inscreveFcm(versaoAppId)
+                }
+            )
+    */
 
 }
