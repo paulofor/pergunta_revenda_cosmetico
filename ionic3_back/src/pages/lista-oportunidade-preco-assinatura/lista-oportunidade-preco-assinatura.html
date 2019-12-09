@@ -8,6 +8,10 @@
 
 <ion-content padding class="quadroBase">
 
+  <ng-container *ngIf="!listaItem">
+    carregando...
+  </ng-container>
+
   <ng-container *ngIf="listaItem">
 
     <ion-card *ngIf="listaItem.length==0">

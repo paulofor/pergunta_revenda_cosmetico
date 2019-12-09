@@ -47,15 +47,15 @@ export abstract class ListaOportunidadeAssinaturaPageBase extends ComponenteBase
 	}
 
 	carregaLista() {
-		alert('OportunidadeDia.find: ' + JSON.stringify(this.getFiltro()));
+		//alert('OportunidadeDia.find: ' + JSON.stringify(this.getFiltro()));
 		this.srv.find(this.getFiltro())
 			.subscribe((resultado: OportunidadeDia[]) => {
-				alert('Result:' + JSON.stringify(resultado));
+				//alert('Result:' + JSON.stringify(resultado));
 				this.listaItem = resultado;
 				this.erroMsg = '';
 			},
 				(erro: any) => {
-					alert('Erro: ' + JSON.stringify(erro));
+					//alert('Erro: ' + JSON.stringify(erro));
 					if (erro == 'Server error') {
 						this.erroMsg = MSG_SEM_INTERNET;
 					}
