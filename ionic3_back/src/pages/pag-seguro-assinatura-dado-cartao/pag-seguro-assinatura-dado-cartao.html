@@ -12,6 +12,22 @@
 
 <ion-content padding>
   <form (ngSubmit)="enviar()">
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Mastercard</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Visa</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dinners</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    
     <ion-item>
       <ion-label floating>Nome no Cartão</ion-label>
       <ion-input [(ngModel)]="cartao.name" name="nome"></ion-input>

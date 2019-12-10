@@ -28,6 +28,9 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   ID_VERSAOAPP = 999;
   diasGratis;
 
+  mostra = true;
+  naoMostra = false;
+
   inicializacao() {
     this.obtemDiasGratis();
   }

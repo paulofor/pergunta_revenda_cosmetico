@@ -9,7 +9,9 @@
 <ion-content padding class="quadroBase">
 
   <ng-container *ngIf="!listaItem">
-    carregando...
+    <ion-content padding class="spinnerCenter">
+        <ion-spinner name="crescent"></ion-spinner>
+    </ion-content>
   </ng-container>
 
   <ng-container *ngIf="listaItem">
