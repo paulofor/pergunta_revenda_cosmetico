@@ -64,7 +64,12 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaDadoIdentificacaoPage');
+    this.inicializacao();
+  }
+
+  inicializacao() {
     this.sender = Assinatura.sender;
+    this.dataNascimento = new Date(2000,1,1,0,0,0,0);
   }
 
   avancar() {

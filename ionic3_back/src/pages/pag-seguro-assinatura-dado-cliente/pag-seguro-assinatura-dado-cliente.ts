@@ -45,6 +45,10 @@ export class PagSeguroAssinaturaDadoClientePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaDadoClientePage');
+    this.inicializacao();
+  }
+
+  inicializacao() {
     this.address = Assinatura.sender.address;
   }
 

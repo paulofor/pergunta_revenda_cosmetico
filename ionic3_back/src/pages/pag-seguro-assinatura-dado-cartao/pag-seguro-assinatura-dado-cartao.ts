@@ -22,11 +22,16 @@ declare var PagSeguroDirectPayment: any;
 export class PagSeguroAssinaturaDadoCartaoPage {
 
 
+  bandeiraVisa: boolean;
+  bandeiraMaster : boolean;
+  bandeiraDinners : boolean;
+
   erroNome: string;
   erroNumero: string;
   erroMes: string;
   erroAno: string;
   erroVerificador: string;
+  erroBandeira: string;
 
   codigoFinal = '';
 
@@ -45,6 +50,18 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi) {
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad PagSeguroAssinaturaDadoCartaoPage');
+    this.pagSrv.ObtemSessao()
+      .subscribe((resp) => {
+        console.log('Resp- Sessao:' + JSON.stringify(resp));
+        this.idSession = resp.idSessao;
+        this.obtemMeioPagamento(1.15);
+        this.obtemHashCliente();
+      })
+  }
+
+
   enviar() {
     this.obtemTokenCartao();
   }
@@ -56,23 +73,14 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   codigoHash = '';
   tokenCartao = '';
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PagSeguroAssinaturaDadoCartaoPage');
-    this.pagSrv.ObtemSessao()
-      .subscribe((resp) => {
-        console.log('Resp- Sessao:' + JSON.stringify(resp));
-        this.idSession = resp.idSessao;
-        this.obtemMeioPagamento(1.15);
-        this.obtemHashCliente();
-      })
-  }
+ 
  
   obtemMeioPagamento(valor:number) {
     PagSeguroDirectPayment.setSessionId(this.idSession);
     PagSeguroDirectPayment.getPaymentMethods({
       amount: valor,
       success: function (response) {
-        console.log('Meio pagto:' + JSON.stringify(response));
+        console.log('Meio pagto:' + response);
         this.obtemHashCliente();
       },
       error: function (response) {
@@ -99,28 +107,78 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
   obtemTokenCartao() {
     console.log('--> Chamou token card');
-    PagSeguroDirectPayment.createCardToken({
-      cardNumber: this.cartao.numero, // Número do cartão de crédito
-      brand: this.cartao.bandeira, // Bandeira do cartão
-      cvv: this.cartao.verificador, // CVV do cartão
-      expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
-      expirationYear: this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
-      success: function (response) {
-        // Retorna o cartão tokenizado.
-        console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
-        tokenGlobal = response.card.token;
-        console.log('Vai chamar finalizar');
-        this.finalizar();
+    if (this.validacao()) {
+      PagSeguroDirectPayment.createCardToken({
+        cardNumber: this.cartao.numero, // Número do cartão de crédito
+        brand: this.cartao.bandeira, // Bandeira do cartão
+        cvv: this.cartao.verificador, // CVV do cartão
+        expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
+        expirationYear: this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
+        success: function (response) {
+          // Retorna o cartão tokenizado.
+          console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
+          tokenGlobal = response.card.token;
+          console.log('Vai chamar finalizar');
+          this.finalizar();
+        },
+        error: function (response) {
+          console.log('TokenCard Erro:' + JSON.stringify(response));
+        },
+        complete: function (response) {
+          // Callback para todas chamadas.
+        }
+      });
+    }
+  }
 
-       
-      },
-      error: function (response) {
-        console.log('TokenCard Erro:' + JSON.stringify(response));
-      },
-      complete: function (response) {
-        // Callback para todas chamadas.
-      }
-    });
+
+ 
+
+  validacao() {
+    let saida = true;
+    if (!this.cartao.nome) {
+      this.erroNome = "Coloque o nome impresso em seu cartão";
+      saida = false;
+    } else {
+      this.erroNome = null;
+    }
+    if (!this.cartao.numero) {
+      this.erroNumero = "Coloque o número de seu cartão";
+      saida = false;
+    } else {
+      this.erroNumero = null;
+    }
+    if (!this.cartao.mesExpira) {
+      this.erroMes = "Coloque o mês de expiração de seu cartão";
+      saida = false;
+    } else {
+      this.erroMes = null;
+    }
+    if (!this.cartao.anoExpira) {
+      this.erroAno = "Coloque o ano de expiração de seu cartão";
+      saida = false;
+    } else {
+      this.erroAno = null;
+    }
+    if (!this.cartao.verificador) {
+      this.erroVerificador = "Coloque o dígito verificador de seu cartão";
+      saida = false;
+    } else {
+      this.erroVerificador = null;
+    }
+    if (!this.bandeiraVisa || !this.bandeiraMaster || !this.bandeiraDinners) {
+      this.erroBandeira = "Selecione a bandeira de seu cartão";
+      saida = false;
+    } else {
+      this.erroBandeira = null;
+      this.escolheBandeira();
+    }
+    return saida;
+  }
+  escolheBandeira() {
+    if (this.bandeiraDinners) this.cartao.bandeira = 'dinners';
+    if (this.bandeiraMaster) this.cartao.bandeira = 'mastercard';
+    if (this.bandeiraVisa) this.cartao.bandeira = 'visa';
   }
 
 
@@ -146,6 +204,28 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         if (result.code)
           this.codigoFinal = result.code;
       })
+  }
+
+
+  alteraMaster(valor) {
+    if (valor) {
+      this.bandeiraDinners = false;
+      this.bandeiraVisa = false;
+    } 
+  }
+
+  alteraVisa(valor) {
+    if (valor) {
+      this.bandeiraDinners = false;
+      this.bandeiraMaster = false;
+    }
+  }
+
+  alteraDinners(valor) {
+    if (valor) {
+      this.bandeiraMaster = false;
+      this.bandeiraVisa = false;
+    }
   }
 
 }
