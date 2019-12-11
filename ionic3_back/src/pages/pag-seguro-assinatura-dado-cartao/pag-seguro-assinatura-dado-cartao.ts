@@ -57,7 +57,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         console.log('Resp- Sessao:' + JSON.stringify(resp));
         this.idSession = resp.idSessao;
         this.obtemMeioPagamento(1.15);
-        this.obtemHashCliente();
+        //this.obtemHashCliente();
       })
   }
 
@@ -188,6 +188,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     this.cartao.mesExpira = '01';
     this.cartao.anoExpira = '2027';
     this.cartao.bandeira = 'visa';
+    this.cartao.nome = 'Paulo L Forestieri'
   }
 
   finalizar() {

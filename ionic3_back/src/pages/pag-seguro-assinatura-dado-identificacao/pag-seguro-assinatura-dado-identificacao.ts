@@ -26,10 +26,6 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
   erroCpf: string;
   erroNascimento: string;
 
-
-
-
-
   dataNascimento: Date;
 
   sender = {
@@ -69,7 +65,7 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
 
   inicializacao() {
     this.sender = Assinatura.sender;
-    this.dataNascimento = new Date(2000,1,1,0,0,0,0);
+    console.log('Data Nascimento' , this.dataNascimento);
   }
 
   avancar() {
