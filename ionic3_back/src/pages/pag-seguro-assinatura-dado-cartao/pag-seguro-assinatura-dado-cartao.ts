@@ -23,8 +23,8 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
 
   bandeiraVisa: boolean;
-  bandeiraMaster : boolean;
-  bandeiraDinners : boolean;
+  bandeiraMaster: boolean;
+  bandeiraDinners: boolean;
 
   erroNome: string;
   erroNumero: string;
@@ -36,16 +36,16 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   codigoFinal = '';
 
   cartao = {
-    "nome" : "",
-    "bandeira" : "",
-    "numero" : "",
-    "anoExpira" : "",
-    "mesExpira" : "" ,
-    "verificador" : ""
+    "nome": "",
+    "bandeira": "",
+    "numero": "",
+    "anoExpira": "",
+    "mesExpira": "",
+    "verificador": ""
   }
 
 
-  
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi) {
   }
@@ -57,7 +57,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         console.log('Resp- Sessao:' + JSON.stringify(resp));
         this.idSession = resp.idSessao;
         this.obtemMeioPagamento(1.15);
-        //this.obtemHashCliente();
+        this.obtemHashCliente();
       })
   }
 
@@ -65,7 +65,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   enviar() {
     this.obtemTokenCartao();
   }
- 
+
   // tratementos do cartao
 
 
@@ -73,14 +73,14 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   codigoHash = '';
   tokenCartao = '';
 
- 
- 
-  obtemMeioPagamento(valor:number) {
+
+
+  obtemMeioPagamento(valor: number) {
     PagSeguroDirectPayment.setSessionId(this.idSession);
     PagSeguroDirectPayment.getPaymentMethods({
       amount: valor,
       success: function (response) {
-        console.log('Meio pagto:' + response);
+        console.log('Meio pagto:' + JSON.stringify(response));
         this.obtemHashCliente();
       },
       error: function (response) {
@@ -90,7 +90,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       }
     });
   }
-  
+
   obtemHashCliente() {
     PagSeguroDirectPayment.setSessionId(this.idSession);
     console.log('--> Vai buscar o hash');
@@ -100,42 +100,53 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         console.log('onSender:' + response.message);
         return false;
       }
-      console.log('Hash: ' ,  response.senderHash);
+      console.log('Hash: ', response.senderHash);
       hashGlobal = response.senderHash;
     });
   }
 
   obtemTokenCartao() {
     console.log('--> Chamou token card');
-    if (this.validacao()) {
-      PagSeguroDirectPayment.createCardToken({
-        cardNumber: this.cartao.numero, // Número do cartão de crédito
-        brand: this.cartao.bandeira, // Bandeira do cartão
-        cvv: this.cartao.verificador, // CVV do cartão
-        expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
-        expirationYear: this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
-        success: function (response) {
-          // Retorna o cartão tokenizado.
-          console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
-          tokenGlobal = response.card.token;
-          console.log('Vai chamar finalizar');
-          this.finalizar();
-        },
-        error: function (response) {
-          console.log('TokenCard Erro:' + JSON.stringify(response));
-        },
-        complete: function (response) {
-          // Callback para todas chamadas.
-        }
-      });
-    }
+    PagSeguroDirectPayment.createCardToken({
+      cardNumber: this.cartao.numero, // Número do cartão de crédito
+      brand: this.cartao.bandeira, // Bandeira do cartão
+      cvv: this.cartao.verificador, // CVV do cartão
+      expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
+      expirationYear: this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
+      success: function (response) {
+        // Retorna o cartão tokenizado.
+        console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
+        tokenGlobal = response.card.token;
+        console.log('Vai chamar finalizar');
+        this.finalizar();
+
+       
+      },
+      error: function (response) {
+        console.log('TokenCard Erro:' + JSON.stringify(response));
+      },
+      complete: function (response) {
+        // Callback para todas chamadas.
+      }
+    });
+  }
+
+  trataSucessoTokenCard(resposta) {
+    
+  }
+
+  trataErroTokenCard(resposta) {
+    console.log('TokenCard Erro:' + JSON.stringify(resposta));
   }
 
 
- 
 
   validacao() {
     let saida = true;
+    console.log('cartao: ', JSON.stringify(this.cartao));
+    console.log('bandeiraVisa: ', this.bandeiraVisa);
+    console.log('bandeiraMaster: ', this.bandeiraMaster);
+    console.log('bandeiraDinners: ', this.bandeiraDinners);
     if (!this.cartao.nome) {
       this.erroNome = "Coloque o nome impresso em seu cartão";
       saida = false;
@@ -158,6 +169,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       this.erroAno = "Coloque o ano de expiração de seu cartão";
       saida = false;
     } else {
+      this.cartao.anoExpira = '20' + this.cartao.anoExpira;
       this.erroAno = null;
     }
     if (!this.cartao.verificador) {
@@ -166,29 +178,30 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     } else {
       this.erroVerificador = null;
     }
-    if (!this.bandeiraVisa || !this.bandeiraMaster || !this.bandeiraDinners) {
+    if (!this.bandeiraVisa && !this.bandeiraMaster && !this.bandeiraDinners) {
       this.erroBandeira = "Selecione a bandeira de seu cartão";
       saida = false;
     } else {
       this.erroBandeira = null;
       this.escolheBandeira();
     }
+    console.log('Saida: ', saida);
+    console.log('cartao-saida: ', JSON.stringify(this.cartao));
     return saida;
   }
   escolheBandeira() {
-    if (this.bandeiraDinners) this.cartao.bandeira = 'dinners';
-    if (this.bandeiraMaster) this.cartao.bandeira = 'mastercard';
+    if (this.bandeiraDinners) this.cartao.bandeira = 'DINERS';
+    if (this.bandeiraMaster) this.cartao.bandeira = 'MASTERCARD';
     if (this.bandeiraVisa) this.cartao.bandeira = 'visa';
   }
 
 
   preencher() {
-    this.cartao.numero = '123456789888';
-    this.cartao.verificador = '919';
+    this.cartao.numero = '4230750300477027';
+    this.cartao.verificador = '019';
     this.cartao.mesExpira = '01';
-    this.cartao.anoExpira = '2027';
+    this.cartao.anoExpira = '2024';
     this.cartao.bandeira = 'visa';
-    this.cartao.nome = 'Paulo L Forestieri'
   }
 
   finalizar() {
@@ -198,10 +211,10 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     Assinatura.paymentMethod.creditCard.holder.documents = Assinatura.sender.documents;
     Assinatura.sender.hash = hashGlobal;
     //Assinatura.paymentMethod.creditCard.holder.birthDate = Assinatura.sender.
-    console.log('Entrou em finalizar:' , Assinatura);
+    console.log('Entrou em finalizar:', Assinatura);
     this.pagSrv.AderePlanoTreino(Assinatura)
       .subscribe((result) => {
-        console.log('Result:' , result);
+        console.log('Result:', result);
         if (result.code)
           this.codigoFinal = result.code;
       })
@@ -212,7 +225,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     if (valor) {
       this.bandeiraDinners = false;
       this.bandeiraVisa = false;
-    } 
+    }
   }
 
   alteraVisa(valor) {
@@ -231,5 +244,5 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
 }
 
-export var tokenGlobal : string;
-export var hashGlobal : string;
+export var tokenGlobal: string;
+export var hashGlobal: string;

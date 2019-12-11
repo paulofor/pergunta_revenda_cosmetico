@@ -78,7 +78,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>CEP* (somente números)</ion-label>
-      <ion-input [(ngModel)]="address.postalCode" name="postalCode"></ion-input>
+      <ion-input maxlength="8" [(ngModel)]="address.postalCode" name="postalCode"></ion-input>
     </ion-item>
     <ion-item no-lines *ngIf="erroCep">
       <p class="erroMsg">{{erroCep}}</p>

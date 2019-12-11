@@ -33,7 +33,7 @@
       </ion-item>
       <ion-item>
         <ion-label floating>Nome no Cartão</ion-label>
-        <ion-input [(ngModel)]="cartao.name" name="nome"></ion-input>
+        <ion-input [(ngModel)]="cartao.nome" name="nome"></ion-input>
       </ion-item>
       <ion-item no-lines *ngIf="erroNome">
         <p class="erroMsg">{{erroNome}}</p>
@@ -47,14 +47,14 @@
       </ion-item>
       <ion-item>
         <ion-label floating>Mês de Expiracao</ion-label>
-        <ion-input [(ngModel)]="cartao.mesExpira" name="mesExpira"></ion-input>
+        <ion-input maxlength="2" [(ngModel)]="cartao.mesExpira" name="mesExpira"></ion-input>
       </ion-item>
       <ion-item no-lines *ngIf="erroMes">
         <p class="erroMsg">{{erroMes}}</p>
       </ion-item>
       <ion-item>
         <ion-label floating>Ano de Expiracao</ion-label>
-        <ion-input [(ngModel)]="cartao.anoExpira" name="anoExpira"></ion-input>
+        <ion-input maxlength="2" [(ngModel)]="cartao.anoExpira" name="anoExpira"></ion-input>
       </ion-item>
       <ion-item no-lines *ngIf="erroAno">
         <p class="erroMsg">{{erroAno}}</p>
