@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="titulo">
+    <ion-title>Oportunidades do Dia</ion-title>
+    <ion-title>Período gratuito: {{diasGratis}}</ion-title>
+    <button ion-button outline color="light" (click)="inicioFluxo()">Assinar (4,99 ao mês)</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="quadroBase">
+
+  <ng-container *ngIf="!listaItem">
+    <ion-content padding class="spinnerCenter">
+        <ion-spinner name="crescent"></ion-spinner>
+    </ion-content>
+  </ng-container>
+
+  <ng-container *ngIf="listaItem">
+
+    <ion-card *ngIf="listaItem.length==0">
+      <ion-card-header>
+        Nenhum item encontrado
+      </ion-card-header>
+
+    </ion-card>
+
+    <ion-list *ngIf="listaItem.length>0">
+
+      <ion-card *ngFor="let item of listaItem">
+        <ion-card-content text-wrap>
+          <h2 class="texto-produto" style="word-wrap: normal">{{item.nomeProduto}}</h2>
+          <img src="{{item.imagemProduto}}">
+          <h3 class="texto-preco">Sugestão de venda: R$ {{item.precoSugestao | number: '1.2-2' }}</h3>
+          <h3 class="texto-preco">Preço na loja: R$ {{item.precoVendaAtual | number: '1.2-2' }}</h3>
+          <h3 class="texto-preco" *ngIf="top50(item)">Top 50 - Vendas</h3>
+          <h3 class="texto-loja">Loja: {{item.nomeLojaVirtual}}</h3>
+          <a button href="{{item.urlProduto}}" rounded ion-button>Ir para loja</a>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-list>
+
+  </ng-container>
