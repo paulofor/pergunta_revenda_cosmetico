@@ -15,6 +15,7 @@ import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-ass
 import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 import { timer } from 'rxjs/observable/timer';
 import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
+import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
 
 @Component({
   templateUrl: 'app.html'

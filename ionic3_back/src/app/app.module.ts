@@ -42,6 +42,7 @@ import localePt from '@angular/common/locales/pt';
 import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
 import { UsuarioProdutoApi } from '../shared/sdk/services/custom/UsuarioProduto';
+import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -62,7 +63,8 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeAssinaturaPage,
 	
     ListaOportunidadeGenericaPage,
-    ListaOportunidadePrecoAssinaturaPage
+    ListaOportunidadePrecoAssinaturaPage,
+    InicioFluxoPage
 	
   ],
   imports: [
@@ -91,7 +93,8 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeAssinaturaPage,
 	
     ListaOportunidadeGenericaPage,
-    ListaOportunidadePrecoAssinaturaPage
+    ListaOportunidadePrecoAssinaturaPage,
+    InicioFluxoPage
 	
   ],
   providers: [

@@ -50,7 +50,6 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   }
 
   inicioFluxo() {
-    //this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
     this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
   }
 

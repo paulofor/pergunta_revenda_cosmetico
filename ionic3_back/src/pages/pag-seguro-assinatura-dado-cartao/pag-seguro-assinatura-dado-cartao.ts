@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Assinatura } from '../../shared/assinatura';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 
+
 /**
  * Generated class for the PagSeguroAssinaturaDadoCartaoPage page.
  *
@@ -21,22 +22,14 @@ declare var PagSeguroDirectPayment: any;
 
 export class PagSeguroAssinaturaDadoCartaoPage {
 
-
   bandeiraVisa: boolean;
   bandeiraMaster: boolean;
   bandeiraDinners: boolean;
 
-  erroNome: string;
-  erroNumero: string;
-  erroMes: string;
-  erroAno: string;
-  erroVerificador: string;
-  erroBandeira: string;
-
   codigoFinal = '';
 
   cartao = {
-    "nome": "",
+    "nomeCartao": "",
     "bandeira": "",
     "numero": "",
     "anoExpira": "",
@@ -50,20 +43,10 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PagSeguroAssinaturaDadoCartaoPage');
-    this.pagSrv.ObtemSessao()
-      .subscribe((resp) => {
-        console.log('Resp- Sessao:' + JSON.stringify(resp));
-        this.idSession = resp.idSessao;
-        this.obtemMeioPagamento(1.15);
-        //this.obtemHashCliente();
-      })
-  }
-
-
   enviar() {
-    this.obtemTokenCartao();
+    if (this.validacao()) {
+      this.obtemTokenCartao();
+    }
   }
 
   // tratementos do cartao
@@ -73,7 +56,23 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   codigoHash = '';
   tokenCartao = '';
 
+  erroNome: string;
+  erroNumero: string;
+  erroMes: string;
+  erroAno: string;
+  erroVerificador: string;
+  erroBandeira: string;
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TestePagSeguroPage');
+    this.pagSrv.ObtemSessao()
+      .subscribe((resp) => {
+        console.log('Resp- Sessao:' + JSON.stringify(resp));
+        this.idSession = resp.idSessao;
+        this.obtemMeioPagamento(1.15);
+        this.obtemHashCliente();
+      })
+  }
 
   obtemMeioPagamento(valor: number) {
     PagSeguroDirectPayment.setSessionId(this.idSession);
@@ -81,7 +80,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       amount: valor,
       success: function (response) {
         console.log('Meio pagto:' + JSON.stringify(response));
-        this.obtemHashCliente();
+        //this.obtemHashCliente();
       },
       error: function (response) {
         console.log('MeioPgto Falha:' + JSON.stringify(response));
@@ -101,26 +100,30 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         return false;
       }
       console.log('Hash: ', response.senderHash);
-      hashGlobal = response.senderHash;
+      //hashGlobal = response.senderHash;
+      Assinatura.sender.hash = response.senderHash;
     });
   }
 
   obtemTokenCartao() {
+    //this.escolheBandeira();
     console.log('--> Chamou token card');
     PagSeguroDirectPayment.createCardToken({
       cardNumber: this.cartao.numero, // Número do cartão de crédito
       brand: this.cartao.bandeira, // Bandeira do cartão
       cvv: this.cartao.verificador, // CVV do cartão
-      expirationMonth: '20' + this.cartao.mesExpira, // Mês da expiração do cartão
-      expirationYear: this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
+      expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
+      expirationYear: '20' + this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
       success: function (response) {
         // Retorna o cartão tokenizado.
         console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
         tokenGlobal = response.card.token;
+        Assinatura.paymentMethod.creditCard.token = response.card.token;
         console.log('Vai chamar finalizar');
-        this.finalizar();
+        console.log('Token Global: ', tokenGlobal);
+        //this.finalizar();
 
-       
+
       },
       error: function (response) {
         console.log('TokenCard Erro:' + JSON.stringify(response));
@@ -131,23 +134,13 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     });
   }
 
-  trataSucessoTokenCard(resposta) {
-    
-  }
-
-  trataErroTokenCard(resposta) {
-    console.log('TokenCard Erro:' + JSON.stringify(resposta));
-  }
 
 
 
   validacao() {
     let saida = true;
     console.log('cartao: ', JSON.stringify(this.cartao));
-    console.log('bandeiraVisa: ', this.bandeiraVisa);
-    console.log('bandeiraMaster: ', this.bandeiraMaster);
-    console.log('bandeiraDinners: ', this.bandeiraDinners);
-    if (!this.cartao.nome) {
+    if (!this.cartao.nomeCartao) {
       this.erroNome = "Coloque o nome impresso em seu cartão";
       saida = false;
     } else {
@@ -192,20 +185,23 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
 
 
+
   preencher() {
-    this.cartao.numero = '4230750300477027';
-    this.cartao.verificador = '019';
+    this.cartao.numero = '4230750301865915';
+    this.cartao.verificador = '997';
     this.cartao.mesExpira = '01';
-    this.cartao.anoExpira = '2024';
-    this.cartao.bandeira = 'visa';
+    this.cartao.anoExpira = '27';
+    this.cartao.nomeCartao = 'PAULO L FORESTIERI';
   }
 
   finalizar() {
+
     Assinatura.paymentMethod.creditCard.holder.phone = Assinatura.sender.phone;
-    Assinatura.paymentMethod.creditCard.token = tokenGlobal;
-    Assinatura.paymentMethod.creditCard.holder.name = Assinatura.sender.name;
+    //Assinatura.paymentMethod.creditCard.token = tokenGlobal;
+    //Assinatura.paymentMethod.creditCard.holder.name = Assinatura.sender.name;
+    Assinatura.paymentMethod.creditCard.holder.name = this.cartao.nomeCartao;
     Assinatura.paymentMethod.creditCard.holder.documents = Assinatura.sender.documents;
-    Assinatura.sender.hash = hashGlobal;
+    //Assinatura.sender.hash = hashGlobal;
     //Assinatura.paymentMethod.creditCard.holder.birthDate = Assinatura.sender.
     console.log('Entrou em finalizar:', Assinatura);
     this.pagSrv.AderePlanoTreino(Assinatura)
@@ -241,7 +237,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   escolheBandeira() {
     if (this.bandeiraDinners) this.cartao.bandeira = 'DINERS';
     if (this.bandeiraMaster) this.cartao.bandeira = 'MASTERCARD';
-    if (this.bandeiraVisa) this.cartao.bandeira = 'VISA';
+    if (this.bandeiraVisa) this.cartao.bandeira = 'visa';
   }
 
 }
