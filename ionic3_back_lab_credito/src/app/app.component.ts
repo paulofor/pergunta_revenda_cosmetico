@@ -23,7 +23,7 @@ import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = InicioFluxoPage;
+  rootPage: any = ListaOportunidadePrecoAssinaturaPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
@@ -41,7 +41,7 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      //this.fcmSrv.executaValidacao(VERSAO_APP_ID);
+      this.fcmSrv.executaValidacao(VERSAO_APP_ID);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       timer(3000).subscribe(() => this.showSplash = false)

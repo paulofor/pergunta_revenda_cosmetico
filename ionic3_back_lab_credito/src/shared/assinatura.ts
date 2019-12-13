@@ -1,7 +1,7 @@
 
 
 export var Assinatura = {
-    "plan": "1C6706EE27273298846D2FAC6EA0FEEE ",
+    "plan": "E92722E0F7F7BB5CC4DB8F82ACF92613",
     "sender": {
         "name": "",
         "email": "",

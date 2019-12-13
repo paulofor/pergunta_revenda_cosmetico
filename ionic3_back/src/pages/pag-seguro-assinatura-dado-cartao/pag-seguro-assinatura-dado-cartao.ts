@@ -57,7 +57,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         console.log('Resp- Sessao:' + JSON.stringify(resp));
         this.idSession = resp.idSessao;
         this.obtemMeioPagamento(1.15);
-        this.obtemHashCliente();
+        //this.obtemHashCliente();
       })
   }
 
@@ -111,7 +111,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       cardNumber: this.cartao.numero, // Número do cartão de crédito
       brand: this.cartao.bandeira, // Bandeira do cartão
       cvv: this.cartao.verificador, // CVV do cartão
-      expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
+      expirationMonth: '20' + this.cartao.mesExpira, // Mês da expiração do cartão
       expirationYear: this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
       success: function (response) {
         // Retorna o cartão tokenizado.
@@ -169,7 +169,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       this.erroAno = "Coloque o ano de expiração de seu cartão";
       saida = false;
     } else {
-      this.cartao.anoExpira = '20' + this.cartao.anoExpira;
+      this.cartao.anoExpira = this.cartao.anoExpira;
       this.erroAno = null;
     }
     if (!this.cartao.verificador) {
@@ -189,11 +189,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     console.log('cartao-saida: ', JSON.stringify(this.cartao));
     return saida;
   }
-  escolheBandeira() {
-    if (this.bandeiraDinners) this.cartao.bandeira = 'DINERS';
-    if (this.bandeiraMaster) this.cartao.bandeira = 'MASTERCARD';
-    if (this.bandeiraVisa) this.cartao.bandeira = 'visa';
-  }
+
 
 
   preencher() {
@@ -217,6 +213,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         console.log('Result:', result);
         if (result.code)
           this.codigoFinal = result.code;
+          alert('Codigo Final: ' + this.codigoFinal);
       })
   }
 
@@ -240,6 +237,11 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       this.bandeiraMaster = false;
       this.bandeiraVisa = false;
     }
+  }
+  escolheBandeira() {
+    if (this.bandeiraDinners) this.cartao.bandeira = 'DINERS';
+    if (this.bandeiraMaster) this.cartao.bandeira = 'MASTERCARD';
+    if (this.bandeiraVisa) this.cartao.bandeira = 'VISA';
   }
 
 }
