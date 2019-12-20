@@ -155,8 +155,8 @@ TODO Fix Merge Conflict */
         paramValue = typeof paramValue === 'object' ? JSON.stringify(paramValue) : paramValue;
         httpParams = httpParams.append(paramKey, paramValue);
       });
-      console.log('url2:', url);
-      url = 'https:' + url;
+      //console.log('url2:', url);
+      //url = 'https:' + url;
       let request = new HttpRequest(method, `${url}${queryString}`, body, {
         headers        : headers,
         params         : httpParams,
