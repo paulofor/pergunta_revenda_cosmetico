@@ -43,6 +43,7 @@ import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidad
 import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
 import { UsuarioProdutoApi } from '../shared/sdk/services/custom/UsuarioProduto';
 import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
+import { PagSeguroAssinaturaConfirmacaoPage } from '../pages/pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -56,6 +57,7 @@ registerLocaleData(localePt, 'pt-BR');
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
+    PagSeguroAssinaturaConfirmacaoPage,
     ListaOportunidadePage,
 	
     ListaOportunidadePrecoPage,
@@ -86,6 +88,7 @@ registerLocaleData(localePt, 'pt-BR');
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
+    PagSeguroAssinaturaConfirmacaoPage,
     ListaOportunidadePage,
 	
     ListaOportunidadePrecoPage,

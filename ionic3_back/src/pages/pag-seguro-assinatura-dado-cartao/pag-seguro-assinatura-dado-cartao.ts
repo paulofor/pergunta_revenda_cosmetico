@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ɵCodegenComponentFactoryResolver } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Assinatura } from '../../shared/assinatura';
+import { Assinatura, Cartao } from '../../shared/assinatura';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
+import { PagSeguroAssinaturaConfirmacaoPage } from '../pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
+import { PagSeguroAssinaturaDadoClientePage } from '../pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
 
 
 /**
@@ -45,7 +47,21 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
   enviar() {
     if (this.validacao()) {
-      this.obtemTokenCartao();
+      this.obtemTokenCartao()
+        .then((result) => {
+          console.log('Then' , result);
+          Cartao.anoExpira = this.cartao.anoExpira;
+          Cartao.bandeira = this.cartao.bandeira;
+          Cartao.mesExpira = this.cartao.mesExpira;
+          Cartao.nomeCartao = this.cartao.nomeCartao;
+          Cartao.numero = this.cartao.numero;
+          Cartao.verificador = this.cartao.verificador;
+
+          this.navCtrl.push(PagSeguroAssinaturaConfirmacaoPage);
+        })
+        .catch((result) => {
+          console.log('Catch' , result);
+        })
     }
   }
 
@@ -105,6 +121,35 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     });
   }
 
+
+
+  obtemTokenCartao(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      PagSeguroDirectPayment.createCardToken({
+        cardNumber: this.cartao.numero, // Número do cartão de crédito
+        brand: this.cartao.bandeira, // Bandeira do cartão
+        cvv: this.cartao.verificador, // CVV do cartão
+        expirationMonth: this.cartao.mesExpira, // Mês da expiração do cartão
+        expirationYear: '20' + this.cartao.anoExpira, // Ano da expiração do cartão, é necessário os 4 dígitos.
+        success: (response) => {
+          console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
+          Assinatura.paymentMethod.creditCard.token = response.card.token;
+          console.log('Vai chamar finalizar');
+          console.log('This:', this);
+          console.log('NavCtrl:', this.navCtrl);
+          Assinatura.paymentMethod.creditCard.holder.phone = Assinatura.sender.phone;
+          Assinatura.paymentMethod.creditCard.holder.name = this.cartao.nomeCartao;
+          Assinatura.paymentMethod.creditCard.holder.documents = Assinatura.sender.documents;
+          resolve(response.card.token);
+        },
+        error(error) {
+          reject(error)
+        }
+      })
+    });
+  }
+
+  /*
   obtemTokenCartao() {
     //this.escolheBandeira();
     console.log('--> Chamou token card');
@@ -117,13 +162,15 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       success: function (response) {
         // Retorna o cartão tokenizado.
         console.log('TokenCard Sucesso:' + JSON.stringify(response.card.token));
-        tokenGlobal = response.card.token;
         Assinatura.paymentMethod.creditCard.token = response.card.token;
         console.log('Vai chamar finalizar');
-        console.log('Token Global: ', tokenGlobal);
-        //this.finalizar();
+        console.log('This:', this);
+        console.log('NavCtrl:', this.navCtrl);
+        Assinatura.paymentMethod.creditCard.holder.phone = Assinatura.sender.phone;
+        Assinatura.paymentMethod.creditCard.holder.name = this.cartao.nomeCartao;
+        Assinatura.paymentMethod.creditCard.holder.documents = Assinatura.sender.documents;
 
-
+        this.navCtrl.push(PagSeguroAssinaturaConfirmacaoPage);
       },
       error: function (response) {
         console.log('TokenCard Erro:' + JSON.stringify(response));
@@ -133,7 +180,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
       }
     });
   }
-
+  */
 
 
 
@@ -184,6 +231,10 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   }
 
 
+  voltar() {
+    //this.navCtrl.push(PagSeguroAssinaturaDadoClientePage);
+    this.navCtrl.pop();
+  }
 
 
   preencher() {
@@ -195,21 +246,13 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   }
 
   finalizar() {
-
-    Assinatura.paymentMethod.creditCard.holder.phone = Assinatura.sender.phone;
-    //Assinatura.paymentMethod.creditCard.token = tokenGlobal;
-    //Assinatura.paymentMethod.creditCard.holder.name = Assinatura.sender.name;
-    Assinatura.paymentMethod.creditCard.holder.name = this.cartao.nomeCartao;
-    Assinatura.paymentMethod.creditCard.holder.documents = Assinatura.sender.documents;
-    //Assinatura.sender.hash = hashGlobal;
-    //Assinatura.paymentMethod.creditCard.holder.birthDate = Assinatura.sender.
     console.log('Entrou em finalizar:', Assinatura);
     this.pagSrv.AderePlanoTreino(Assinatura)
       .subscribe((result) => {
         console.log('Result:', result);
         if (result.code)
           this.codigoFinal = result.code;
-          alert('Codigo Final: ' + this.codigoFinal);
+        alert('Codigo Final: ' + this.codigoFinal);
       })
   }
 
@@ -242,5 +285,3 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
 }
 
-export var tokenGlobal: string;
-export var hashGlobal: string;

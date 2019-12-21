@@ -65,6 +65,7 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
 
   inicializacao() {
     this.sender = Assinatura.sender;
+    this.dataNascimento = new Date(2014, 1, 1);
     console.log('Data Nascimento' , this.dataNascimento);
   }
 

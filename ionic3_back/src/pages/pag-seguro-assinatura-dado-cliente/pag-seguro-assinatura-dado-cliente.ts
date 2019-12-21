@@ -58,7 +58,8 @@ export class PagSeguroAssinaturaDadoClientePage {
     }
   }
   voltar() {
-    this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
+    //this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
+    this.navCtrl.pop();
   }
 
   preencher() {

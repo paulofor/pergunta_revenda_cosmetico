@@ -11,6 +11,25 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="assinatura" padding>
+  <ion-label>Nome: {{assinatura.sender.name}}</ion-label>
+  <ion-label>Email: {{assinatura.sender.email}}</ion-label>
+  <ion-label>Tel: {{assinatura.sender.phone.areaCode}}-{{assinatura.sender.phone.number}}</ion-label>
+  <ion-label>Cpf: {{assinatura.sender.documents[0].value}}</ion-label>
+  <ion-label>Data Nascimento: {{assinatura.paymentMethod.creditCard.holder.birthDate}}</ion-label>
+  <ion-label></ion-label>
+  <ion-label>Endereço:</ion-label>
+  <ion-label>{{assinatura.sender.address.street}}, {{assinatura.sender.address.number}} {{assinatura.sender.address.complement}}</ion-label>
+  <ion-label>{{assinatura.sender.address.district}} - {{assinatura.sender.address.city}} ({{assinatura.sender.address.state}})</ion-label>
+  <ion-label>{{assinatura.sender.address.postalCode}}</ion-label>
+  <ion-label></ion-label>
+  <ion-label>Cartão</ion-label>
+  <ion-label>Nome: {{cartao.nomeCartao}}</ion-label>
+  <ion-label>Número: {{cartao.numero}}</ion-label>
+  <ion-label>Validade: {{cartao.mesExpira}}/{{cartao.anoExpira}}</ion-label>
+  <ion-label>Cvv: {{cartao.verificador}}</ion-label>
+  <ion-label>Bandeira: {{getBandeira()}}</ion-label>
 
+  <button ion-button (click)="voltar()">Voltar</button>
+  <button ion-button (click)="enviar()">Confirmar</button>
 </ion-content>

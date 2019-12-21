@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="enviar()">
+  <form>
     <ion-item-group>
       <ion-item>
         <ion-label>Mastercard</ion-label>
@@ -65,8 +65,12 @@
       <p class="erroMsg">{{erroVerificador}}</p>
     </ion-item>
 
-    <button ion-button type="submit" block>Enviar</button>
+
+    <button ion-button (click)="voltar()">Voltar</button>
+    <button ion-button (click)="enviar()">Avançar</button>
+
+    
   </form>
 
-  <button ion-button block (click)="finalizar()">Finaliza Pô</button>
+  
 </ion-content>
