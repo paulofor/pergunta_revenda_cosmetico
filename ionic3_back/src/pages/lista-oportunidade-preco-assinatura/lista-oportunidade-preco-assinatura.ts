@@ -58,7 +58,7 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   obtemDiasGratis() {
     //alert('obtemDiasGratis()')
     this.storage.get("chave").then((chave) => {
-      alert('chaveObtemDiasGratis():' + chave);
+      //alert('chaveObtemDiasGratis():' + chave);
       this.usuarioSrv.PeriodoGratuito(chave)
         .subscribe(
           (result) => {

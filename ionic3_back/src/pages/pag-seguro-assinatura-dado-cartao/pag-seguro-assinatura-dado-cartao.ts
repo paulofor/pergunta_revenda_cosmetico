@@ -62,6 +62,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   }
 
   enviar() {
+    this.exibeLoading = true;
     if (this.validacao()) {
       this.obtemTokenCartao()
         .then((result) => {
@@ -72,13 +73,16 @@ export class PagSeguroAssinaturaDadoCartaoPage {
           Cartao.nomeCartao = this.cartao.nomeCartao;
           Cartao.numero = this.cartao.numero;
           Cartao.verificador = this.cartao.verificador;
-
+          this.exibeLoading = false;
           this.navCtrl.push(PagSeguroAssinaturaConfirmacaoPage);
         })
         .catch((result) => {
           console.log('Catch' , result);
           this.erroServidor = this.trataErro(result.errors);
+          this.exibeLoading = false;
         })
+    } else {
+      this.exibeLoading = false;
     }
   }
 

@@ -27,6 +27,8 @@ export class PagSeguroAssinaturaConfirmacaoPage {
 
   erroServidor: String = '';
 
+  exibeLoading: boolean = false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               private pagSrv: PagSeguroApi, private storage:Storage, private usuarioSrv: UsuarioProdutoApi) {
   }
@@ -50,16 +52,19 @@ export class PagSeguroAssinaturaConfirmacaoPage {
   }
 
   enviar() {
+    this.exibeLoading = true;
     console.log('Entrou em finalizar:', Assinatura);
     this.pagSrv.AderePlanoTreino(Assinatura)
       .subscribe((result) => {
         console.log('Result:', result);
         if (result.error) {
           this.erroServidor = this.trataErro(result.errors);
+          this.exibeLoading = false;
         }
         if (result.code) {
           this.usuarioSrv.RegistraAssinatura(this.chave,result.code)
             .subscribe((result) => {
+                this.exibeLoading = false;
                 this.navCtrl.push(PagSeguroAssinaturaSucessoPage);
             })
         }

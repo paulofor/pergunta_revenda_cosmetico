@@ -10,6 +10,9 @@
   </ion-navbar>
 </ion-header>
 
+<ion-content *ngIf="exibeLoading" class="quadroCarregando spinnerCenter" padding>
+  <ion-spinner name="crescent"></ion-spinner>
+</ion-content>
 
 <ion-content *ngIf="assinatura" padding>
   <ion-label></ion-label>
