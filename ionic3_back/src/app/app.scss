@@ -58,3 +58,9 @@
     border-bottom: 2px solid #e1e1e1 !important; // faz divisao nos itens da lista
     padding: 0px !important; // coloca o texto igual ao h3 de um card, para dar uniformidade
 }
+
+.quadroCarregando {
+    background-color:#a4a2aa;
+    z-index: 1;
+    opacity: 0.3;
+}
