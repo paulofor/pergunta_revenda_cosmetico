@@ -32,6 +32,10 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   mostra = true;
   naoMostra = false;
 
+  // Status Cliente
+  periodoGratuito = true;
+  assinante = false;
+
   inicializacao() {
     this.obtemDiasGratis();
   }
@@ -63,6 +67,8 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
         .subscribe(
           (result) => {
             this.diasGratis = result.dias + ' dias';
+            this.periodoGratuito = this.verificaPeriodoGratuito(result);
+            this.assinante = this.verificaAssinante(result);
           },
           (erro) => {
             //alert('Erro-ObtemDias: ' + JSON.stringify(erro));
@@ -71,6 +77,20 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
         )
     });
   }
+
+  verificaPeriodoGratuito(result:any) : boolean {
+    if (result.dias > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  verificaAssinante(resultado:any) : boolean {
+    let saida = false;
+    if (resultado.status == 'ACTIVE') saida = true;
+    return saida;
+  }
+
 
   registraFake() {
     console.log('Chamou registra fake');
