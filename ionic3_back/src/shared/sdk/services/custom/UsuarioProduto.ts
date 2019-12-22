@@ -533,7 +533,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    */
   public CadastraLogin(usuario: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = UsuarioProdutoApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/UsuarioProdutos/cadastraLogin";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -543,6 +543,19 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
     return result;
   }
 
+
+  public RegistraAssinatura(chaveUsuario: any = {}, pagSeguroId: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = UsuarioProdutoApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
+    "/UsuarioProdutos/registraAssinatura";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (typeof chaveUsuario !== 'undefined' && chaveUsuario !== null) _urlParams.chaveUsuario = chaveUsuario;
+    if (typeof pagSeguroId !== 'undefined' && pagSeguroId !== null) _urlParams.pagSeguroId = pagSeguroId;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
   /**
    * <em>
          * (The remote method definition does not provide any description.)

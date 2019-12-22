@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Assinatura, Cartao } from '../../shared/assinatura';
-
+import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
+import { Storage } from '@ionic/storage';
+import { PagSeguroAssinaturaSucessoPage } from '../pag-seguro-assinatura-sucesso/pag-seguro-assinatura-sucesso';
 /**
  * Generated class for the PagSeguroAssinaturaConfirmacaoPage page.
  *
@@ -20,13 +23,22 @@ export class PagSeguroAssinaturaConfirmacaoPage {
   assinatura : any;
   cartao : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  chave : String;
+
+  erroServidor: String = '';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              private pagSrv: PagSeguroApi, private storage:Storage, private usuarioSrv: UsuarioProdutoApi) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaConfirmacaoPage');
     this.assinatura = Assinatura;
     this.cartao = Cartao;
+    this.storage.get("chave")
+      .then((chave) => {
+        this.chave = chave;
+      });
   }
 
   getBandeira() : string {
@@ -37,11 +49,47 @@ export class PagSeguroAssinaturaConfirmacaoPage {
     return saida;
   }
 
-  confirmar() {
-
+  enviar() {
+    console.log('Entrou em finalizar:', Assinatura);
+    this.pagSrv.AderePlanoTreino(Assinatura)
+      .subscribe((result) => {
+        console.log('Result:', result);
+        if (result.error) {
+          this.erroServidor = this.trataErro(result.errors);
+        }
+        if (result.code) {
+          this.usuarioSrv.RegistraAssinatura(this.chave,result.code)
+            .subscribe((result) => {
+                this.navCtrl.push(PagSeguroAssinaturaSucessoPage);
+            })
+        }
+      })
   }
+
   voltar() {
     this.navCtrl.pop();
+  }
+
+  trataErro(erro:any) : string{
+    if (erro[53048]) return 'Erro na data de nascimento';
+    if (erro[10003] || erro[10026] || erro[10050]) return 'Erro no email';
+    if (erro[10025] || erro[10049]) return 'Erro no nome';
+    if (erro[11013] ) return 'Erro no DDD de telefone';
+    if (erro[11014] || erro[19014]) return 'Erro no número de telefone';
+    if (erro[17065] | erro[50103] || erro[61008] || erro[61009] || erro[61010] | erro[61011]) return 'Erro no cpf';
+    if (erro[17070] ) return 'Erro no endereço';
+    if (erro[19001] ) return 'Erro no CEP do endereço';
+    if (erro[19002] ) return 'Erro no nome de rua do endereço';
+    if (erro[19003] || erro[50105]) return 'Erro no número de rua do endereço';
+    if (erro[19004] ) return 'Erro no complemento de endereço';
+    if (erro[19005] || erro[50106]) return 'Erro no bairro do endereço';
+    if (erro[19006] || erro[50108]) return 'Erro na cidade do endereço';
+    if (erro[19007] || erro[57038]) return 'Erro no estado do endereço'
+    if (erro[19008] || erro[50107]) return 'Erro no pais do endereço';
+    if (erro[53042] ) return 'Erro no nome do titular do cartão de crédito';
+
+    return 'Erro nos dados';
+   
   }
 
 }

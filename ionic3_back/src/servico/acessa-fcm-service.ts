@@ -50,10 +50,12 @@ export class AcessaFcmService {
         //alert('executaValidacao(versaoAppId: number)');
         this.storage.get("chave").then((dado) => {
             if (dado) {
+                console.log('Possui chaveCliente:', dado);
                 //alert('Recuperou Chave');
                 this.ligaReceptorNotificacao();
                 this.registraVisitaApp(dado, versaoAppId);
             } else {
+                console.log('Não possui chaveClient');
                 //alert('Dado null');
                 //this.obtemTokenDispostivoUsuario(versaoAppId);
                 this.executaValidacaoRemote(versaoAppId);
@@ -64,14 +66,16 @@ export class AcessaFcmService {
 
     public executaValidacaoRemote(versaoAppId: number) {
         let filtro = { "include": "usuarioProduto", "where": { "and": [{ "uuid": this.device.uuid }] } }
-        //alert('Filtro: ' + JSON.stringify(filtro));
+        console.log('Tentativa recuperação chave por uuid: ', this.device.uuid);
         this.dispositivoUsuarioSrv.findOneItem(filtro)
             .subscribe(
-                (dispositvo:DispositivoUsuario) => {
+                (dispositvo: DispositivoUsuario) => {
+                    console.log('Encontrou usuario por uuid');
                     this.ligaReceptorNotificacao();
                     this.registraVisitaApp(dispositvo.usuarioProduto.chave, versaoAppId);
                 },
                 erro => {
+                    console.log('Não encontrou usuario por uuid');
                     this.inscreveFcm(versaoAppId)
                 }
             )
@@ -81,7 +85,6 @@ export class AcessaFcmService {
 
 
     private registraMobile(chave, versaoAppId) {
-        //alert('registraMobile(chave, versaoAppId)');
         this.storage.set("chave", chave).then((successData) => {
             this.registraVisitaApp(chave, versaoAppId);
         })
@@ -97,16 +100,13 @@ export class AcessaFcmService {
 
 
     private inscreveFcm(versaoAppId: number) {
-        //alert('inscreveFcm(versaoAppId: number)');
         this.fcm.subscribeToTopic('novo');
         this.fcm.getToken().then(token => {
-            //alert('Meu token:' + token);
             this.registraTokenFcm(token, versaoAppId);
 
         });
         this.ligaReceptorNotificacao();
         this.fcm.onTokenRefresh().subscribe(token => {
-            //alert('Novo token: ' + token);
             this.registraTokenFcm(token, versaoAppId);
         });
     }
@@ -120,12 +120,15 @@ export class AcessaFcmService {
         dispositivoUsuario.fabricante = this.device.manufacturer;
         dispositivoUsuario.serial = this.device.serial;
         dispositivoUsuario.uuid = this.device.uuid;
-        this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
-            .subscribe((resultado: any) => {
-                this.registraMobile(resultado, versaoAppId);
-            })
+        this.criaComUsuario(dispositivoUsuario, versaoAppId);
     }
 
+    public criaComUsuario(dispositivo: DispositivoUsuario, versaoApp) {
+        this.dispositivoUsuarioSrv.CriaComUsuario(dispositivo)
+            .subscribe((resultado: any) => {
+                this.registraMobile(resultado, versaoApp);
+            })
+    }
 
 
     private ligaReceptorNotificacao() {
@@ -138,20 +141,6 @@ export class AcessaFcmService {
                     });
             }
         });
-    }
-
-
-
-
-
-
-    public testaDevice() {
-        //alert('Testa device');
-        //alert('Serial:' + this.device.serial);
-        //alert('UUID:' + this.device.uuid);
-        //alert('Plataforma:' + this.device.platform);
-        //alert('SO:' + this.device.version);
-        //alert('Modelo:' + this.device.model);
     }
 
 

@@ -28,6 +28,8 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   bandeiraMaster: boolean;
   bandeiraDinners: boolean;
 
+  erroServidor : string;
+
   codigoFinal = '';
 
   cartao = {
@@ -40,7 +42,21 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   }
 
 
+  // tratementos do cartao
 
+
+  idSession = '';
+  codigoHash = '';
+  tokenCartao = '';
+
+  erroNome: string;
+  erroNumero: string;
+  erroMes: string;
+  erroAno: string;
+  erroVerificador: string;
+  erroBandeira: string;
+
+  exibeLoading : boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi) {
   }
@@ -61,23 +77,18 @@ export class PagSeguroAssinaturaDadoCartaoPage {
         })
         .catch((result) => {
           console.log('Catch' , result);
+          this.erroServidor = this.trataErro(result.errors);
         })
     }
   }
 
-  // tratementos do cartao
+  trataErro(result:any) : string {
+    console.log('Result-Erro:' , result);
+    if (result[10000]) return 'Bandeira do cartão incorreta';
+    if (result[10001]) return 'Número do cartão incorreto';
+    return 'Erro nos dados';
+  }
 
-
-  idSession = '';
-  codigoHash = '';
-  tokenCartao = '';
-
-  erroNome: string;
-  erroNumero: string;
-  erroMes: string;
-  erroAno: string;
-  erroVerificador: string;
-  erroBandeira: string;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestePagSeguroPage');
@@ -245,17 +256,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     this.cartao.nomeCartao = 'PAULO L FORESTIERI';
   }
 
-  finalizar() {
-    console.log('Entrou em finalizar:', Assinatura);
-    this.pagSrv.AderePlanoTreino(Assinatura)
-      .subscribe((result) => {
-        console.log('Result:', result);
-        if (result.code)
-          this.codigoFinal = result.code;
-        alert('Codigo Final: ' + this.codigoFinal);
-      })
-  }
-
+ 
 
   alteraMaster(valor) {
     if (valor) {

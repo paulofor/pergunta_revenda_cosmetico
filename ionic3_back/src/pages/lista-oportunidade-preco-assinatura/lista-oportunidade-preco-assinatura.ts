@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Visitante } from '../../shared/sdk/models/Visitante';
 import { AcessaFcmService } from '../../servico/acessa-fcm-service';
-import { OportunidadeDiaApi, LoopBackFilter, OportunidadeDia } from '../../shared/sdk/index';
+import { OportunidadeDiaApi, LoopBackFilter, OportunidadeDia, DispositivoUsuario } from '../../shared/sdk/index';
 import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pag-seguro-assinatura-dado-identificacao/pag-seguro-assinatura-dado-identificacao';
 import { Storage } from '@ionic/storage';
 import { ListaOportunidadeAssinaturaPageBase } from '../lista-oportunidade-assinatura/lista-oportunidade-assinatura-base';
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
+import { VERSAO_APP_ID } from '../../app/const';
 
 /**
  * Generated class for the ListaOportunidadePrecoAssinaturaPage page.
@@ -57,7 +58,7 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   obtemDiasGratis() {
     //alert('obtemDiasGratis()')
     this.storage.get("chave").then((chave) => {
-      //alert('chaveObtemDiasGratis():' + chave);
+      alert('chaveObtemDiasGratis():' + chave);
       this.usuarioSrv.PeriodoGratuito(chave)
         .subscribe(
           (result) => {
@@ -69,6 +70,19 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
           }
         )
     });
+  }
+
+  registraFake() {
+    console.log('Chamou registra fake');
+    let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
+    dispositivoUsuario.tokenFcm = 'ABCDEFG';
+    dispositivoUsuario.versaoAppId = VERSAO_APP_ID;
+    dispositivoUsuario.codigoDispositivo = 'teste';
+    dispositivoUsuario.versaoSo = 'teste';
+    dispositivoUsuario.fabricante = 'teste';
+    dispositivoUsuario.serial = '123';
+    dispositivoUsuario.uuid = '123';
+    this.fcmSrv.criaComUsuario(dispositivoUsuario,VERSAO_APP_ID);
   }
 
 }

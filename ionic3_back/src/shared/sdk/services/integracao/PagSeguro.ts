@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 
 import { SocketConnection } from '../../sockets/socket.connections';
 import { SDKModels } from '..';
+import { PathValidador } from '../../../assinatura';
 
 
 /**
@@ -19,6 +20,7 @@ import { SDKModels } from '..';
  */
 @Injectable()
 export class PagSeguroApi extends BaseLoopBackApi {
+
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -48,7 +50,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros";
     let _routeParams: any = {};
     let _postBody: any = {
@@ -79,7 +81,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/:id";
     let _routeParams: any = {
       id: id
@@ -112,7 +114,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public IniciaSessao(customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/iniciaSessao";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -149,7 +151,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public CheckoutCartao(senderHash: any = {}, creditCardToken: any = {}, installmentQuantity: any = {}, installmentValue: any = {}, noInterestInstallmentQuantity: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/checkoutCartao";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -178,7 +180,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public ObtemSessao(customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/obtemSessao";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -207,7 +209,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public PagamentoCaixaBranca(xml: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/pagamentoCaixaBranca";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -235,7 +237,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public AderePlano(creditCardToken: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/aderePlano";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -258,7 +260,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public CriaPlano(customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/criaPlano";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -285,7 +287,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public VerificaPagamento(cliente: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/verificaPagamento";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -315,7 +317,7 @@ export class PagSeguroApi extends BaseLoopBackApi {
    */
   public AderePlanoTreino(dadoCliente: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/PagSeguros/aderePlanoTreino";
     let _routeParams: any = {};
     let _postBody: any = {};

@@ -12,6 +12,9 @@
 
 
 <ion-content *ngIf="assinatura" padding>
+  <ion-label></ion-label>
+  <ion-label class="erroMsg">{{erroServidor}}</ion-label>
+  <ion-label></ion-label>
   <ion-label>Nome: {{assinatura.sender.name}}</ion-label>
   <ion-label>Email: {{assinatura.sender.email}}</ion-label>
   <ion-label>Tel: {{assinatura.sender.phone.areaCode}}-{{assinatura.sender.phone.number}}</ion-label>
