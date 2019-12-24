@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Assinatura } from '../../shared/assinatura';
 import { PagSeguroAssinaturaDadoClientePage } from '../pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
 import { DatePipe } from '@angular/common';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 /**
  * Generated class for the PagSeguroAssinaturaDadoIdentificacaoPage page.
@@ -17,6 +18,9 @@ import { DatePipe } from '@angular/common';
   templateUrl: 'pag-seguro-assinatura-dado-identificacao.html',
 })
 export class PagSeguroAssinaturaDadoIdentificacaoPage {
+
+
+  private chavePagina : string = '3e7a39e09eec3244e6f75189eff5db97e3318bae';
 
   erroNome: string;
   erroEmail: string;
@@ -55,12 +59,13 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
     ]
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,  protected fcmSrv: AcessaFcmService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaDadoIdentificacaoPage');
     this.inicializacao();
+    this.fcmSrv.registraVisitaPagina(this.chavePagina);
   }
 
   inicializacao() {
@@ -79,8 +84,9 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
   }
 
   preenhcer() {
-    this.sender.name = 'Paulo Alexandre';
-    this.sender.email = 'paforest1970@gmail.com';
+    this.sender.name = 'Paulo Lopes';
+    //this.sender.email = 'paforest1970@gmail.com';
+    this.sender.email = 'paforest1970@sandbox.pagseguro.com.br';
     this.sender.phone.areaCode = '21';
     this.sender.phone.number = '992902732';
     this.sender.documents[0].value = '01114740780'

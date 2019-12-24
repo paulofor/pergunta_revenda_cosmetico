@@ -15,6 +15,7 @@
 </ion-content>
 
 <ion-content padding>
+  <ion-label padding>Assinatura: R$ 4,99 / mês</ion-label>
   <ion-card>
     <ion-label class="erroMsg">{{erroServidor}}</ion-label>
     <form>
@@ -30,7 +31,7 @@
           </ion-checkbox>
         </ion-item>
         <ion-item>
-          <ion-label>Dinners</ion-label>
+          <ion-label>Diners</ion-label>
           <ion-checkbox (ionChange)="alteraDinners(bandeiraDinners)" [(ngModel)]="bandeiraDinners"
             name="bandeiraDinners">
           </ion-checkbox>

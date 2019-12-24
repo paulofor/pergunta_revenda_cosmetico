@@ -13,7 +13,7 @@ export var Cartao = {
 
 
 export var Assinatura = {
-    "plan": "1C6706EE27273298846D2FAC6EA0FEEE",
+    "plan": "E2BB1113ECECEC5884A45FAA7983BB24",
     "sender": {
         "name": "",
         "email": "",

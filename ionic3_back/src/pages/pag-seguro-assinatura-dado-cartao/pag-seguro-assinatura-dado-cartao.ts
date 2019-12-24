@@ -4,6 +4,7 @@ import { Assinatura, Cartao } from '../../shared/assinatura';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { PagSeguroAssinaturaConfirmacaoPage } from '../pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
 import { PagSeguroAssinaturaDadoClientePage } from '../pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 
 /**
@@ -23,6 +24,8 @@ declare var PagSeguroDirectPayment: any;
 
 
 export class PagSeguroAssinaturaDadoCartaoPage {
+
+  chavePagina = '27dbb494777224b5ccf3177f5284171b235812aa';
 
   bandeiraVisa: boolean;
   bandeiraMaster: boolean;
@@ -58,7 +61,8 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
   exibeLoading : boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi,  protected fcmSrv: AcessaFcmService) {
+    
   }
 
   enviar() {
@@ -96,6 +100,7 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestePagSeguroPage');
+    this.fcmSrv.registraVisitaPagina(this.chavePagina);
     this.pagSrv.ObtemSessao()
       .subscribe((resp) => {
         console.log('Resp- Sessao:' + JSON.stringify(resp));
@@ -283,8 +288,8 @@ export class PagSeguroAssinaturaDadoCartaoPage {
     }
   }
   escolheBandeira() {
-    if (this.bandeiraDinners) this.cartao.bandeira = 'DINERS';
-    if (this.bandeiraMaster) this.cartao.bandeira = 'MASTERCARD';
+    if (this.bandeiraDinners) this.cartao.bandeira = 'diners';
+    if (this.bandeiraMaster) this.cartao.bandeira = 'mastercard';
     if (this.bandeiraVisa) this.cartao.bandeira = 'visa';
   }
 

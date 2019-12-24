@@ -5,6 +5,7 @@ import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 import { Storage } from '@ionic/storage';
 import { PagSeguroAssinaturaSucessoPage } from '../pag-seguro-assinatura-sucesso/pag-seguro-assinatura-sucesso';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 /**
  * Generated class for the PagSeguroAssinaturaConfirmacaoPage page.
  *
@@ -19,6 +20,7 @@ import { PagSeguroAssinaturaSucessoPage } from '../pag-seguro-assinatura-sucesso
 })
 export class PagSeguroAssinaturaConfirmacaoPage {
 
+  chavePagina = '557b4687345609d78d1f48c605d45ddd666a3a3c';
 
   assinatura : any;
   cartao : any;
@@ -30,11 +32,13 @@ export class PagSeguroAssinaturaConfirmacaoPage {
   exibeLoading: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-              private pagSrv: PagSeguroApi, private storage:Storage, private usuarioSrv: UsuarioProdutoApi) {
+              private pagSrv: PagSeguroApi, private storage:Storage, private usuarioSrv: UsuarioProdutoApi
+              ,  protected fcmSrv: AcessaFcmService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaConfirmacaoPage');
+    this.fcmSrv.registraVisitaPagina(this.chavePagina);
     this.assinatura = Assinatura;
     this.cartao = Cartao;
     this.storage.get("chave")

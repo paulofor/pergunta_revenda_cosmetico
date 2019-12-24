@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="titulo">
+  <ion-navbar hideBackButton color="titulo">
     <ion-title>Oportunidades do Dia</ion-title>
     <ion-title *ngIf="!assinante" (click)="registraFake()">Período gratuito: {{diasGratis}}</ion-title>
     <button *ngIf="!assinante" ion-button outline color="light" (click)="inicioFluxo()">Assinar (4,99 ao mês)</button>
