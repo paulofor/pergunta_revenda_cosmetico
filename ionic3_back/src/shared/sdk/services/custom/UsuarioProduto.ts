@@ -13,6 +13,7 @@ import { UsuarioProduto } from '../../models/UsuarioProduto';
 import { SocketConnection } from '../../sockets/socket.connections';
 import { DispositivoUsuario } from '../../models/DispositivoUsuario';
 import { NotificacaoApp } from '../../models/NotificacaoApp';
+import { PathValidador } from '../../../assinatura';
 
 
 /**
@@ -21,7 +22,7 @@ import { NotificacaoApp } from '../../models/NotificacaoApp';
 @Injectable()
 export class UsuarioProdutoApi extends BaseLoopBackApi {
 
-  private static pathValidador: string = '//validacao.kinghost.net:21040';
+  
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -533,7 +534,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    */
   public CadastraLogin(usuario: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = UsuarioProdutoApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/UsuarioProdutos/cadastraLogin";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -546,7 +547,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
 
   public RegistraAssinatura(chaveUsuario: any = {}, pagSeguroId: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
-    let _url: string = UsuarioProdutoApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/UsuarioProdutos/registraAssinatura";
     let _routeParams: any = {};
     let _postBody: any = {};
@@ -573,7 +574,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    */
   public PeriodoGratuito(chave: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
-    let _url: string = UsuarioProdutoApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/UsuarioProdutos/periodoGratuito";
     let _routeParams: any = {};
     let _postBody: any = {};

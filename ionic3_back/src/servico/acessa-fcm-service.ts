@@ -72,6 +72,7 @@ export class AcessaFcmService {
                 (dispositvo: DispositivoUsuario) => {
                     console.log('Encontrou usuario por uuid');
                     this.ligaReceptorNotificacao();
+                    this.registraMobile(dispositvo.usuarioProduto.chave,versaoAppId);
                     this.registraVisitaApp(dispositvo.usuarioProduto.chave, versaoAppId);
                 },
                 erro => {

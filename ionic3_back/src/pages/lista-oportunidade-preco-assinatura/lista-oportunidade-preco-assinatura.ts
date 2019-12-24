@@ -55,7 +55,6 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
   }
 
   inicioFluxo() {
-    //this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
     this.navCtrl.push(PagSeguroAssinaturaDadoIdentificacaoPage);
   }
 
@@ -66,7 +65,12 @@ export class ListaOportunidadePrecoAssinaturaPage extends ListaOportunidadeAssin
       this.usuarioSrv.PeriodoGratuito(chave)
         .subscribe(
           (result) => {
-            this.diasGratis = result.dias + ' dias';
+            //alert('Result-ObtemDias: ' + JSON.stringify(result));
+            if (result.dias<=0) {
+              this.diasGratis = "encerrado";
+            } else {
+              this.diasGratis = result.dias + ' dias';
+            }
             this.periodoGratuito = this.verificaPeriodoGratuito(result);
             this.assinante = this.verificaAssinante(result);
           },

@@ -1,4 +1,4 @@
-export var PathValidador : string = 'http://validacao.kinghost.net:21040';
+export var PathValidador : string = 'http://www.digicom.inf.br:21040';
 
 
 export var Cartao = {
