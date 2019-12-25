@@ -155,8 +155,6 @@ TODO Fix Merge Conflict */
         paramValue = typeof paramValue === 'object' ? JSON.stringify(paramValue) : paramValue;
         httpParams = httpParams.append(paramKey, paramValue);
       });
-      //console.log('url2:', url);
-      //url = 'https:' + url;
       let request = new HttpRequest(method, `${url}${queryString}`, body, {
         headers        : headers,
         params         : httpParams,
@@ -286,20 +284,11 @@ TODO Fix Merge Conflict */
    * Generic find method
    */
   public find<T>(filter: LoopBackFilter = {}, customHeaders?: Function): Observable<T[]> {
-    //return this.request('GET', [
-    //  LoopBackConfig.getPath(),
-    //  LoopBackConfig.getApiVersion(),
-    //  this.model.getModelDefinition().path
-    //].join('/'), undefined, { filter }, undefined, null, customHeaders)
-    //.pipe(map((datum: T[]) => datum.map((data: T) => this.model.factory(data))));
-
-    let url =  [
-        LoopBackConfig.getPath(),
-        LoopBackConfig.getApiVersion(),
-        this.model.getModelDefinition().path
-      ].join('/');
-    console.log('url:' , url);
-    return this.request('GET', url, undefined, { filter }, undefined, null, customHeaders)
+    return this.request('GET', [
+      LoopBackConfig.getPath(),
+      LoopBackConfig.getApiVersion(),
+      this.model.getModelDefinition().path
+    ].join('/'), undefined, { filter }, undefined, null, customHeaders)
     .pipe(map((datum: T[]) => datum.map((data: T) => this.model.factory(data))));
   }
   /**

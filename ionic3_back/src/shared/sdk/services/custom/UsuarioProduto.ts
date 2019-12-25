@@ -320,7 +320,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `count` – `{number}` - 
+   *  - `count` �?? `{number}` - 
    */
   public countDispositivoUsuarios(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
@@ -436,7 +436,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `count` – `{number}` - 
+   *  - `count` �?? `{number}` - 
    */
   public countNotificacaoApps(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
@@ -457,7 +457,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    *
    * @param {object} data Request data.
    *
-   *  - `data` – `{object}` - Model instance data
+   *  - `data` �?? `{object}` - Model instance data
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -488,7 +488,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    *
    * @param {object} data Request data.
    *
-   *  - `data` – `{object}` - An object of model property name/value pairs
+   *  - `data` �?? `{object}` - An object of model property name/value pairs
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -521,7 +521,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    *
    * @param {object} data Request data.
    *
-   *  - `usuario` – `{object}` - 
+   *  - `usuario` �?? `{object}` - 
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -570,7 +570,7 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `dias` – `{number}` - 
+   *  - `dias` �?? `{number}` - 
    */
   public PeriodoGratuito(chave: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";

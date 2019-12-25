@@ -10,28 +10,28 @@ import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 
 // Tipo: LISTA
-export abstract class ListaOportunidadeAssinaturaPageBase extends ComponenteBase {
+export abstract class ListaOportunidadeAssinaturaPageBase extends ComponenteBase{
 
-	protected usuario: Usuario;
+    protected usuario: Usuario;
 
 	protected listaItem: OportunidadeDia[];
 	protected abstract inicializacao();
 	protected abstract getFiltro(): LoopBackFilter;
 	protected erroMsg: string;
-
-	private chave: string = 'f1d7c648455842d2f0bd1770368ceec3f872b296';
-
-
+	
+	private chave : string = 'f1d7c648455842d2f0bd1770368ceec3f872b296';
+	
+	 
 	getPageEdicao(): Page {
-
-		throw new Error("ListaOportunidadeAssinaturaPage sem tela de edicao.");
-
-	}
-	getPageDetalhe(): Page {
-
-		throw new Error("ListaOportunidadeAssinaturaPage sem tela de detalhe.");
-
-	}
+	
+    	throw new Error("ListaOportunidadeAssinaturaPage sem tela de edicao.");
+    	
+  	}
+  	getPageDetalhe(): Page {
+	
+    	throw new Error("ListaOportunidadeAssinaturaPage sem tela de detalhe.");
+    	
+  	}
 
 	constructor(public navCtrl: NavController, protected srv: OportunidadeDiaApi,
 		protected storage: Storage, protected fcmSrv: AcessaFcmService) {
@@ -39,45 +39,49 @@ export abstract class ListaOportunidadeAssinaturaPageBase extends ComponenteBase
 	}
 
 	ionViewWillEnter() {
-		console.log('');
-		console.log('Tela: ListaOportunidadeAssinaturaPage<<LISTA>> : OportunidadeDia');
-		this.carregaLista();
 		this.fcmSrv.registraVisitaPagina(this.chave);
-		this.inicializacao();
-	}
-
-	carregaLista() {
-		//alert('OportunidadeDia.find: ' + JSON.stringify(this.getFiltro()));
-		this.srv.find(this.getFiltro())
-			.subscribe((resultado: OportunidadeDia[]) => {
-				//alert('Result:' + JSON.stringify(resultado));
-				this.listaItem = resultado;
-				this.erroMsg = '';
-			},
-				(erro: any) => {
-					//alert('Erro: ' + JSON.stringify(erro));
-					if (erro == 'Server error') {
-						this.erroMsg = MSG_SEM_INTERNET;
-					}
-				})
-	}
-
-
-
+		console.log('');
+    		console.log('Tela: ListaOportunidadeAssinaturaPage<<LISTA>> : OportunidadeDia');
+    		this.carregaUsuario();
+    		this.inicializacao();
+    		
+  	}
+  	
+  	carregaLista() {
+  		console.log('OportunidadeDia.find: ', JSON.stringify(this.getFiltro()));
+  		this.srv.find(this.getFiltro())
+  			.subscribe((resultado: OportunidadeDia[]) => {
+  				console.log('Result:' , resultado);
+  				this.listaItem = resultado;
+  				this.erroMsg = '';
+  			},
+			(erro: any) => {
+				if (erro == 'Server error') {
+					this.erroMsg = MSG_SEM_INTERNET;
+				}
+			})
+  	}
+  	  carregaUsuario() {
+		this.storage.get('user').then((val: Usuario) => {
+			this.usuario = val;
+			this.carregaLista();
+		})
+  	}
+  
 	protected detalheId(item: OportunidadeDia) {
 		this.navCtrl.push(this.getPageEdicao(), {
-			id: item.id
+      		id: item.id
 		});
-	}
-	protected alterarId(item: OportunidadeDia) {
+  	}
+  	protected alterarId(item: OportunidadeDia) {
 		this.navCtrl.push(this.getPageDetalhe(), {
-			id: item.id
+      		id: item.id
 		});
-	}
-	protected novo() {
+  	}
+  	protected novo() {
 		this.navCtrl.push(this.getPageEdicao());
 	}
-
+	
 	protected verificaConexao(erro: any) {
 		if (erro == 'Server error') {
 			this.erroMsg = MSG_SEM_INTERNET;

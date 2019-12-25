@@ -22,10 +22,13 @@ import { FCM } from '@ionic-native/fcm';
 import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
 import { VisitaAppApi } from '../shared/sdk/services/custom/VisitaApp';
+import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
+import { UsuarioProdutoApi } from '../shared/sdk/services/custom/UsuarioProduto';
 import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pages/pag-seguro-assinatura-dado-identificacao/pag-seguro-assinatura-dado-identificacao';
 import { PagSeguroAssinaturaDadoClientePage } from '../pages/pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
 import { PagSeguroAssinaturaDadoCartaoPage } from '../pages/pag-seguro-assinatura-dado-cartao/pag-seguro-assinatura-dado-cartao';
-
+import { PagSeguroAssinaturaConfirmacaoPage } from '../pages/pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
+import { PagSeguroAssinaturaSucessoPage } from '../pages/pag-seguro-assinatura-sucesso/pag-seguro-assinatura-sucesso';
 import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
 import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
 import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
@@ -39,12 +42,6 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
-import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
-import { UsuarioProdutoApi } from '../shared/sdk/services/custom/UsuarioProduto';
-import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
-import { PagSeguroAssinaturaConfirmacaoPage } from '../pages/pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
-import { PagSeguroAssinaturaSucessoPage } from '../pages/pag-seguro-assinatura-sucesso/pag-seguro-assinatura-sucesso';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -67,8 +64,6 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeAssinaturaPage,
 	
     ListaOportunidadeGenericaPage,
-    ListaOportunidadePrecoAssinaturaPage,
-    InicioFluxoPage
 	
   ],
   imports: [
@@ -99,8 +94,6 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeAssinaturaPage,
 	
     ListaOportunidadeGenericaPage,
-    ListaOportunidadePrecoAssinaturaPage,
-    InicioFluxoPage
 	
   ],
   providers: [
@@ -113,9 +106,9 @@ registerLocaleData(localePt, 'pt-BR');
     InternalStorage,
     PagSeguroApi,
     VisitanteApi,
-  OportunidadeDiaApi,
-  NotificacaoAppApi,
-  UsuarioProdutoApi,
+ 	NotificacaoAppApi,
+  	UsuarioProdutoApi,
+	OportunidadeDiaApi,
 	
 	UsuarioApi,
 	

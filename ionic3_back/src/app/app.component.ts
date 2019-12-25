@@ -14,8 +14,6 @@ import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/li
 import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
 import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 import { timer } from 'rxjs/observable/timer';
-import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
-import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +21,7 @@ import { InicioFluxoPage } from '../pages/inicio-fluxo/inicio-fluxo';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListaOportunidadePrecoAssinaturaPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
   showSplash = true;
