@@ -20,6 +20,7 @@ import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPAGE} from  '../../../../dados/oportuni
 import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOPAGE} from  '../../../../dados/oportunidadeDia';
 import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEASSINATURAPAGE} from  '../../../../dados/oportunidadeDia';
 import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEGENERICAPAGE} from  '../../../../dados/oportunidadeDia';
+import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOASSINATURAPAGE} from  '../../../../dados/oportunidadeDia';
 /**
  * Api services for the `Aplicacao` model.
  */
@@ -111,6 +112,9 @@ export class OportunidadeDiaApi extends BaseLoopBackApi {
 	}
 	getListaOportunidadeGenericaPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
 		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEGENERICAPAGE);
+	}
+	getListaOportunidadePrecoAssinaturaPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
+		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOASSINATURAPAGE);
 	}
 
   

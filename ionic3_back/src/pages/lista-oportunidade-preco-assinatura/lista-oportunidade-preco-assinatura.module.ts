@@ -1,5 +1,9 @@
+
+
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
+
 import { ListaOportunidadePrecoAssinaturaPage } from './lista-oportunidade-preco-assinatura';
 
 @NgModule({
@@ -8,6 +12,10 @@ import { ListaOportunidadePrecoAssinaturaPage } from './lista-oportunidade-preco
   ],
   imports: [
     IonicPageModule.forChild(ListaOportunidadePrecoAssinaturaPage),
+    TranslateModule.forChild()
   ],
+  exports: [
+    ListaOportunidadePrecoAssinaturaPage
+  ]
 })
-export class ListaOportunidadePrecoAssinaturaPageModule {}
+export class ListaOportunidadePrecoAssinaturaPageModule { }
