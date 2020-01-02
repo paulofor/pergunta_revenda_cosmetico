@@ -8,8 +8,11 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import static android.content.ContentValues.TAG;
+
 public class MyService extends FirebaseMessagingService {
     public MyService() {
+        Log.d(TAG, "Iniciou servico firebase");
     }
 
     @Override
@@ -26,10 +29,10 @@ public class MyService extends FirebaseMessagingService {
 
             if (/* Check if data needs to be processed by long running job */ true) {
                 // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-                scheduleJob();
+                //scheduleJob();
             } else {
                 // Handle message within 10 seconds
-                handleNow();
+                //handleNow();
             }
 
         }
