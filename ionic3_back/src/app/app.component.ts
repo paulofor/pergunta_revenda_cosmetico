@@ -8,11 +8,6 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { VERSAO_APP_ID } from './const';
-
-import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
-import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
-import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
-import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 import { timer } from 'rxjs/observable/timer';
 
