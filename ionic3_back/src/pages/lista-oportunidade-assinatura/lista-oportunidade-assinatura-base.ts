@@ -4,7 +4,7 @@ import { LoopBackFilter } from '../../shared/sdk';
 import { NavController } from 'ionic-angular';
 import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { Storage } from '@ionic/storage';
-import { MSG_SEM_INTERNET } from '../../app/const';
+import { MSG_SEM_INTERNET, VERSAO_APP_ID } from '../../app/const';
 import { ComponenteBase } from '../componente-base';
 import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
@@ -39,7 +39,7 @@ export abstract class ListaOportunidadeAssinaturaPageBase extends ComponenteBase
 	}
 
 	ionViewWillEnter() {
-		this.fcmSrv.registraVisitaPagina(this.chave);
+		this.fcmSrv.registraVisitaPagina(this.chave,VERSAO_APP_ID);
 		console.log('');
     		console.log('Tela: ListaOportunidadeAssinaturaPage<<LISTA>> : OportunidadeDia');
     		this.carregaUsuario();
