@@ -1,4 +1,4 @@
-
+// Criado por : templates/angular/loopback/LoopbackModel.javajet
 /* tslint:disable */
 import {
 	Usuario,

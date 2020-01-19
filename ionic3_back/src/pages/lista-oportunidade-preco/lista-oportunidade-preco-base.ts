@@ -9,7 +9,7 @@ import { ComponenteBase } from '../componente-base';
 import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 
-// Tipo: LISTA
+// Tipo: LISTA - Criado por: templates/ionic3/pages/lista-timeline/ListaTimelinePageProdBaseTs.javajet
 export abstract class ListaOportunidadePrecoPageBase extends ComponenteBase{
 
     protected usuario: Usuario;

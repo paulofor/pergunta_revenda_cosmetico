@@ -105,4 +105,23 @@ export class AcaoApi extends BaseLoopBackApi {
     //result.subscribe((result:Acao) => {}, (erro:any) => {}); // com isso duplica
     return result;
   }
+  /*
+  public ListaApp(customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+      "/Acao/listaApp";
+    let result = this.request(_method, _url, null, null, null, null, customHeaders);
+    return result;
+  }
+  */
+  public ListaApp(customHeaders?: Function): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Cosmetic_Acaos/listaApp";
+    let _routeParams: any = {};
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
 }

@@ -4,15 +4,15 @@ import { LoopBackFilter } from '../../shared/sdk';
 import { NavController } from 'ionic-angular';
 import { Page } from 'ionic-angular/umd/navigation/nav-util';
 import { Storage } from '@ionic/storage';
-import { MSG_SEM_INTERNET, VERSAO_APP_ID } from '../../app/const';
+import { MSG_SEM_INTERNET , VERSAO_APP_ID} from '../../app/const';
 import { ComponenteBase } from '../componente-base';
 import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 
 
-// Tipo: LISTA
+// Tipo: LISTA_FIND_APP - Criado por: templates/ionic3/pages/lista-find-app/ListaFindAppPageProdBaseTs.javajet
 export abstract class ListaOportunidadeGenericaPageBase extends ComponenteBase{
 
-    protected usuario: Usuario;
+     protected usuario: Usuario;
 
 	protected listaItem: OportunidadeDia[];
 	protected abstract inicializacao();
@@ -41,7 +41,7 @@ export abstract class ListaOportunidadeGenericaPageBase extends ComponenteBase{
 	ionViewWillEnter() {
 		this.fcmSrv.registraVisitaPagina(this.chave,VERSAO_APP_ID);
 		console.log('');
-    		console.log('Tela: ListaOportunidadeGenericaPage<<LISTA>> : OportunidadeDia');
+    		console.log('Tela: ListaOportunidadeGenericaPage<<LISTA_FIND_APP>> : OportunidadeDia');
     		this.carregaUsuario();
     		this.inicializacao();
     		
@@ -49,7 +49,7 @@ export abstract class ListaOportunidadeGenericaPageBase extends ComponenteBase{
   	
   	carregaLista() {
   		console.log('OportunidadeDia.find: ', JSON.stringify(this.getFiltro()));
-  		this.srv.find(this.getFiltro())
+  		this.srv.ListaApp()
   			.subscribe((resultado: OportunidadeDia[]) => {
   				console.log('Result:' , resultado);
   				this.listaItem = resultado;
