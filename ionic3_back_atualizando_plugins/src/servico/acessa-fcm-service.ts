@@ -141,6 +141,7 @@ export class AcessaFcmService {
     private ligaReceptorNotificacao() {
         //alert('ligaReceptorNotificacao()');
         this.fcm.onNotification().subscribe(data => {
+            alert("data" + data);
             if (data.wasTapped) {
                 this.notificacaoAppSrv.RegistraAcesso(data.tokenNotificacao)
                     .subscribe((resultado) => {
