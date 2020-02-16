@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service
+            android:name=".BackService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <receiver
+            android:name=".YourAppReciever"
+            android:enabled="true"
+            android:exported="true" />
 
         <service android:name=".ServicoFcm">
             <intent-filter>
