@@ -34,7 +34,7 @@
         "brmasker-ionic-3": "^1.6.3",
         "chart.js": "^2.7.3",
         "com.darktalker.cordova.screenshot": "0.1.6",
-        "cordova-android": "8.1.0",
+        "cordova-android": "^8.1.0",
         "cordova-browser": "6.0.0",
         "cordova-plugin-fcm-with-dependecy-updated": "^2.4.0",
         "cordova-res": "^0.8.1",
@@ -76,8 +76,8 @@
             "cordova-plugin-fcm-with-dependecy-updated": {}
         },
         "platforms": [
-            "android",
-            "browser"
+            "browser",
+            "android"
         ]
     }
 }

@@ -34,7 +34,9 @@ export class AcessaFcmService {
 
     // Chamada externa
     public registraVisitaPagina(chavePagina, versaoAppId) {
+        alert("Vai registrar chave pagina: " + chavePagina);
         this.storage.get("chave").then((chaveUsuario) => {
+            alert("Achou chave usuario: " + chaveUsuario)
             if (chaveUsuario) {
                 this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario, chavePagina, versaoAppId)
                     .subscribe((resultado: any) => {
