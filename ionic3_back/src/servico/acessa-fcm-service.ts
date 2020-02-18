@@ -49,7 +49,7 @@ export class AcessaFcmService {
 
 
     public executaValidacao(versaoAppId: number) {
-        //alert('executaValidacao(versaoAppId: number)');
+        alert('executaValidacao(versaoAppId: number)');
         this.storage.get("chave").then((dado) => {
             if (dado) {
                 console.log('Possui chaveCliente:', dado);
@@ -80,12 +80,12 @@ export class AcessaFcmService {
                     						this.registraVisitaApp(dispositivo.usuarioProduto.chave, versaoAppId);
                     					} else {
                     					 	console.log('Não encontrou usuario por uuid');
-                    						this.inscreveFcm(versaoAppId)
+                    						this.inscreveFcmDuplo(versaoAppId)
                     					}
                 },
                 erro => {
                     console.log('Não encontrou usuario por uuid');
-                    this.inscreveFcm(versaoAppId)
+                    this.inscreveFcmDuplo(versaoAppId)
                 }
             )
     }
@@ -94,6 +94,7 @@ export class AcessaFcmService {
 
 
     private registraMobile(chave, versaoAppId) {
+        console.log("Registrando chave: " + chave);
         this.storage.set("chave", chave).then((successData) => {
             this.registraVisitaApp(chave, versaoAppId);
         })
@@ -106,6 +107,36 @@ export class AcessaFcmService {
                 console.log('Resultado-VisitaApp', resultado);
             })
     }
+
+    // Novos que ainda não estão sendo usados - criando primeiro a chaveCliente e depois o token.
+    private inscreveFcmDuplo(versaoAppId: number) {
+        console.log('inscreveFcmDuplo');
+        let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
+        dispositivoUsuario.versaoAppId = versaoAppId;
+        dispositivoUsuario.codigoDispositivo = this.device.model;
+        dispositivoUsuario.versaoSo = this.device.version;
+        dispositivoUsuario.fabricante = this.device.manufacturer;
+        dispositivoUsuario.serial = this.device.serial;
+        dispositivoUsuario.uuid = this.device.uuid;
+        this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
+            .subscribe((chaveCliente: any) => {
+                console.log('Recebeu chaveUsuario: ' , chaveCliente);
+                this.registraMobile(chaveCliente, versaoAppId);
+                this.inscreveFcmAtualizaToken(chaveCliente);
+            })
+    }
+    private inscreveFcmAtualizaToken(chaveCliente) {
+        this.fcm.subscribeToTopic('novo');
+        this.fcm.getToken().then(token => {
+            this.dispositivoUsuarioSrv.AtualizaToken(chaveCliente,token);
+
+        });
+        this.ligaReceptorNotificacao();
+        this.fcm.onTokenRefresh().subscribe(token => {
+            this.dispositivoUsuarioSrv.AtualizaToken(chaveCliente,token);
+        });
+    }
+
 
 
     private inscreveFcm(versaoAppId: number) {
