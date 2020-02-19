@@ -8,6 +8,7 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 import { ComandosZeroPage } from '../comandos-zero/comandos-zero';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
+import { ListaOportunidadePrecoAssinaturaPage } from '../lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 
 /**
  * Generated class for the LoginPage page.
@@ -29,7 +30,7 @@ export class LoginPage extends LoginPageBase {
 
 
   getPaginaInicial(): Page {
-    var proxima = ComandosZeroPage;
+    var proxima = ListaOportunidadePrecoAssinaturaPage;
     console.log('Proxima: ' , proxima);
     return proxima;
   }

@@ -32,7 +32,6 @@ export abstract class SignupPageBase extends ComponenteBase{
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad LoginPage');
-    
     this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
   }
   
