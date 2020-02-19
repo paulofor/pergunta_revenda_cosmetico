@@ -8,6 +8,7 @@ import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
 import { Storage } from '@ionic/storage';
 import { Device } from '@ionic-native/device';
 import { NotificacaoAppApi } from "../shared/sdk/services/custom/NotificacaoApp";
+import { Observable } from "rxjs";
 
 
 @Injectable()
@@ -34,9 +35,11 @@ export class AcessaFcmService {
 
     // Chamada externa
     public registraVisitaPagina(chavePagina, versaoAppId) {
-        alert("Vai registrar chave pagina: " + chavePagina);
+        console.log("Vai registrar chave pagina: " + chavePagina);
+        //alert("Vai registrar chave pagina: " + chavePagina);
         this.storage.get("chave").then((chaveUsuario) => {
-            alert("Achou chave usuario: " + chaveUsuario)
+            //alert("Achou chave usuario: " + chaveUsuario)
+            console.log("Achou chave usuario: " + chaveUsuario);
             if (chaveUsuario) {
                 this.visitaAppSrv.RegistraVisitaTelaApp(chaveUsuario, chavePagina, versaoAppId)
                     .subscribe((resultado: any) => {
@@ -49,7 +52,7 @@ export class AcessaFcmService {
 
 
     public executaValidacao(versaoAppId: number) {
-        alert('executaValidacao(versaoAppId: number)');
+        //alert('executaValidacao(versaoAppId: number)');
         this.storage.get("chave").then((dado) => {
             if (dado) {
                 console.log('Possui chaveCliente:', dado);
@@ -109,7 +112,7 @@ export class AcessaFcmService {
     }
 
     // Novos que ainda não estão sendo usados - criando primeiro a chaveCliente e depois o token.
-    private inscreveFcmDuplo(versaoAppId: number) {
+    private inscreveFcmDuplo(versaoAppId: number): Observable<any> {
         console.log('inscreveFcmDuplo');
         let dispositivoUsuario: DispositivoUsuario = new DispositivoUsuario();
         dispositivoUsuario.versaoAppId = versaoAppId;
@@ -118,12 +121,14 @@ export class AcessaFcmService {
         dispositivoUsuario.fabricante = this.device.manufacturer;
         dispositivoUsuario.serial = this.device.serial;
         dispositivoUsuario.uuid = this.device.uuid;
-        this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
+        let saida = this.dispositivoUsuarioSrv.CriaComUsuario(dispositivoUsuario)
             .subscribe((chaveCliente: any) => {
                 console.log('Recebeu chaveUsuario: ' , chaveCliente);
                 this.registraMobile(chaveCliente, versaoAppId);
                 this.inscreveFcmAtualizaToken(chaveCliente);
-            })
+                
+            });
+        return saida;
     }
     private inscreveFcmAtualizaToken(chaveCliente) {
         this.fcm.subscribeToTopic('novo');
