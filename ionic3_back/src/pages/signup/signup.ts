@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { UsuarioApi } from '../../shared/sdk/index';
 import { Storage } from '@ionic/storage';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 
 /**
  * Generated class for the SignupPage page.
@@ -24,7 +25,7 @@ export class SignupPage extends SignupPageBase{
   passwordCheckbox
 
   constructor(public navCtrl: NavController, protected formBuilder: FormBuilder, protected storage:Storage, 
-  			protected srv: UsuarioApi,  protected fcmSrv: AcessaFcmService) {
+  			protected srv: UsuarioProdutoApi,  protected fcmSrv: AcessaFcmService) {
     super(navCtrl, formBuilder, storage, srv, fcmSrv);
   }
 
