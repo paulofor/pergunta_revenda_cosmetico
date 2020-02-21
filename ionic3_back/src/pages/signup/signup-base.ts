@@ -8,6 +8,7 @@ import { ComponenteBase } from '../componente-base';
 import { MSG_CADASTRO_TAMANHO_SENHA, MSG_CADASTRO_EMAIL, VERSAO_APP_ID } from "../../app/const";
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { UsuarioProdutoApi } from "../../shared/sdk/services/custom/UsuarioProduto";
+import { ListaOportunidadePrecoAssinaturaPage } from "../lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura";
 
 
 export abstract class SignupPageBase extends ComponenteBase {
@@ -55,6 +56,10 @@ export abstract class SignupPageBase extends ComponenteBase {
     }
   }
 
+  getProximaPagina() {
+    return ListaOportunidadePrecoAssinaturaPage;
+  }
+
 
   processaSubmit() {
     this.usuario = new UsuarioProduto();
@@ -74,7 +79,7 @@ export abstract class SignupPageBase extends ComponenteBase {
             (result) => {
               this.storage.set('user', result);
               console.log('SignUp: ', result);
-              this.navCtrl.push(ComandosZeroPage);
+              this.navCtrl.push(this.getProximaPagina());
             },
             (error) => {
               console.log('Erro: ', error);
