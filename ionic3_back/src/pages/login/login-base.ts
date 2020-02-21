@@ -9,6 +9,7 @@ import { SignupPage } from '../signup/signup';
 import { ComponenteBase } from '../componente-base';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 
 
 export abstract class LoginPageBase extends ComponenteBase{
@@ -23,7 +24,7 @@ export abstract class LoginPageBase extends ComponenteBase{
   chavePagina = '079053c61df3fa29a8c281c38a8a06d0526499f5';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    protected formBuilder: FormBuilder, protected srv: UsuarioApi, protected srvAcao: AcaoApi, protected storage: Storage
+    protected formBuilder: FormBuilder, protected srv: UsuarioProdutoApi, protected srvAcao: AcaoApi, protected storage: Storage
     , protected pagSeguro:PagSeguroApi,  protected fcmSrv: AcessaFcmService) {
     super();
     this.loginForm = this.formBuilder.group({
