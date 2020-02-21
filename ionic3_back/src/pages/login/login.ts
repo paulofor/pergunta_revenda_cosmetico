@@ -9,6 +9,7 @@ import { ComandosZeroPage } from '../comandos-zero/comandos-zero';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { ListaOportunidadePrecoAssinaturaPage } from '../lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 
 /**
  * Generated class for the LoginPage page.
@@ -38,7 +39,7 @@ export class LoginPage extends LoginPageBase {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    protected formBuilder: FormBuilder, protected srv: UsuarioApi, 
+    protected formBuilder: FormBuilder, protected srv: UsuarioProdutoApi, 
     protected srvACao: AcaoApi, protected storage: Storage, protected pagSeguro:PagSeguroApi,  protected fcmSrv: AcessaFcmService) {
     super(navCtrl, navParams, formBuilder, srv, srvACao, storage, pagSeguro, fcmSrv);
   }
