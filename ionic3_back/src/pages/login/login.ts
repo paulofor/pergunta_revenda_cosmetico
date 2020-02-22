@@ -10,6 +10,7 @@ import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { ListaOportunidadePrecoAssinaturaPage } from '../lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
+import { ListaOportunidadeGenericaPage } from '../lista-oportunidade-generica/lista-oportunidade-generica';
 
 /**
  * Generated class for the LoginPage page.
@@ -31,7 +32,7 @@ export class LoginPage extends LoginPageBase {
 
 
   getPaginaInicial(): Page {
-    var proxima = ListaOportunidadePrecoAssinaturaPage;
+    var proxima = ListaOportunidadeGenericaPage;
     console.log('Proxima: ' , proxima);
     return proxima;
   }

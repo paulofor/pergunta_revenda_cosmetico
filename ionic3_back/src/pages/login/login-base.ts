@@ -12,26 +12,26 @@ import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 
 
-export abstract class LoginPageBase extends ComponenteBase{
+export abstract class LoginPageBase extends ComponenteBase {
 
   protected usuario: Usuario;
   private usuarioLogado: Usuario;
   protected loginForm: FormGroup;
   protected erroMsg: string;
-  
-  abstract getPaginaInicial() : Page;
- 
+
+  abstract getPaginaInicial(): Page;
+
   chavePagina = '079053c61df3fa29a8c281c38a8a06d0526499f5';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     protected formBuilder: FormBuilder, protected srv: UsuarioProdutoApi, protected srvAcao: AcaoApi, protected storage: Storage
-    , protected pagSeguro:PagSeguroApi,  protected fcmSrv: AcessaFcmService) {
+    , protected pagSeguro: PagSeguroApi, protected fcmSrv: AcessaFcmService) {
     super();
     this.loginForm = this.formBuilder.group({
       login: '',
       senha: ''
     });
-    
+
   }
 
   ionViewDidLoad() {
@@ -39,65 +39,94 @@ export abstract class LoginPageBase extends ComponenteBase{
     this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
   }
 
-  onSubmit() {
+  onSubmit1() {
     var email = this.loginForm.get("login").value;
     var senha = this.loginForm.get("senha").value;
-    var filtro:LoopBackFilter = {
-      'where' : { 'and' : [{'email' : email} , {'senha' : senha }]}
+    var filtro: LoopBackFilter = {
+      'where': { 'and': [{ 'email': email }, { 'senha': senha }] }
     }
     this.srv.findOne(filtro)
       .subscribe(
-        (result:Usuario) => {
-          console.log('UserLogin: ' , result);
+        (result: Usuario) => {
+          console.log('UserLogin: ', result);
           this.usuarioLogado = result;
           this.executouLogin();
           this.verificaAssinatura();
-         
+
         },
         (erro: any) => {
-          console.log('Erro login: ' , erro);
-          if (erro=='Server error') {
-             this.erroMsg = MSG_SEM_INTERNET;
+          console.log('Erro login: ', erro);
+          if (erro == 'Server error') {
+            this.erroMsg = MSG_SEM_INTERNET;
           } else {
-            if (erro.status==404) {
-               this.erroMsg = MSG_ERRO_LOGIN;
-               this.errouLogin();
+            if (erro.status == 404) {
+              this.erroMsg = MSG_ERRO_LOGIN;
+              this.errouLogin();
             }
           }
-          		         
+
+        }
+      )
+  }
+
+  onSubmit() {
+    var email = this.loginForm.get("login").value;
+    var senha = this.loginForm.get("senha").value;
+    var filtro: LoopBackFilter = {
+      'where': { 'and': [{ 'email': email }, { 'senha': senha }] }
+    }
+    this.srv.ValidaLogin(email, senha)
+      .subscribe(
+        (result: Usuario) => {
+          if (result) {
+            console.log('UserLogin: ', result);
+            this.usuarioLogado = result;
+            this.executouLogin();
+            this.verificaAssinatura();
+          } else {
+            this.erroMsg = MSG_ERRO_LOGIN;
+            this.errouLogin();
+          }
+
+        },
+        (erro: any) => {
+          console.log('Erro login: ', erro);
+          if (erro == 'Server error') {
+            this.erroMsg = MSG_SEM_INTERNET;
+          }
         }
       )
   }
 
   armazenaUsuarioESegue() {
-    this.storage.set("user",this.usuarioLogado).then((successData)=>{
+    this.storage.set("user", this.usuarioLogado).then((successData) => {
       this.mudaTela();
     })
   }
 
   executouLogin() {
-    let acao:Acao = new Acao();
+    let acao: Acao = new Acao();
     acao.dataHora = new Date();
     acao.nome = 'LoginOk';
     acao.usuarioId = this.usuarioLogado.id;
     acao.objeto = 'Login';
-    console.log('Acao: ' , JSON.stringify(acao));
+    console.log('Acao: ', JSON.stringify(acao));
     this.srvAcao.create(acao)
       .subscribe(result => {
-        console.log('Result: ' , result);
+        console.log('Result: ', result);
       })
   }
 
   errouLogin() {
-    let acao:Acao = new Acao();
+    let acao: Acao = new Acao();
     acao.dataHora = new Date();
     acao.nome = 'LoginErro';
     //acao.usuarioId = usuario.id;
     acao.objeto = 'Login';
-    console.log('Acao: ' , JSON.stringify(acao));
+    console.log('Acao: ', JSON.stringify(acao));
     this.srvAcao.create(acao)
       .subscribe(result => {
-        console.log('Result: ' , result);
+        console.log('Result: ', result);
       })
   }
 
@@ -111,14 +140,14 @@ export abstract class LoginPageBase extends ComponenteBase{
   criarConta() {
     this.navCtrl.push(SignupPage);
   }
-  
-  
+
+
   verificaAssinatura() {
-    console.log('CodigoPagamento:' , this.usuarioLogado.codigoPagamento);
+    console.log('CodigoPagamento:', this.usuarioLogado.codigoPagamento);
     if (this.usuarioLogado.codigoPagamento) {
-      this.pagSeguro.VerificaPagamento(this.usuarioLogado.codigoPagamento) 
+      this.pagSeguro.VerificaPagamento(this.usuarioLogado.codigoPagamento)
         .subscribe((result) => {
-          console.log('VerificaPagamento: ' , result);
+          console.log('VerificaPagamento: ', result);
           this.usuarioLogado.statusPagamento = result.status;
           this.armazenaUsuarioESegue();
         })
