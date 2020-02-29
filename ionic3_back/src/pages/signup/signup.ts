@@ -6,6 +6,8 @@ import { UsuarioApi } from '../../shared/sdk/index';
 import { Storage } from '@ionic/storage';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
+import { Page } from 'ionic-angular/umd/navigation/nav-util';
+import { ListaOportunidadeGenericaPage } from '../lista-oportunidade-generica/lista-oportunidade-generica';
 
 /**
  * Generated class for the SignupPage page.
@@ -29,6 +31,11 @@ export class SignupPage extends SignupPageBase{
     super(navCtrl, formBuilder, storage, srv, fcmSrv);
   }
 
+
+  getPaginaInicial(): Page {
+    var proxima = ListaOportunidadeGenericaPage;
+    return proxima;
+  }
 
   mudaStatusSenha() {
     console.log('Status: ' , this.passwordCheckbox);

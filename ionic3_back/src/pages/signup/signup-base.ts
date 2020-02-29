@@ -9,6 +9,8 @@ import { MSG_CADASTRO_TAMANHO_SENHA, MSG_CADASTRO_EMAIL, VERSAO_APP_ID } from ".
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { UsuarioProdutoApi } from "../../shared/sdk/services/custom/UsuarioProduto";
 import { ListaOportunidadePrecoAssinaturaPage } from "../lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura";
+import { Page } from "ionic-angular/navigation/nav-util";
+
 
 
 export abstract class SignupPageBase extends ComponenteBase {
@@ -22,6 +24,8 @@ export abstract class SignupPageBase extends ComponenteBase {
   protected msgEmail: string = MSG_CADASTRO_EMAIL;
 
   chavePagina = 'c2b925b0dd233741e199e83a93afc1ad46047828';
+
+  abstract getPaginaInicial(): Page;
 
   constructor(public navCtrl: NavController, protected formBuilder: FormBuilder, protected storage: Storage,
     protected srv: UsuarioProdutoApi, protected fcmSrv: AcessaFcmService) {
@@ -56,9 +60,7 @@ export abstract class SignupPageBase extends ComponenteBase {
     }
   }
 
-  getProximaPagina() {
-    return ListaOportunidadePrecoAssinaturaPage;
-  }
+  
 
 
   processaSubmit() {
@@ -73,13 +75,13 @@ export abstract class SignupPageBase extends ComponenteBase {
       this.usuario.senha = senha1;
       this.storage.get("chave").then((chaveUsuario) => {
         this.usuario.chave = chaveUsuario;
-        alert("usuario:" + JSON.stringify(this.usuario));
+        //alert("usuario:" + JSON.stringify(this.usuario));
         this.srv.PrimeiroAcesso(this.usuario)
           .subscribe(
             (result) => {
-              this.storage.set('user', result);
+              //this.storage.set('user', result);
               console.log('SignUp: ', result);
-              this.navCtrl.push(this.getProximaPagina());
+              this.navCtrl.push(this.getPaginaInicial());
             },
             (error) => {
               console.log('Erro: ', error);

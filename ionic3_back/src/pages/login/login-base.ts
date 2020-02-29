@@ -39,36 +39,7 @@ export abstract class LoginPageBase extends ComponenteBase {
     this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
   }
 
-  onSubmit1() {
-    var email = this.loginForm.get("login").value;
-    var senha = this.loginForm.get("senha").value;
-    var filtro: LoopBackFilter = {
-      'where': { 'and': [{ 'email': email }, { 'senha': senha }] }
-    }
-    this.srv.findOne(filtro)
-      .subscribe(
-        (result: Usuario) => {
-          console.log('UserLogin: ', result);
-          this.usuarioLogado = result;
-          this.executouLogin();
-          this.verificaAssinatura();
-
-        },
-        (erro: any) => {
-          console.log('Erro login: ', erro);
-          if (erro == 'Server error') {
-            this.erroMsg = MSG_SEM_INTERNET;
-          } else {
-            if (erro.status == 404) {
-              this.erroMsg = MSG_ERRO_LOGIN;
-              this.errouLogin();
-            }
-          }
-
-        }
-      )
-  }
-
+  
   onSubmit() {
     var email = this.loginForm.get("login").value;
     var senha = this.loginForm.get("senha").value;
@@ -81,11 +52,11 @@ export abstract class LoginPageBase extends ComponenteBase {
           if (result) {
             console.log('UserLogin: ', result);
             this.usuarioLogado = result;
-            this.executouLogin();
+            //this.executouLogin();
             this.verificaAssinatura();
           } else {
             this.erroMsg = MSG_ERRO_LOGIN;
-            this.errouLogin();
+            //this.errouLogin();
           }
 
         },
@@ -93,6 +64,8 @@ export abstract class LoginPageBase extends ComponenteBase {
           console.log('Erro login: ', erro);
           if (erro == 'Server error') {
             this.erroMsg = MSG_SEM_INTERNET;
+          } else {
+            this.erroMsg = MSG_ERRO_LOGIN;
           }
         }
       )

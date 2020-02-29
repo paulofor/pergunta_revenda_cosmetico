@@ -661,8 +661,8 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
-
-
+  
+  
   public ValidaLogin(login: any, senha: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
@@ -675,7 +675,6 @@ export class UsuarioProdutoApi extends BaseLoopBackApi {
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
-
 
   /**
    * The name of the model represented by this $resource,
