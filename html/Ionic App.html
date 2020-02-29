@@ -1,0 +1,2671 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8000/index.html -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.9.2';i.angular='5.2.11';i.staticDir='build/';})(window);
+  </script>
+  
+  <title>Ionic App</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="icon" type="image/x-icon" href="http://localhost:8000/assets/icon/favicon.ico">
+  <link rel="manifest" href="http://localhost:8000/manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  <!-- cordova.js required for cordova apps (remove if not needed) -->
+  <script src="./Ionic App_files/cordova.js"></script>
+  <script type="text/javascript" src="./Ionic App_files/pagseguro.directpayment.js"></script><script src="./Ionic App_files/cordova_plugins.js"></script>
+
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <link href="./Ionic App_files/main.css" rel="stylesheet">
+
+<script src="./Ionic App_files/Screenshot.js"></script><script src="./Ionic App_files/device.js"></script><script src="./Ionic App_files/DeviceProxy.js"></script><script src="./Ionic App_files/FCMPlugin.js"></script><script src="./Ionic App_files/util.js"></script><script src="./Ionic App_files/splashscreen.js"></script><script src="./Ionic App_files/SplashScreenProxy.js"></script><script src="./Ionic App_files/statusbar.js"></script><script src="./Ionic App_files/StatusBarProxy.js"></script><style>.directpaymentgateway {position:absolute; width:0px; height:0px; display:none;}</style></head>
+<body class="">
+
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app class="app-root app-root-md md platform-cordova platform-core enable-hover" ng-version="5.2.11"><div app-viewport=""></div><ng-component class="app-root"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+
+<ion-menu role="navigation" side="left" type="overlay" class="menu-enabled" ng-reflect-content="[object Object]"><div class="menu-inner">
+  <ion-header class="header header-md">
+    <ion-toolbar class="toolbar toolbar-md"><div class="toolbar-background toolbar-background-md" ng-reflect-klass="toolbar-background" ng-reflect-ng-class="toolbar-background-md"></div><div class="toolbar-content toolbar-content-md" ng-reflect-klass="toolbar-content" ng-reflect-ng-class="toolbar-content-md">
+      <ion-title class="title title-md"><div class="toolbar-title toolbar-title-md" ng-reflect-klass="toolbar-title" ng-reflect-ng-class="toolbar-title-md">Menu</div></ion-title>
+    </div></ion-toolbar>
+  </ion-header>
+
+  <ion-content class="content content-md"><div class="fixed-content"></div><div class="scroll-content">
+    <ion-list class="list list-md">
+      <!--bindings={
+  "ng-reflect-ng-for-of": ""
+}-->
+    </ion-list>
+  </div></ion-content>
+
+</div><ion-backdrop disable-activated="" role="presentation" tappable=""></ion-backdrop></ion-menu>
+
+
+<ion-nav swipebackenabled="false" class="menu-content menu-content-overlay" ng-reflect-swipe-back-enabled="false" ng-reflect-root="function LoginPage(navCtrl, na"><div nav-viewport=""></div><page-login class="ion-page show-page" style="z-index: 100;" hidden=""><ion-content class="content content-md"><div class="fixed-content"></div><div class="scroll-content">
+
+  <div id="logo">
+    <img heigth="100%" src="./Ionic App_files/logoTela.png" width="100%">
+  </div>
+
+
+  <form novalidate="" padding="" ng-reflect-form="[object Object]" class="ng-pristine ng-invalid ng-touched">
+    <ion-list class="list list-md">
+
+
+      <ion-item class="item item-block item-md item-input item-label-floating ng-untouched ng-pristine ng-invalid"><div class="item-inner"><div class="input-wrapper"><ion-label floating="" class="label label-md" id="lbl-0">Email</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><ion-input formcontrolname="login" required="" type="email" class="input input-md ng-pristine ng-invalid ng-touched" ng-reflect-required="" ng-reflect-name="login" ng-reflect-type="email"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><input class="text-input text-input-md" dir="auto" ng-reflect-klass="text-input" ng-reflect-ng-class="text-input-md" type="email" aria-labelledby="lbl-0" autocomplete="off" autocorrect="off" placeholder="" formcontrolname="login" required="" ng-reflect-required="" ng-reflect-name="login" ng-reflect-type="email"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></ion-input></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+      <ion-item class="item item-block item-md item-input item-label-floating ng-untouched ng-pristine ng-invalid"><div class="item-inner"><div class="input-wrapper"><ion-label floating="" class="label label-md" id="lbl-1">Senha</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><ion-input formcontrolname="senha" required="" type="password" class="input input-md ng-untouched ng-pristine ng-invalid" ng-reflect-required="" ng-reflect-name="senha" ng-reflect-type="password"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><input class="text-input text-input-md" dir="auto" ng-reflect-klass="text-input" ng-reflect-ng-class="text-input-md" type="password" aria-labelledby="lbl-1" autocomplete="off" autocorrect="off" placeholder="" formcontrolname="senha" required="" ng-reflect-required="" ng-reflect-name="senha" ng-reflect-type="password"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></ion-input></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+
+      <ion-item class="item item-block item-md"><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+        
+      </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+
+      <!--bindings={}-->
+    </ion-list>
+    <div style="align-content: center;" width="100%">
+      <button class="botaoPrincipal button button-md button-default button-default-md button-round button-round-md" ion-button="" round="" type="submit" ng-reflect-round=""><span class="button-inner">Entrar</span><div class="button-effect"></div></button>
+    </div>
+
+  </form>
+
+
+  <button class="criaEsquece button button-md button-outline button-outline-md button-outline-md-primary" color="primary" ion-button="" outline="" ng-reflect-color="primary" ng-reflect-outline=""><span class="button-inner">Primeiro Acesso</span><div class="button-effect" style="transform: translate3d(-56px, -88px, 0px) scale(1); height: 211px; width: 211px; opacity: 0; transition: transform 343ms ease 0s, opacity 240ms ease 103ms;"></div></button>
+
+</div></ion-content>
+</page-login><page-signup class="ion-page show-page" hidden="" style="z-index: 101;"><ion-content padding="" class="content content-md"><div class="fixed-content"></div><div class="scroll-content">
+
+  <div id="logo">
+    <img heigth="100%" src="./Ionic App_files/logoTela.png" width="100%">
+  </div>
+
+
+  <form novalidate="" padding="" ng-reflect-form="[object Object]" class="ng-dirty ng-touched ng-valid">
+    <ion-list class="list list-md">
+
+      <ion-item class="item item-block item-md item-input item-label-floating ng-untouched input-has-value item-input-has-value ng-dirty ng-valid"><div class="item-inner"><div class="input-wrapper"><ion-label floating="" class="label label-md" id="lbl-3">Email</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><ion-input formcontrolname="login" type="email" class="input input-md ng-dirty ng-valid ng-touched" ng-reflect-name="login" ng-reflect-type="email"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><input class="text-input text-input-md" dir="auto" ng-reflect-klass="text-input" ng-reflect-ng-class="text-input-md" type="email" aria-labelledby="lbl-3" autocomplete="off" autocorrect="off" placeholder="" formcontrolname="login" ng-reflect-name="login" ng-reflect-type="email"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></ion-input></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+      <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+      <ion-item class="item item-block item-md item-input item-label-floating ng-untouched input-has-value item-input-has-value ng-dirty ng-valid"><div class="item-inner"><div class="input-wrapper"><ion-label floating="" class="label label-md" id="lbl-4">Senha</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><ion-input formcontrolname="senha1" class="input input-md ng-dirty ng-valid ng-touched" ng-reflect-name="senha1" ng-reflect-type="text"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><input class="text-input text-input-md" dir="auto" ng-reflect-klass="text-input" ng-reflect-ng-class="text-input-md" type="text" aria-labelledby="lbl-4" autocomplete="off" autocorrect="off" placeholder="" formcontrolname="senha1" ng-reflect-name="senha1" ng-reflect-type="password"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></ion-input></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+      <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+      <ion-item class="item item-block item-md item-input item-label-floating ng-untouched input-has-value item-input-has-value ng-dirty ng-valid"><div class="item-inner"><div class="input-wrapper"><ion-label floating="" class="label label-md" id="lbl-5">Repetir Senha</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><ion-input formcontrolname="senha2" class="input input-md ng-dirty ng-valid ng-touched" ng-reflect-name="senha2" ng-reflect-type="text"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><input class="text-input text-input-md" dir="auto" ng-reflect-klass="text-input" ng-reflect-ng-class="text-input-md" type="text" aria-labelledby="lbl-5" autocomplete="off" autocorrect="off" placeholder="" formcontrolname="senha2" ng-reflect-name="senha2" ng-reflect-type="password"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></ion-input></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+      <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+      <ion-item class="item item-block item-md item-checkbox item-checkbox-checked"><ion-checkbox class="checkbox checkbox-md ng-valid ng-touched ng-dirty" ng-reflect-options="[object Object]" ng-reflect-model="true"><div class="checkbox-icon checkbox-checked"><div class="checkbox-inner"></div></div><button class="item-cover item-cover-md item-cover-default item-cover-default-md" ion-button="item-cover" role="checkbox" type="button" id="checkbox-6-0" aria-checked="true" aria-labelledby="lbl-6" aria-disabled="false"><span class="button-inner"> </span><div class="button-effect" style="transform: translate3d(-91px, -97px, 0px) scale(1); height: 240px; width: 240px; opacity: 0; transition: transform 404ms ease 0s, opacity 283ms ease 121ms;"></div></button></ion-checkbox><div class="item-inner"><div class="input-wrapper"><ion-label class="label label-md" id="lbl-6">Mostrar Senha</ion-label><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></ion-item>
+
+      <!--bindings={}-->
+    </ion-list>
+
+    <div style="align-content: center;" width="100%">
+      <button class="botaoPrincipal button button-md button-default button-default-md button-round button-round-md" ion-button="" round="" type="submit" ng-reflect-round=""><span class="button-inner">Enviar</span><div class="button-effect" style="transform: translate3d(7px, -87px, 0px) scale(1); height: 240px; width: 240px; opacity: 0; transition: transform 382ms ease 0s, opacity 268ms ease 114ms;"></div></button>
+    </div>
+  </form>
+
+
+</div></ion-content>
+</page-signup><page-lista-oportunidade-generica class="ion-page show-page" style="z-index: 102;"><ion-header class="header header-md">
+  <ion-navbar class="toolbar toolbar-md toolbar-md-titulo" color="titulo" hidebackbutton="" ng-reflect-color="titulo" ng-reflect-hide-back-button=""><div class="toolbar-background toolbar-background-md" ng-reflect-klass="toolbar-background" ng-reflect-ng-class="toolbar-background-md"></div><button class="back-button bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md" hidden=""><span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon><span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md"></span></span><div class="button-effect"></div></button><div class="toolbar-content toolbar-content-md" ng-reflect-klass="toolbar-content" ng-reflect-ng-class="toolbar-content-md">
+    <ion-title class="title title-md"><div class="toolbar-title toolbar-title-md" ng-reflect-klass="toolbar-title" ng-reflect-ng-class="toolbar-title-md">Oportunidades do Dia</div></ion-title>
+    <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-title class="title title-md"><div class="toolbar-title toolbar-title-md" ng-reflect-klass="toolbar-title" ng-reflect-ng-class="toolbar-title-md">Período gratuito: 20 dias</div></ion-title>
+    <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><button color="light" ion-button="" outline="" ng-reflect-color="light" ng-reflect-outline="" class="button button-md button-outline button-outline-md button-outline-md-light"><span class="button-inner">Assinar (4,99 ao mês)</span><div class="button-effect"></div></button>
+  </div></ion-navbar>
+</ion-header>
+
+<ion-content class="quadroBase content content-md" padding=""><div class="fixed-content" style="margin-top: 100px;"></div><div class="scroll-content" style="margin-top: 100px;">
+
+  <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+  <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+
+  <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!---->
+    <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+    <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-list class="list list-md">
+      <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Matte 12 Cores Belle Angel B021 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombra-bella-angel-b021-01.jpg">
+          <h3 class="texto-preco">Preço até 27/02/2020: R$
+            70,32</h3>
+          <h3 class="texto-preco">Preço atual: R$ 35,16</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/paleta-de-sombras-matte-12-cores-belle-angel-b021-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Matte 12 Cores Belle Angel B021 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombra-bella-angel-b021-01.jpg">
+          <h3 class="texto-preco">Preço até 27/02/2020: R$
+            70,32</h3>
+          <h3 class="texto-preco">Preço atual: R$ 35,16</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-matte-12-cores-belle-angel-b021-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Esponja para Limpeza Facial Elétrica Forever/Forclean ? Unidade ? YGJ-603</h2>
+          <img src="./Ionic App_files/Foreo-Atacado-Esponja-limpeza-facial-Forever-YGJ-603-400x400.jpg">
+          <h3 class="texto-preco">Preço até 27/02/2020: R$
+            25,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 22,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><h3 class="texto-preco">Top 50 - Vendas</h3>
+          <h3 class="texto-loja">Loja: CarmosBR</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.carmosbr.com.br/produto/esponja-para-limpeza-facial-eletrica-forever-unidade-ygj-603/"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Gel para Sobrancelha Mia Make 1176 - Display com 36 unidades</h2>
+          <img src="./Ionic App_files/gel-sobrancelha-miamake-117612-1.jpg">
+          <h3 class="texto-preco">Preço até 27/02/2020: R$
+            256,68</h3>
+          <h3 class="texto-preco">Preço atual: R$ 128,34</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/gel-para-sobrancelha-mia-make-1176-display-com-36-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Maquiagem Super Party Luisance L6067 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-sombra-super-party-luisance-l6067-1_1.jpg">
+          <h3 class="texto-preco">Preço até 26/02/2020: R$
+            115,20</h3>
+          <h3 class="texto-preco">Preço atual: R$ 70,86</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/paleta-de-maquiagem-super-party-luisance-l6067-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Maquiagem Super Party Luisance L6067 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-sombra-super-party-luisance-l6067-1_1.jpg">
+          <h3 class="texto-preco">Preço até 26/02/2020: R$
+            115,20</h3>
+          <h3 class="texto-preco">Preço atual: R$ 70,86</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-maquiagem-super-party-luisance-l6067-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Corretivo Magic Luisance L3098 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/corretivo-magic-luisance-1.jpg">
+          <h3 class="texto-preco">Preço até 26/02/2020: R$
+            178,56</h3>
+          <h3 class="texto-preco">Preço atual: R$ 119,04</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/paleta-de-corretivo-magic-luisance-l3098-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Fusion SP Colors SP167 - Display com 24 unidades Cores Sortidas</h2>
+          <img src="./Ionic App_files/paleta-sombras-fusion-sp-colors-1.jpg">
+          <h3 class="texto-preco">Preço até 26/02/2020: R$
+            224,16</h3>
+          <h3 class="texto-preco">Preço atual: R$ 112,08</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-fusion-sp-colors-sp167-display-com-24-unidades-cores-sortidas.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Sephora Collection Rouge Cream</h2>
+          <img src="./Ionic App_files/89420969G1.jpg">
+          <h3 class="texto-preco">Preço até 26/02/2020: R$
+            45,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 38,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/89420965?pfm_carac=L%C3%A1bios&amp;pfm_index=15&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Bt Gloss Brigitte 3.5ml Linha Bruna Tavares - 1 Unidade</h2>
+          <img src="./Ionic App_files/46106939G1.jpg">
+          <h3 class="texto-preco">Preço até 25/02/2020: R$
+            34,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 29,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/46106937?pfm_carac=L%C3%A1bios&amp;pfm_index=15&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Real Look Luisance L3066 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-real-look-luisance-l3066-1.jpg">
+          <h3 class="texto-preco">Preço até 25/02/2020: R$
+            143,16</h3>
+          <h3 class="texto-preco">Preço atual: R$ 71,58</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-crystal-luisance-l6055-display-com-24-unidades-9488.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Lipbalm Colorgel</h2>
+          <img src="./Ionic App_files/68836293G1.jpg">
+          <h3 class="texto-preco">Preço até 25/02/2020: R$
+            129,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 115,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/56895141?pfm_carac=L%C3%A1bios&amp;pfm_index=20&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Lip Tint Natural Lip Color Vegano Top Beauty Box B - Display com 21 unidades</h2>
+          <img src="./Ionic App_files/lip-tint-topbeauty-01_2.jpg">
+          <h3 class="texto-preco">Preço até 24/02/2020: R$
+            147,63</h3>
+          <h3 class="texto-preco">Preço atual: R$ 98,42</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/boca/lip-tint-natural-lip-color-vegano-top-beauty-box-b-display-com-21-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Papo de Amiga Jasmyne JS0301 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/paleta-sombras-papo-de-amiga-jasmyne-js0301-1.jpg">
+          <h3 class="texto-preco">Preço até 24/02/2020: R$
+            187,68</h3>
+          <h3 class="texto-preco">Preço atual: R$ 93,84</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-papo-de-amiga-jasmyne-js0301-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Zanphy HD Special Line 40 - Batom 3,5g</h2>
+          <img src="./Ionic App_files/104418508G1.jpg">
+          <h3 class="texto-preco">Preço até 24/02/2020: R$
+            10,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/104418506?pfm_carac=L%C3%A1bios&amp;pfm_index=21&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Bruma My Delicious Bruminha Miss Lary ML-112 - Display com 16 unidades</h2>
+          <img src="./Ionic App_files/my-delicious-bruminha-miss-lary-box.jpg">
+          <h3 class="texto-preco">Preço até 24/02/2020: R$
+            167,84</h3>
+          <h3 class="texto-preco">Preço atual: R$ 83,92</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/bruma-my-delicious-bruminha-miss-lary-ml-112-display-com-16-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Blackhead Máscara Remover Nariz + Chin Testa cabeça preta Acne Máscara Skin Care Lavagem</h2>
+          <img src="./Ionic App_files/1461624431G1.jpg">
+          <h3 class="texto-preco">Preço até 24/02/2020: R$
+            62,56</h3>
+          <h3 class="texto-preco">Preço atual: R$ 50,14</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1461624414?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Base Líquida Feels Efeito Aveludado HB-8053 Grupo 2 Ruby Rose - Display com 48 unidades </h2>
+          <img src="./Ionic App_files/base-fells-ruby-rose-box-group2.jpg">
+          <h3 class="texto-preco">Preço até 21/02/2020: R$
+            462,06</h3>
+          <h3 class="texto-preco">Preço atual: R$ 244,62</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/base-liquida-feels-efeito-aveludado-hb-8053-ruby-rose-group-2-display-com-48-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Estojo de Sombras Básica 3D e Fosca Fenzza PSM2709 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/paleta-sombra-basica-fenzza-psm2709-02.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            164,16</h3>
+          <h3 class="texto-preco">Preço atual: R$ 129,36</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/estojo-de-sombras-basica-3d-e-fosca-fenzza-psm2709-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Duo para Sobrancelhas + Fixador Miss Lary ML-901 - Display com 36 unidades</h2>
+          <img src="./Ionic App_files/box-atualizado.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            199,44</h3>
+          <h3 class="texto-preco">Preço atual: R$ 99,72</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/duo-para-sobrancelhas-fixador-miss-lary-ml-901-display-com-36-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Kit de Sombras para Sobrancelhas com Iluminador Matt5 Playboy HB89559 - Display com 18 unidades</h2>
+          <img src="./Ionic App_files/sombra-sobrancelhas-playboy-hb89559-01.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            144,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 95,40</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/kit-de-sombras-para-sobrancelhas-com-iluminador-matt5-playboy-hb89559-display-com-18-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Happiness Ruby Rose HB-1003 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb1003-03.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            211,68</h3>
+          <h3 class="texto-preco">Preço atual: R$ 150,12</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-happiness-ruby-rose-hb-1003-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Eyeshadow Palette Playboy HB94490 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/estojo-de-maquiagem-playboy-hb94490-01.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            222,36</h3>
+          <h3 class="texto-preco">Preço atual: R$ 140,28</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-eyeshadow-palette-playboy-hb94490-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Sand Luisance L1075 - Display com 6 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombra-sand-luisance-l1075-03.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            206,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 161,76</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-sand-luisance-l1075-display-com-6-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Rejuvenescedor Facial Caviar Booster Fenzza FZ37012</h2>
+          <img src="./Ionic App_files/caviar-booster-fenzza-fz37012-2.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            34,89</h3>
+          <h3 class="texto-preco">Preço atual: R$ 30,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/rejuvenescedor-facial-caviar-booster-fenzza-fz37012.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Balm Labial Absolue Precious Cells</h2>
+          <img src="./Ionic App_files/52508540G1.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            313,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 269,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/52508538?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Basic Nude Luisance L791</h2>
+          <img src="./Ionic App_files/paleta-sombras-basic-nude-luisance-5.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            28,10</h3>
+          <h3 class="texto-preco">Preço atual: R$ 19,59</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-basic-nude-luisance-l791.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Maleta de Maquiagem Antique Collection Preta Fenzza FZ40011</h2>
+          <img src="./Ionic App_files/maleta-maquiagem-fenzza-2.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            135,19</h3>
+          <h3 class="texto-preco">Preço atual: R$ 79,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/maleta-de-maquiagem-antique-collection-preta-fenzza-fz40011.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Petit Luisance L798</h2>
+          <img src="./Ionic App_files/paleta-sombras-petit-luisance-2.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            17,75</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,39</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-petit-luisance-l798.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Petit Luisance L798 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-sombras-petit-luisance-1.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            191,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 133,80</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-petit-luisance-l798-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Live Luisance L11003-A</h2>
+          <img src="./Ionic App_files/5a.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            19,35</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,79</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-live-luisance-l11003-a.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Live Luisance L11003 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/1_10.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            197,40</h3>
+          <h3 class="texto-preco">Preço atual: R$ 130,44</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-live-luisance-l11003-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">SaiDeng Maquiagem Beauty Cat Eyeliner Smokey Eye Stencil Modelos Template Shaper nova ferramenta</h2>
+          <img src="./Ionic App_files/1456893687G1.jpg">
+          <h3 class="texto-preco">Preço até 20/02/2020: R$
+            62,79</h3>
+          <h3 class="texto-preco">Preço atual: R$ 50,33</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1456893661?pfm_carac=L%C3%A1bios&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Pó Compacto Matte na Cartela Kit com 4 Cores Claras Sortidas - Bella Femme TR3002A</h2>
+          <img src="./Ionic App_files/po-compacto-matte-bella-femme-tr3002a-04.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            18,36</h3>
+          <h3 class="texto-preco">Preço atual: R$ 9,18</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/po-compacto-matte-na-cartela-kit-com-4-cores-claras-sortidas-bella-femme-tr3002a.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Pó Compacto Matte na Cartela Kit com 4 Cores Médias Sortidas - Bella Femme TR30002B</h2>
+          <img src="./Ionic App_files/po-compacto-matte-bella-femme-tr3002a-04_1.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            18,36</h3>
+          <h3 class="texto-preco">Preço atual: R$ 13,77</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/po-compacto-matte-na-cartela-kit-com-4-cores-medias-sortidas-bella-femme-tr30002b.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Iluminador, Sombra e Contorno City Girls CG042 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-iluminador-sombra-e-contorno-cg042-01.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            469,92</h3>
+          <h3 class="texto-preco">Preço atual: R$ 313,28</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/paleta-de-iluminador-sombra-e-contorno-city-girls-cg042-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Baked Marmorizada Luisance L3010 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/box-paleta-sombra-baked-luisance-l3010-01.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            224,64</h3>
+          <h3 class="texto-preco">Preço atual: R$ 112,32</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-baked-marmorizada-luisance-l3010-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Maquiagem Magic Luisance L11001 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-luisance-l11001-01_1.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            193,68</h3>
+          <h3 class="texto-preco">Preço atual: R$ 96,84</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-maquiagem-magic-luisance-l11001-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Treasure Luisance L658 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-treasure-luisance-l658-01.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            215,28</h3>
+          <h3 class="texto-preco">Preço atual: R$ 107,64</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-treasure-luisance-l658-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras 9 Cores Summer Beach Mylife MY1806 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombra-mylife-my1806-01.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            161,04</h3>
+          <h3 class="texto-preco">Preço atual: R$ 80,52</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-9-cores-summer-beach-mylife-my1806-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Vegano Dailus Descolada Cremoso</h2>
+          <img src="./Ionic App_files/1394958878G1.jpg">
+          <h3 class="texto-preco">Preço até 19/02/2020: R$
+            9,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1394958851?pfm_carac=L%C3%A1bios&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Maquiagem Magic Luisance L11001 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-luisance-l11001-01_1.jpg">
+          <h3 class="texto-preco">Preço até 18/02/2020: R$
+            193,68</h3>
+          <h3 class="texto-preco">Preço atual: R$ 96,84</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/paleta-de-maquiagem-magic-luisance-l11001-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Delineador Mega Efeito Fenzza DL51 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/delineador-mega-efeito-fenzza-dl51-03.jpg">
+          <h3 class="texto-preco">Preço até 18/02/2020: R$
+            224,28</h3>
+          <h3 class="texto-preco">Preço atual: R$ 120,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/delineador-mega-efeito-fenzza-dl51-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Brilho e Sabor Chocolate Shine Colors Abelha Rainha 3,7g</h2>
+          <img src="./Ionic App_files/41995116G1.jpg">
+          <h3 class="texto-preco">Preço até 18/02/2020: R$
+            9,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/41995118?pfm_carac=L%C3%A1bios&amp;pfm_index=11&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Líquido À Prova D  água De Longa Duração Tatuagem Gloss Labial Hidratante Labial Matiz F</h2>
+          <img src="./Ionic App_files/87656443G1.jpg">
+          <h3 class="texto-preco">Preço até 17/02/2020: R$
+            65,59</h3>
+          <h3 class="texto-preco">Preço atual: R$ 53,86</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/87656441?pfm_carac=L%C3%A1bios&amp;pfm_index=2&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Lápis Delineador Líquido Waterproof suor longa duração resistente Eye Liner</h2>
+          <img src="./Ionic App_files/1473082659G1.jpg">
+          <h3 class="texto-preco">Preço até 17/02/2020: R$
+            70,28</h3>
+          <h3 class="texto-preco">Preço atual: R$ 56,35</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1473082641?pfm_carac=L%C3%A1bios&amp;pfm_index=4&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Gloss Labial Interdit Vinyl</h2>
+          <img src="./Ionic App_files/38579084G1.jpg">
+          <h3 class="texto-preco">Preço até 17/02/2020: R$
+            149,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 133,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/38579081?pfm_carac=L%C3%A1bios&amp;pfm_index=14&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Una Intensific Fps 15 Nude</h2>
+          <img src="./Ionic App_files/213363420G1.jpg">
+          <h3 class="texto-preco">Preço até 16/02/2020: R$
+            49,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 44,84</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/213363403?pfm_carac=L%C3%A1bios&amp;pfm_index=7&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Portátil Forma Irregular Branco Fries Shelf molho de ketchup Jam Cup Snack Container</h2>
+          <img src="./Ionic App_files/1473091951G1.jpg">
+          <h3 class="texto-preco">Preço até 16/02/2020: R$
+            77,64</h3>
+          <h3 class="texto-preco">Preço atual: R$ 62,79</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1473091942?pfm_carac=L%C3%A1bios&amp;pfm_index=20&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Zanphy BB - Lip Tint 3,5ml</h2>
+          <img src="./Ionic App_files/104419030G1.jpg">
+          <h3 class="texto-preco">Preço até 15/02/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/104419028?pfm_carac=L%C3%A1bios&amp;pfm_index=11&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Delineador Liquido para Olhos Mia Make 178 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/delineador-mia-make-178-1.jpg">
+          <h3 class="texto-preco">Preço até 14/02/2020: R$
+            224,28</h3>
+          <h3 class="texto-preco">Preço atual: R$ 194,16</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/delineador-liquido-para-olhos-mia-make-178-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Super Mate Soul Kiss Me Eudora: Nude Queridinho</h2>
+          <img src="./Ionic App_files/51472719G1.jpg">
+          <h3 class="texto-preco">Preço até 14/02/2020: R$
+            21,15</h3>
+          <h3 class="texto-preco">Preço atual: R$ 15,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/51472721?pfm_carac=L%C3%A1bios&amp;pfm_index=13&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Pó Tropical Iluminador e Bronzer Natural Mia Make</h2>
+          <img src="./Ionic App_files/p_-tropical-miamake-11043-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            9,15</h3>
+          <h3 class="texto-preco">Preço atual: R$ 5,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/po-tropical-iluminador-e-bronzer-natural-mia-make.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Matte de Amor Jasmyne V1027</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-matte-jasmyne-v1027.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            31,45</h3>
+          <h3 class="texto-preco">Preço atual: R$ 22,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-matte-de-amor-jasmyne-v1027.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Matte Diva Eyes Ruby Rose HB-9974</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9974-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            23,39</h3>
+          <h3 class="texto-preco">Preço atual: R$ 16,39</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-matte-diva-eyes-ruby-rose-hb-9974.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Desired Eyes Ruby Rose HB-9970</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9970-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            23,39</h3>
+          <h3 class="texto-preco">Preço atual: R$ 16,39</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-desired-eyes-ruby-rose-hb-9970.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Sacred Ruby Rose HB-9985-1</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9985-1-03.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            9,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 5,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-sacred-ruby-rose-hb-9985-1.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Pocket Adventures Ruby Rose HB-9949</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9949-01.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            12,35</h3>
+          <h3 class="texto-preco">Preço atual: R$ 6,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-pocket-adventures-ruby-rose-hb-9949.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Tender Eyes Ruby Rose HB-9971</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9971-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            23,39</h3>
+          <h3 class="texto-preco">Preço atual: R$ 16,39</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-tender-eyes-ruby-rose-hb-9971.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Dreamy Eyes Ruby Rose HB-9980</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9980-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            21,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 16,39</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-dreamy-eyes-ruby-rose-hb-9980.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Pocket Drama Look Ruby Rose HB-9963</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9963-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            12,35</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,59</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-pocket-drama-look-ruby-rose-hb-9963.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Pocket Rose Spirit Ruby Rose HB-9952</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9952-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            12,35</h3>
+          <h3 class="texto-preco">Preço atual: R$ 7,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-pocket-rose-spirit-ruby-rose-hb-9952.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Be Sweet Ruby Rose HB-9923</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9923-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            16,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 9,69</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-be-sweet-ruby-rose-hb-9923.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Quarteto de Sombras Matte Fenzza Londres FZ-SO1LO-DS Cor 01</h2>
+          <img src="./Ionic App_files/kit-quarteto-de-sombras-fenza-fzso1lods-c01.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            7,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 4,19</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/quarteto-de-sombras-matte-fenzza-londres-fz-so1lo-ds-cor-01.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Quarteto de Sombras Matte Fenzza Londres FZ-SO1LO-DS Cor 02</h2>
+          <img src="./Ionic App_files/kit-quarteto-de-sombras-fenza-fzso1lods-c02_1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            7,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 4,19</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/quarteto-de-sombras-matte-fenzza-londres-fz-so1lo-ds-cor-02.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Quarteto de Sombras Matte Fenzza Londres FZ-SO1LO-DS Cor 04</h2>
+          <img src="./Ionic App_files/kit-quarteto-de-sombras-fenza-fzso1lods-c04.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            7,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 4,19</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/quarteto-de-sombras-matte-fenzza-londres-fz-so1lo-ds-cor-04.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Darling Eyes Ruby Rose HB-9978</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9978-01.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            23,39</h3>
+          <h3 class="texto-preco">Preço atual: R$ 16,39</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-darling-eyes-ruby-rose-hb-9978.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Quarteto de Sombras Matte Fenzza Londres FZ-SO1LO-DS Cor 03</h2>
+          <img src="./Ionic App_files/kit-quarteto-de-sombras-fenza-fzso1lods-c03.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            7,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 4,19</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/quarteto-de-sombras-matte-fenzza-londres-fz-so1lo-ds-cor-03.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Happiness Ruby Rose HB-1003</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb1003-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            19,60</h3>
+          <h3 class="texto-preco">Preço atual: R$ 13,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-happiness-ruby-rose-hb-1003.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer The Cupcake Ruby Rose HB-1020</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb1020-02.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            14,35</h3>
+          <h3 class="texto-preco">Preço atual: R$ 9,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-the-cupcake-ruby-rose-hb-1020.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Girl Band Luisance L9007</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-girl-band-luisance-l9007-03.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            58,25</h3>
+          <h3 class="texto-preco">Preço atual: R$ 33,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-girl-band-luisance-l9007.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Eyeshadow Palette Playboy HB94490</h2>
+          <img src="./Ionic App_files/estojo-de-maquiagem-playboy-hb94490-03.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            20,59</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-eyeshadow-palette-playboy-hb94490.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras 8 Cores SP Colors SP079-A</h2>
+          <img src="./Ionic App_files/paleta-de-sombra-spcolors-sp079-a2.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            10,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 6,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-8-cores-sp-colors-sp079-a.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Quarteto de Sombras Matte Fenzza Londres FZ-SO1LO-DS - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/box-quarteto-de-sombras-fenza-fzso1lods-01.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            182,16</h3>
+          <h3 class="texto-preco">Preço atual: R$ 95,52</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/quarteto-de-sombras-matte-fenzza-londres-fz-so1lo-ds-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras 8 Cores SP Colors SP079-B</h2>
+          <img src="./Ionic App_files/paleta-de-sombra-spcolors-sp079-b2.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            10,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 6,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-8-cores-sp-colors-sp079-b.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras 4 Cores Maxi Shine Queen QP380</h2>
+          <img src="./Ionic App_files/sombra-maxi-shine-queen-qp380-03.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            17,55</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-4-cores-maxi-shine-queen-qp380.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer Clever Ruby Rose HB-9985-16</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9985-16-01.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            9,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 7,09</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-clever-ruby-rose-hb-9985-16.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras + Primer The Cupcake Ruby Rose HB-1020 - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb1020-03.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            155,04</h3>
+          <h3 class="texto-preco">Preço atual: R$ 107,88</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-primer-the-cupcake-ruby-rose-hb-1020-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras 10 Cores Make Up Mylife MY8111</h2>
+          <img src="./Ionic App_files/paleta-sombras-makeup-mylife-1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            13,39</h3>
+          <h3 class="texto-preco">Preço atual: R$ 9,35</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-10-cores-make-up-mylife-my8111.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM DAILUS NÃO SOU TODO MUNDO NUDE CREMOSO</h2>
+          <img src="./Ionic App_files/1324627942G1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324627037?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Bolsa De Maquiagem Cosmética Bolsa De Viagem Zíper Saco De Lavagem Estojo De Lápis</h2>
+          <img src="./Ionic App_files/1475268529G1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            63,85</h3>
+          <h3 class="texto-preco">Preço atual: R$ 49,77</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1475268502?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Cobertura Vinil 5.6ml</h2>
+          <img src="./Ionic App_files/68848823G1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            35,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 23,92</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/68848826?pfm_carac=L%C3%A1bios&amp;pfm_index=15&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Maquiagem Famous Luisance L793-A</h2>
+          <img src="./Ionic App_files/paleta-sombra-famous-luisance-a-3.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            21,25</h3>
+          <h3 class="texto-preco">Preço atual: R$ 13,98</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-maquiagem-famous-luisance-l793-a.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Paleta de Sombras Be Wonderful Ruby Rose HB-9925</h2>
+          <img src="./Ionic App_files/paleta-de-sombras-ruby-rose-hb9925-02_1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            16,19</h3>
+          <h3 class="texto-preco">Preço atual: R$ 9,69</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/paleta-de-sombras-be-wonderful-ruby-rose-hb-9944.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">6Grids DIY Mold Seguro para Ice Cream picolé Fazendo cor aleatória</h2>
+          <img src="./Ionic App_files/1468216421G1.jpg">
+          <h3 class="texto-preco">Preço até 13/02/2020: R$
+            92,97</h3>
+          <h3 class="texto-preco">Preço atual: R$ 70,21</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1468216413?pfm_carac=L%C3%A1bios&amp;pfm_index=19&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Pó Tropical Iluminador e Bronzer Natural Mia Make - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/p_-tropical-miamake-11043-01.jpg">
+          <h3 class="texto-preco">Preço até 12/02/2020: R$
+            197,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 129,36</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/po-tropical-iluminador-e-bronzer-natural-mia-make-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Dailus Nasci Pronta Nude Matte</h2>
+          <img src="./Ionic App_files/1324636419G1.jpg">
+          <h3 class="texto-preco">Preço até 12/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324636380?pfm_carac=L%C3%A1bios&amp;pfm_index=6&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS NADA OFUSCA MEU BRILHO NUDE BRILHO</h2>
+          <img src="./Ionic App_files/1324706616G1.jpg">
+          <h3 class="texto-preco">Preço até 12/02/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324706608?pfm_carac=L%C3%A1bios&amp;pfm_index=7&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Dailus Não Me Compare Nude Brilho</h2>
+          <img src="./Ionic App_files/1324635715G1.jpg">
+          <h3 class="texto-preco">Preço até 12/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324635432?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom 2 em 1 Ruby Rose - Efeito Matte - Cor 001</h2>
+          <img src="./Ionic App_files/33550448G1.jpg">
+          <h3 class="texto-preco">Preço até 12/02/2020: R$
+            17,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,55</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/33550446?pfm_carac=L%C3%A1bios&amp;pfm_index=12&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Payot Colors Up Mate Delicat</h2>
+          <img src="./Ionic App_files/14893693G1.jpg">
+          <h3 class="texto-preco">Preço até 11/02/2020: R$
+            41,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 29,50</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/14893690?pfm_carac=L%C3%A1bios&amp;pfm_index=13&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS NADA OFUSCA MEU BRILHO NUDE BRILHO</h2>
+          <img src="./Ionic App_files/1324706616G1.jpg">
+          <h3 class="texto-preco">Preço até 11/02/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324706608?pfm_carac=L%C3%A1bios&amp;pfm_index=12&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Diluidor de Maquiagem Makeup Restore Face Beautiful - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/diluidor-de-maquiagem-facebeautiful-01.jpg">
+          <h3 class="texto-preco">Preço até 10/02/2020: R$
+            240,96</h3>
+          <h3 class="texto-preco">Preço atual: R$ 143,16</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/boca/diluidor-de-maquiagem-makeup-restore-face-beautiful-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Vegano Dailus Delicada Cremoso</h2>
+          <img src="./Ionic App_files/1394930883G1.jpg">
+          <h3 class="texto-preco">Preço até 10/02/2020: R$
+            9,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1394930875?pfm_carac=L%C3%A1bios&amp;pfm_index=1&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Matte My Chubby Trendy</h2>
+          <img src="./Ionic App_files/169452395G1.jpg">
+          <h3 class="texto-preco">Preço até 10/02/2020: R$
+            67,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 60,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/169453267?pfm_carac=L%C3%A1bios&amp;pfm_index=22&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Dailus Minha Melhor Versão Nude Brilho</h2>
+          <img src="./Ionic App_files/1324633605G1.jpg">
+          <h3 class="texto-preco">Preço até 10/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324633699?pfm_carac=L%C3%A1bios&amp;pfm_index=10&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Vegano Dailus Divertida Cremoso</h2>
+          <img src="./Ionic App_files/1394970050G1.jpg">
+          <h3 class="texto-preco">Preço até 10/02/2020: R$
+            9,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1394970041?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Pigmento para Olhos Vivai 1058 - Display com 36 unidades</h2>
+          <img src="./Ionic App_files/pigmento-para-olhos-vivai-1058-1.jpg">
+          <h3 class="texto-preco">Preço até 09/02/2020: R$
+            240,96</h3>
+          <h3 class="texto-preco">Preço atual: R$ 144,36</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/pigmento-para-olhos-vivai-1058-display-com-36-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Dailus Problema Meu Nude Super Brilho</h2>
+          <img src="./Ionic App_files/1324613612G1.jpg">
+          <h3 class="texto-preco">Preço até 09/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324613567?pfm_carac=L%C3%A1bios&amp;pfm_index=2&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Biomarine DNA Perfectha Lip Natural - Gloss Labial 10g</h2>
+          <img src="./Ionic App_files/77415017G1.jpg">
+          <h3 class="texto-preco">Preço até 09/02/2020: R$
+            89,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 61,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/77415014?pfm_carac=L%C3%A1bios&amp;pfm_index=3&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Dailus Propriedade De Ninguém Nude Super Brilho</h2>
+          <img src="./Ionic App_files/1324620505G1.jpg">
+          <h3 class="texto-preco">Preço até 09/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324620492?pfm_carac=L%C3%A1bios&amp;pfm_index=12&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Máscara Haskell Queratina 250g</h2>
+          <img src="./Ionic App_files/82984858G1.jpg">
+          <h3 class="texto-preco">Preço até 09/02/2020: R$
+            31,01</h3>
+          <h3 class="texto-preco">Preço atual: R$ 27,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/82984856?pfm_carac=L%C3%A1bios&amp;pfm_index=15&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Rouge</h2>
+          <img src="./Ionic App_files/1329754570G1.jpg">
+          <h3 class="texto-preco">Preço até 06/02/2020: R$
+            159,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 126,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1329754991?pfm_carac=L%C3%A1bios&amp;pfm_index=23&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Dailus Ousadia É Ser Eu Nude Matte</h2>
+          <img src="./Ionic App_files/1324696673G1.jpg">
+          <h3 class="texto-preco">Preço até 06/02/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324696606?pfm_carac=L%C3%A1bios&amp;pfm_index=6&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Líquido Matte Divas - Felicittá</h2>
+          <img src="./Ionic App_files/31646511G1.jpg">
+          <h3 class="texto-preco">Preço até 05/02/2020: R$
+            12,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 10,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/31646512?pfm_carac=L%C3%A1bios&amp;pfm_index=22&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Dailus 12 Lips Classics - Batom Matte 4g</h2>
+          <img src="./Ionic App_files/77419027G1.jpg">
+          <h3 class="texto-preco">Preço até 05/02/2020: R$
+            13,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/77419025?pfm_carac=L%C3%A1bios&amp;pfm_index=19&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Bourjois Color Boost Glossy Finish Lipstick 2.75g</h2>
+          <img src="./Ionic App_files/14187276G1.jpg">
+          <h3 class="texto-preco">Preço até 05/02/2020: R$
+            49,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 33,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/14187274?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS BEM RESOLVIDA NUDE MATTE</h2>
+          <img src="./Ionic App_files/1324694037G1.jpg">
+          <h3 class="texto-preco">Preço até 05/02/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324693966?pfm_carac=L%C3%A1bios&amp;pfm_index=22&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Catharine Hill Hera - Batom Líquido Matte 4,5g</h2>
+          <img src="./Ionic App_files/29475627G1.jpg">
+          <h3 class="texto-preco">Preço até 03/02/2020: R$
+            28,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 21,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/29475628?pfm_carac=L%C3%A1bios&amp;pfm_index=20&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Glitter Koloss Make Up 2,5g - Fucsia</h2>
+          <img src="./Ionic App_files/53784304G1.jpg">
+          <h3 class="texto-preco">Preço até 03/02/2020: R$
+            16,19</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,29</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/53784301?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Brilho E Sabor Açaí Shine Colors Abelha Rainha 3,7g</h2>
+          <img src="./Ionic App_files/45242064G1.jpg">
+          <h3 class="texto-preco">Preço até 03/02/2020: R$
+            9,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/45242066?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Super Stay Matte Ink Maybelline - Ruler 5ml</h2>
+          <img src="./Ionic App_files/50990891G1.jpg">
+          <h3 class="texto-preco">Preço até 03/02/2020: R$
+            71,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 62,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/50990889?pfm_carac=L%C3%A1bios&amp;pfm_index=22&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Shiseido ModernMatte Powder 517 Rose Hip - Batom 4g</h2>
+          <img src="./Ionic App_files/54929628G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            138,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 112,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/54929625?pfm_carac=L%C3%A1bios&amp;pfm_index=21&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Dailus Problema Meu Nude Super Brilho</h2>
+          <img src="./Ionic App_files/1324613612G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            15,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324613567?pfm_carac=L%C3%A1bios&amp;pfm_index=8&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Natural Marry Me Benecos</h2>
+          <img src="./Ionic App_files/144478450G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            91,08</h3>
+          <h3 class="texto-preco">Preço atual: R$ 79,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/144478935?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS BEM ME QUERO NUDE BRILHO</h2>
+          <img src="./Ionic App_files/1324678416G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324678310?pfm_carac=L%C3%A1bios&amp;pfm_index=13&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Tracta Bruna Tavares Batom Líquido Matte Rafaela</h2>
+          <img src="./Ionic App_files/32024626G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            39,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 26,60</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/32024624?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Mate - quem disse, berenice?</h2>
+          <img src="./Ionic App_files/631967171G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            33,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 22,33</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/631966565?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Cetim Liquido Vermelho Cetim Matte Com Efeito Acetinado Abelha Rainha</h2>
+          <img src="./Ionic App_files/50007403G1.jpg">
+          <h3 class="texto-preco">Preço até 01/02/2020: R$
+            22,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 17,24</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/50007404?pfm_carac=L%C3%A1bios&amp;pfm_index=2&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Brilho E Sabor Cravo E Canela Shine Colors Abelha Rainha 3,7g</h2>
+          <img src="./Ionic App_files/45242050G1.jpg">
+          <h3 class="texto-preco">Preço até 30/01/2020: R$
+            9,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/45242051?pfm_carac=L%C3%A1bios&amp;pfm_index=23&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Nude Rosê Poá Is Beauty /Matte /Líquido</h2>
+          <img src="./Ionic App_files/1473589265G1.jpg">
+          <h3 class="texto-preco">Preço até 30/01/2020: R$
+            39,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 34,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1473589257?pfm_carac=L%C3%A1bios&amp;pfm_index=11&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Máxima Cobertura Boca Chic Ar Maquiagem Abelha Rainha 3,6g</h2>
+          <img src="./Ionic App_files/52085844G1.jpg">
+          <h3 class="texto-preco">Preço até 29/01/2020: R$
+            6,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 4,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/52085841?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Love Colors ? Batom Nude Com Graça - 9392</h2>
+          <img src="./Ionic App_files/364600816G1.jpg">
+          <h3 class="texto-preco">Preço até 29/01/2020: R$
+            10,34</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/364600453?pfm_carac=L%C3%A1bios&amp;pfm_index=16&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Tracta Bruna Tavares Batom Líquido Matte Rafaela</h2>
+          <img src="./Ionic App_files/32024626G1.jpg">
+          <h3 class="texto-preco">Preço até 28/01/2020: R$
+            39,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 26,60</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/32024624?pfm_carac=L%C3%A1bios&amp;pfm_index=16&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Becca X Khloé Kardashian &amp; Malika Haqq Ultimate Lipstick Love</h2>
+          <img src="./Ionic App_files/87337417G1.jpg">
+          <h3 class="texto-preco">Preço até 28/01/2020: R$
+            119,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 99,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/87337411?pfm_carac=L%C3%A1bios&amp;pfm_index=21&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Maybelline Color Sensational Matte Precise Se Joga Poderosa - Batom Líquido 5,5ml</h2>
+          <img src="./Ionic App_files/70966155G1.jpg">
+          <h3 class="texto-preco">Preço até 28/01/2020: R$
+            37,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 33,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/70966157?pfm_carac=L%C3%A1bios&amp;pfm_index=1&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Tracta 58 Carmim - Batom Líquido Matte 6ml&nbsp;</h2>
+          <img src="./Ionic App_files/1261925909G1.jpg">
+          <h3 class="texto-preco">Preço até 28/01/2020: R$
+            22,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 18,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1261925861?pfm_carac=L%C3%A1bios&amp;pfm_index=16&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Duo de Sombra para Sobrancelha Any Color 1410-3 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/duo-sombra-para-sobrancelha-14103-01.jpg">
+          <h3 class="texto-preco">Preço até 27/01/2020: R$
+            172,56</h3>
+          <h3 class="texto-preco">Preço atual: R$ 93,84</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/duo-de-sombra-para-sobrancelha-any-color-1410-3-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Rouge Shine Lipstick</h2>
+          <img src="./Ionic App_files/73511541G1.jpg">
+          <h3 class="texto-preco">Preço até 27/01/2020: R$
+            59,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 49,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/73511517?pfm_carac=L%C3%A1bios&amp;pfm_index=13&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Dailus Batom Cremoso Verniz - 04 Rose</h2>
+          <img src="./Ionic App_files/26673360G1.jpg">
+          <h3 class="texto-preco">Preço até 27/01/2020: R$
+            12,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 9,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/26673362?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Diluidor de Maquiagem Makeup Restore Face Beautiful - Display com 12 unidades</h2>
+          <img src="./Ionic App_files/diluidor-de-maquiagem-facebeautiful-01.jpg">
+          <h3 class="texto-preco">Preço até 26/01/2020: R$
+            161,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 143,16</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/diluidor-de-maquiagem-makeup-restore-face-beautiful-display-com-12-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Gatis Paris Matte GLK-112 3 g - 08 Noah</h2>
+          <img src="./Ionic App_files/1450540338G1.jpg">
+          <h3 class="texto-preco">Preço até 26/01/2020: R$
+            91,69</h3>
+          <h3 class="texto-preco">Preço atual: R$ 78,13</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1450540320?pfm_carac=L%C3%A1bios&amp;pfm_index=2&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Lip Tint Payot Boca Rosa Vermelho Rosadinho Beauty 10ml</h2>
+          <img src="./Ionic App_files/1171216973G1.jpg">
+          <h3 class="texto-preco">Preço até 26/01/2020: R$
+            39,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 34,79</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1171216965?pfm_carac=L%C3%A1bios&amp;pfm_index=10&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Delineador Líquido Rolling Luisance L12001 - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/delineador-rolling-luisance-l12001-03.jpg">
+          <h3 class="texto-preco">Preço até 24/01/2020: R$
+            161,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 140,16</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/delineador-liquido-rolling-luisance-l12001-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO MATTE NUDE ROSADO 65 TRACTA</h2>
+          <img src="./Ionic App_files/1253783197G1.jpg">
+          <h3 class="texto-preco">Preço até 24/01/2020: R$
+            24,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 20,83</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1253783189?pfm_carac=L%C3%A1bios&amp;pfm_index=4&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Vegano Dailus Desafiadora Matte</h2>
+          <img src="./Ionic App_files/1394956080G1.jpg">
+          <h3 class="texto-preco">Preço até 24/01/2020: R$
+            9,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1394956063?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Cetim Liquido Cookie Matte Com Efeito Acetinado Abelha Rainha</h2>
+          <img src="./Ionic App_files/50007416G1.jpg">
+          <h3 class="texto-preco">Preço até 24/01/2020: R$
+            19,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 17,24</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/50007415?pfm_carac=L%C3%A1bios&amp;pfm_index=10&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Sephora Collection Rouge Shine</h2>
+          <img src="./Ionic App_files/593206361G1.jpg">
+          <h3 class="texto-preco">Preço até 24/01/2020: R$
+            49,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 41,65</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/593206353?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Tinta Anita 8ml Atacado - Cereja</h2>
+          <img src="./Ionic App_files/51123018G1.jpg">
+          <h3 class="texto-preco">Preço até 23/01/2020: R$
+            59,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 48,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/51123019?pfm_carac=L%C3%A1bios&amp;pfm_index=4&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">100 Batom Liq. Matte Ricosti cores na descrição</h2>
+          <img src="./Ionic App_files/137030690G1.jpg">
+          <h3 class="texto-preco">Preço até 23/01/2020: R$
+            1.150,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 870,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/137031529?pfm_carac=L%C3%A1bios&amp;pfm_index=4&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Glitter Koloss Make Up 2,5g - Ciano</h2>
+          <img src="./Ionic App_files/53784280G1.jpg">
+          <h3 class="texto-preco">Preço até 23/01/2020: R$
+            17,09</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,29</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/53784277?pfm_carac=L%C3%A1bios&amp;pfm_index=13&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Corretivo Facial Líquido Cores Claras Jasmyne V3003C - Display com 24 unidades</h2>
+          <img src="./Ionic App_files/corretivo-facial-liquido-jasmyne-v3003c-02.jpg">
+          <h3 class="texto-preco">Preço até 22/01/2020: R$
+            161,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 143,76</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/corretivo-facial-liquido-cores-claras-jasmyne-v3003c-display-com-24-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Primer Embelezador e Iluminador Gotas Mágicas 30ml Zart Makeup - Display com 15 unidades</h2>
+          <img src="./Ionic App_files/gotas-magicas-zart-makeup-01.jpg">
+          <h3 class="texto-preco">Preço até 22/01/2020: R$
+            161,76</h3>
+          <h3 class="texto-preco">Preço atual: R$ 111,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/face/primer-embelezador-e-iluminador-gotas-magicas-30ml-zart-makeup-display-com-15-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Catharine Hill Chill Power - Batom 3,5g</h2>
+          <img src="./Ionic App_files/97477844G1.jpg">
+          <h3 class="texto-preco">Preço até 22/01/2020: R$
+            22,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 18,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/97477847?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Dailus Lutei, Venci Nude Matte</h2>
+          <img src="./Ionic App_files/1324714624G1.jpg">
+          <h3 class="texto-preco">Preço até 22/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324714430?pfm_carac=L%C3%A1bios&amp;pfm_index=8&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Vegano Dailus Desafiadora Matte</h2>
+          <img src="./Ionic App_files/1394956080G1.jpg">
+          <h3 class="texto-preco">Preço até 21/01/2020: R$
+            9,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1394956063?pfm_carac=L%C3%A1bios&amp;pfm_index=21&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Zanphy Paris - Glitter 1,5g</h2>
+          <img src="./Ionic App_files/153259777G1.jpg">
+          <h3 class="texto-preco">Preço até 20/01/2020: R$
+            15,08</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/153259355?pfm_carac=L%C3%A1bios&amp;pfm_index=3&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Chubby Stick Lip Colour Balm</h2>
+          <img src="./Ionic App_files/29369541G1.jpg">
+          <h3 class="texto-preco">Preço até 20/01/2020: R$
+            92,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 77,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/29369543?pfm_carac=L%C3%A1bios&amp;pfm_index=7&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Dailus Faço Minhas Regras Nude Matte</h2>
+          <img src="./Ionic App_files/1324669886G1.jpg">
+          <h3 class="texto-preco">Preço até 19/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324669860?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Vult Lip Oil Vanillalovers - Brilho Labial</h2>
+          <img src="./Ionic App_files/68289935G1.jpg">
+          <h3 class="texto-preco">Preço até 19/01/2020: R$
+            13,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,58</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/68289933?pfm_carac=L%C3%A1bios&amp;pfm_index=8&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Epic Lip Toque Pink Mark Lipstick 3,6 g</h2>
+          <img src="./Ionic App_files/1446906069G1.jpg">
+          <h3 class="texto-preco">Preço até 19/01/2020: R$
+            24,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1446906051?pfm_carac=L%C3%A1bios&amp;pfm_index=4&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">the Balm Meet Matt(e) Hughes Sincere - Batom Líquido - 7,4ml</h2>
+          <img src="./Ionic App_files/30316432G1.jpg">
+          <h3 class="texto-preco">Preço até 19/01/2020: R$
+            85,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 76,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/30316430?pfm_carac=L%C3%A1bios&amp;pfm_index=14&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Vegano Dailus Debochada Matte</h2>
+          <img src="./Ionic App_files/1394927975G1.jpg">
+          <h3 class="texto-preco">Preço até 18/01/2020: R$
+            9,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 8,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1394927967?pfm_carac=L%C3%A1bios&amp;pfm_index=19&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Makiê Grace - Batom Líquido Matte 4g&nbsp;</h2>
+          <img src="./Ionic App_files/45445533G1.jpg">
+          <h3 class="texto-preco">Preço até 18/01/2020: R$
+            37,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 26,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/45445536?pfm_carac=L%C3%A1bios&amp;pfm_index=12&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Super Mate Soul Kiss me Nude Essencial 3,5g - Eudora</h2>
+          <img src="./Ionic App_files/1393866365G1.jpg">
+          <h3 class="texto-preco">Preço até 18/01/2020: R$
+            23,59</h3>
+          <h3 class="texto-preco">Preço atual: R$ 19,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1393866349?pfm_carac=L%C3%A1bios&amp;pfm_index=2&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom líquido Duo Lip Tint Malva Beauty 8ml - Eudora</h2>
+          <img src="./Ionic App_files/1393864992G1.jpg">
+          <h3 class="texto-preco">Preço até 17/01/2020: R$
+            28,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 24,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1393864976?pfm_carac=L%C3%A1bios&amp;pfm_index=16&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Lacre21 Hino - Batom Matte 3,5g</h2>
+          <img src="./Ionic App_files/103007794G1.jpg">
+          <h3 class="texto-preco">Preço até 17/01/2020: R$
+            24,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 20,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/103007792?pfm_carac=L%C3%A1bios&amp;pfm_index=21&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Shiseido ModernMatte Powder 516 Exotic Red - Batom 4g</h2>
+          <img src="./Ionic App_files/54931062G1.jpg">
+          <h3 class="texto-preco">Preço até 16/01/2020: R$
+            138,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 117,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/54931064?pfm_carac=L%C3%A1bios&amp;pfm_index=4&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Rouge Baiser Paris À Lèvres Intensément Mat 812 Mauve - Batom Líquido Matte 4,2g</h2>
+          <img src="./Ionic App_files/1195415774G1.jpg">
+          <h3 class="texto-preco">Preço até 16/01/2020: R$
+            103,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 68,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1195415766?pfm_carac=L%C3%A1bios&amp;pfm_index=2&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Glitter Koloss Make Up 2,5g - Purpura Laser</h2>
+          <img src="./Ionic App_files/53784108G1.jpg">
+          <h3 class="texto-preco">Preço até 16/01/2020: R$
+            17,72</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,36</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/53784105?pfm_carac=L%C3%A1bios&amp;pfm_index=14&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Dailus Edição Especial Nude Brilho</h2>
+          <img src="./Ionic App_files/1324701962G1.jpg">
+          <h3 class="texto-preco">Preço até 16/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324701946?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Dailus Minha Melhor Versão Nude Matte</h2>
+          <img src="./Ionic App_files/1324684269G1.jpg">
+          <h3 class="texto-preco">Preço até 16/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324682440?pfm_carac=L%C3%A1bios&amp;pfm_index=19&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Liquido Dailus Propriedade De Ninguém Nude Brilho</h2>
+          <img src="./Ionic App_files/1324675611G1.jpg">
+          <h3 class="texto-preco">Preço até 15/01/2020: R$
+            18,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324675071?pfm_carac=L%C3%A1bios&amp;pfm_index=7&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS BEM RESOLVIDA NUDE MATTE</h2>
+          <img src="./Ionic App_files/1324694037G1.jpg">
+          <h3 class="texto-preco">Preço até 15/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324693966?pfm_carac=L%C3%A1bios&amp;pfm_index=18&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Vult Batom Liquido Matte - Cor 03- 4g</h2>
+          <img src="./Ionic App_files/44405988G1.jpg">
+          <h3 class="texto-preco">Preço até 15/01/2020: R$
+            23,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 19,91</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/44405990?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS FIZ PORQUE QUIS NUDE MATTE</h2>
+          <img src="./Ionic App_files/1324707555G1.jpg">
+          <h3 class="texto-preco">Preço até 15/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324708371?pfm_carac=L%C3%A1bios&amp;pfm_index=9&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Lipfinity Lipstick - # 40 Always Chic por Max Factor para Mulheres - 0.14 oz</h2>
+          <img src="./Ionic App_files/1263775781G1.jpg">
+          <h3 class="texto-preco">Preço até 14/01/2020: R$
+            203,06</h3>
+          <h3 class="texto-preco">Preço atual: R$ 133,71</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1263775764?pfm_carac=L%C3%A1bios&amp;pfm_index=5&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Matefix Glam Nude Rose 5,4g - Eudora</h2>
+          <img src="./Ionic App_files/1393858875G1.jpg">
+          <h3 class="texto-preco">Preço até 13/01/2020: R$
+            30,67</h3>
+          <h3 class="texto-preco">Preço atual: R$ 25,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1393858867?pfm_carac=L%C3%A1bios&amp;pfm_index=19&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Rouge Baiser Paris L Authentique 106 Corail - Batom Matte 4g</h2>
+          <img src="./Ionic App_files/1191115168G1.jpg">
+          <h3 class="texto-preco">Preço até 13/01/2020: R$
+            95,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 62,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1191115150?pfm_carac=L%C3%A1bios&amp;pfm_index=21&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Big Mouth Volume Gloss Phallebeauty</h2>
+          <img src="./Ionic App_files/1431430310G1.jpg">
+          <h3 class="texto-preco">Preço até 12/01/2020: R$
+            14,99</h3>
+          <h3 class="texto-preco">Preço atual: R$ 10,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1431430184?pfm_carac=L%C3%A1bios&amp;pfm_index=15&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Klasme Carnelian - Batom Líquido Matte 5,5g</h2>
+          <img src="./Ionic App_files/38152537G1.jpg">
+          <h3 class="texto-preco">Preço até 12/01/2020: R$
+            61,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 52,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/38152534?pfm_carac=L%C3%A1bios&amp;pfm_index=23&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Caneta Delineadora Dapop HB93124 - Display com 48 unidades</h2>
+          <img src="./Ionic App_files/caneta-delineadora-dapop-hb93124-02_1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            320,40</h3>
+          <h3 class="texto-preco">Preço atual: R$ 278,88</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Revenda de Cosméticos</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.revendadecosmeticos.com.br/olhos/caneta-delineadora-dapop-hb93124-display-com-48-unidades.html"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">BATOM LIQUIDO DAILUS FEITA DE VERDADES NUDE MATTE</h2>
+          <img src="./Ionic App_files/1324705023G1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            18,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1324705031?pfm_carac=L%C3%A1bios&amp;pfm_index=12&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Color Block High Impact - Wild Aster Por Ilia Beleza Para As Mulheres - 0.14 Onças Lipstick</h2>
+          <img src="./Ionic App_files/1263710928G1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            284,66</h3>
+          <h3 class="texto-preco">Preço atual: R$ 227,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1263710910?pfm_carac=L%C3%A1bios&amp;pfm_index=5&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">ENORME extrema Lash Mascara - preto por Stila por Mulheres - 0.44 onças Mascara</h2>
+          <img src="./Ionic App_files/1235117781G1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            284,66</h3>
+          <h3 class="texto-preco">Preço atual: R$ 227,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1235117772?pfm_carac=L%C3%A1bios&amp;pfm_index=6&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Balm Labial Absolue Precious Cells</h2>
+          <img src="./Ionic App_files/52508540G1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            369,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 269,90</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/52508538?pfm_carac=L%C3%A1bios&amp;pfm_index=23&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Cetim Vinho Tinto Shine Colors Abelha Rainha 4g</h2>
+          <img src="./Ionic App_files/52581993G1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            18,69</h3>
+          <h3 class="texto-preco">Preço atual: R$ 11,49</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/52581996?pfm_carac=L%C3%A1bios&amp;pfm_index=6&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Eyeshadow Bar Single - Couro Envernizado da Buxom para Mulheres - 0.05 oz Sombra para os Olhos (Refil)</h2>
+          <img src="./Ionic App_files/1234952717G1.jpg">
+          <h3 class="texto-preco">Preço até 10/01/2020: R$
+            210,78</h3>
+          <h3 class="texto-preco">Preço atual: R$ 147,15</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1234952688?pfm_carac=L%C3%A1bios&amp;pfm_index=15&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Sisley Phyto-Lip Shine Burgundy N 6 - Batom Cintilante 3,4g</h2>
+          <img src="./Ionic App_files/53297723G1.jpg">
+          <h3 class="texto-preco">Preço até 09/01/2020: R$
+            309,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 235,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/53297720?pfm_carac=L%C3%A1bios&amp;pfm_index=8&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Chubby vara Intense Moisturizing Lip Color Balm - # 02 Chunkiest Chile por Clinique por Mulheres - 0.1</h2>
+          <img src="./Ionic App_files/1235146274G1.jpg">
+          <h3 class="texto-preco">Preço até 09/01/2020: R$
+            274,38</h3>
+          <h3 class="texto-preco">Preço atual: R$ 216,67</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1235146266?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Cupids Bow batom - Metamorphoses por Lipstick Rainha por Mulheres - 0.07 onças Lipstick</h2>
+          <img src="./Ionic App_files/1263499712G1.jpg">
+          <h3 class="texto-preco">Preço até 09/01/2020: R$
+            268,23</h3>
+          <h3 class="texto-preco">Preço atual: R$ 209,94</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1263499691?pfm_carac=L%C3%A1bios&amp;pfm_index=17&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Tracta Líquido Matte Violeta - 50</h2>
+          <img src="./Ionic App_files/47780733G1.jpg">
+          <h3 class="texto-preco">Preço até 08/01/2020: R$
+            17,60</h3>
+          <h3 class="texto-preco">Preço atual: R$ 14,44</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/47780731?pfm_carac=L%C3%A1bios&amp;pfm_index=7&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Batom Tinta Anita Cor Cereja Liptint</h2>
+          <img src="./Ionic App_files/1439800477G1.jpg">
+          <h3 class="texto-preco">Preço até 08/01/2020: R$
+            14,00</h3>
+          <h3 class="texto-preco">Preço atual: R$ 12,00</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1439800469?pfm_carac=L%C3%A1bios&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Protetor Labial Nivea Lip Care Essencial Care 4,8g</h2>
+          <img src="./Ionic App_files/54204369G1.jpg">
+          <h3 class="texto-preco">Preço até 08/01/2020: R$
+            19,90</h3>
+          <h3 class="texto-preco">Preço atual: R$ 16,99</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/54204372?pfm_carac=L%C3%A1bios&amp;pfm_index=11&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Ultra HD Lipstick - # 855 Geranium da Revlon para mulheres - 0.10 oz de batom</h2>
+          <img src="./Ionic App_files/1263800253G1.jpg">
+          <h3 class="texto-preco">Preço até 08/01/2020: R$
+            184,08</h3>
+          <h3 class="texto-preco">Preço atual: R$ 117,97</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1263800245?pfm_carac=L%C3%A1bios&amp;pfm_index=19&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card><ion-card class="card card-md">
+        <ion-card-content text-wrap="" class="card-content card-content-md">
+          <h2 class="texto-produto" style="word-wrap: normal">Gloss Lip Crayon - # 421 Pacific Coast por Burts Bees para mulheres - 0.1 oz de batom</h2>
+          <img src="./Ionic App_files/1262044783G1.jpg">
+          <h3 class="texto-preco">Preço até 08/01/2020: R$
+            206,65</h3>
+          <h3 class="texto-preco">Preço atual: R$ 142,64</h3>
+          <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+          <h3 class="texto-loja">Loja: Americanas</h3>
+          <a button="" ion-button="" rounded="" class="button button-md button-default button-default-md" href="https://www.americanas.com.br/produto/1262044767?pfm_carac=L%C3%A1bios&amp;pfm_index=11&amp;pfm_page=category&amp;pfm_pos=grid&amp;pfm_type=vit_product_grid"><span class="button-inner">Ir para loja</span><div class="button-effect"></div></a>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  
+
+</div></ion-content></page-lista-oportunidade-generica><div class="nav-decor"></div></ion-nav>
+</ng-component><div overlay-portal="" ng-reflect-_overlay-portal=""></div><div overlay-portal="" ng-reflect-_overlay-portal=""></div><div class="loading-portal" overlay-portal="" ng-reflect-_overlay-portal=""></div><div class="toast-portal" ng-reflect-_overlay-portal="10000"></div><div class="click-block click-block-enabled"></div></ion-app>
+
+  <!-- The polyfills js is generated during the build process -->
+  <script src="./Ionic App_files/polyfills.js"></script>
+
+  <!-- The vendor js is generated during the build process
+       It contains all of the dependencies in node_modules -->
+  <script src="./Ionic App_files/vendor.js"></script>
+
+  <!-- The main bundle js is generated during the build process -->
+  <script src="./Ionic App_files/main.js"></script>
+
+
+
+<iframe src="./Ionic App_files/i-ck.html" width="1px" height="1px" id="directpaymentgateway" class="directpaymentgateway" allowtransparency="true" frameborder="0"></iframe></body></html>
