@@ -12,7 +12,7 @@ import { Device } from '@ionic-native/device';
 import { ChartsModule } from 'ng2-charts';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
-
+//import { ComandosZeroPage } from '../pages/comandos-zero/comandos-zero';
 import { IonicStorageModule } from '@ionic/storage';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { PagSeguroApi } from '../shared/sdk/services/integracao/PagSeguro';
@@ -52,6 +52,7 @@ registerLocaleData(localePt, 'pt-BR');
     HomePage,
     LoginPage,
     SignupPage,
+    //ComandosZeroPage,
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
@@ -83,7 +84,7 @@ registerLocaleData(localePt, 'pt-BR');
     HomePage,
     LoginPage,
     SignupPage,
-    ComandosZeroPage,
+    //ComandosZeroPage,
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,

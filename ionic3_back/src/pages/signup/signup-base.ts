@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Usuario, UsuarioApi, UsuarioProduto } from "../../shared/sdk/index";
 import { HomePage } from "../home/home";
 import { Storage } from '@ionic/storage';
-import { ComandosZeroPage } from "../comandos-zero/comandos-zero";
+//import { ComandosZeroPage } from "../comandos-zero/comandos-zero";
 import { ComponenteBase } from '../componente-base';
 import { MSG_CADASTRO_TAMANHO_SENHA, MSG_CADASTRO_EMAIL, VERSAO_APP_ID } from "../../app/const";
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
@@ -75,7 +75,7 @@ export abstract class SignupPageBase extends ComponenteBase {
       this.usuario.senha = senha1;
       this.storage.get("chave").then((chaveUsuario) => {
         this.usuario.chave = chaveUsuario;
-        //alert("usuario:" + JSON.stringify(this.usuario));
+        alert("usuario:" + JSON.stringify(this.usuario));
         this.srv.PrimeiroAcesso(this.usuario)
           .subscribe(
             (result) => {
