@@ -43,6 +43,7 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { MonitorFaseInicialAppApi } from '../shared/sdk/services/custom/MonitorFaseInicialApp';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -126,7 +127,8 @@ registerLocaleData(localePt, 'pt-BR');
     FCM,
     AcessaFcmService,
     DispositivoUsuarioApi,
-    VisitaAppApi
+    VisitaAppApi,
+    MonitorFaseInicialAppApi
   ]
 })
 export class AppModule {}

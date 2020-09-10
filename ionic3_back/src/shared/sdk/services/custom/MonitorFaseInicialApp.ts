@@ -9,18 +9,17 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Visitante } from '../../models/Visitante';
+import { MonitorFaseInicialApp } from '../../models/MonitorFaseInicialApp';
 import { SocketConnection } from '../../sockets/socket.connections';
-
+import { PathValidador } from '../../../../app/const';
+import { get } from '@ionic-native/core';
 
 
 /**
- * Api services for the `Visitante` model.
+ * Api services for the `MonitorFaseInicialApp` model.
  */
 @Injectable()
-export class VisitanteApi extends BaseLoopBackApi {
-
-  private static pathValidador : string = '//validacao.kinghost.net:21101';
+export class MonitorFaseInicialAppApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -31,10 +30,6 @@ export class VisitanteApi extends BaseLoopBackApi {
   ) {
     super(http,  connection,  models, auth, errorHandler);
   }
-
-  
-
-
 
   /**
    * Patch an existing model instance or insert a new one into the data source.
@@ -49,13 +44,13 @@ export class VisitanteApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Visitante` object.)
+   * This usually means the response is a `MonitorFaseInicialApp` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
-    let _url: string = VisitanteApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
-    "/Visitantes";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/MonitorFaseInicialApps";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -68,7 +63,7 @@ export class VisitanteApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id Visitante id
+   * @param {any} id MonitorFaseInicialApp id
    *
    * @param {object} data Request data.
    *
@@ -80,13 +75,13 @@ export class VisitanteApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `Visitante` object.)
+   * This usually means the response is a `MonitorFaseInicialApp` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
-    let _url: string = VisitanteApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
-    "/Visitantes/:id";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/MonitorFaseInicialApps/:id";
     let _routeParams: any = {
       id: id
     };
@@ -98,52 +93,38 @@ export class VisitanteApi extends BaseLoopBackApi {
     return result;
   }
 
-  /**
-   * retorna o proximo cookie
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * Data properties:
-   *
-   *  - `codigoCookie` ? `{string}` - proximo cookie
-   */
-  public proximoCookie(customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = VisitanteApi.pathValidador + "/" + LoopBackConfig.getApiVersion() +
-    "/Visitantes/proximoCookie";
+  public Insere(IdAplicacao: any = {}, descricao: any = {}, objeto: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
+    "/MonitorFaseInicialApps/insere";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
+    if (typeof IdAplicacao !== 'undefined' && IdAplicacao !== null) _urlParams.IdAplicacao = IdAplicacao;
+    if (typeof descricao !== 'undefined' && descricao !== null) _urlParams.descricao = descricao;
+    if (typeof objeto !== 'undefined' && objeto !== null) _urlParams.objeto = objeto;
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
 
+  public insere(data: any = {}, customHeaders?: Function): Observable<any> {
+    alert('vai inserir');
+    let _url = PathValidador + "/" + LoopBackConfig.getApiVersion() +  "/MonitorFaseInicialApps";
+    alert('url' + _url);
+    let _method = 'PUT';
+    let result = this.request(_method, _url, {}, {}, data, null, customHeaders);
+    alert('result' + JSON.stringify(result));
+    console.log('retorno' , result);
+    return result;
+  }
+ 
 
-  public criaItem(data: Visitante, customHeaders?: Function): Observable<Visitante> {
-    return this.request('POST', [
-      VisitanteApi.pathValidador,
-      LoopBackConfig.getApiVersion(),
-      this.model.getModelDefinition().path
-    ].join('/'), undefined, undefined, { data }, null, customHeaders)
-    .pipe(map((data: Visitante) => this.model.factory(data)));
-  }
-  public atualizaItem(id: any, data: Visitante, customHeaders?: Function): Observable<Visitante> {
-    return this.request('PUT', [
-      VisitanteApi.pathValidador,
-      LoopBackConfig.getApiVersion(),
-      this.model.getModelDefinition().path,
-      ':id'
-    ].join('/'), { id }, undefined, { data }, null, customHeaders)
-    .pipe(map((data: Visitante) => this.model.factory(data)));
-  }
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `Visitante`.
+   * i.e. `MonitorFaseInicialApp`.
    */
   public getModelName() {
-    return "Visitante";
+    return "MonitorFaseInicialApp";
   }
 }

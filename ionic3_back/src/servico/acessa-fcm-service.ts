@@ -8,12 +8,16 @@ import { VisitaAppApi } from "../shared/sdk/services/custom/VisitaApp";
 import { Storage } from '@ionic/storage';
 import { Device } from '@ionic-native/device';
 import { NotificacaoAppApi } from "../shared/sdk/services/custom/NotificacaoApp";
+import { MonitorFaseInicialApp } from "../shared/sdk/models/MonitorFaseInicialApp";
+import { MonitorFaseInicialAppApi } from "../shared/sdk/services/custom/MonitorFaseInicialApp";
+
+
 
 
 @Injectable()
 export class AcessaFcmService {
 
-
+    versaoApp = ' v0.8.10';
 
     constructor(
         @Inject(FCM) protected fcm: FCM,
@@ -22,7 +26,8 @@ export class AcessaFcmService {
         @Inject(VisitanteApi) protected visitanteSrv: VisitanteApi,
         @Inject(Storage) protected storage: Storage,
         @Inject(Device) protected device: Device,
-        @Inject(NotificacaoAppApi) protected notificacaoAppSrv: NotificacaoAppApi
+        @Inject(NotificacaoAppApi) protected notificacaoAppSrv: NotificacaoAppApi,
+        @Inject(MonitorFaseInicialAppApi) protected monitorSrv : MonitorFaseInicialAppApi
     ) {
     }
 
@@ -48,25 +53,49 @@ export class AcessaFcmService {
 
     public executaValidacao(versaoAppId: number) {
         //alert('executaValidacao(versaoAppId: number)');
-        this.storage.get("chave").then((dado) => {
-            if (dado) {
-                console.log('Possui chaveCliente:', dado);
-                //alert('Recuperou Chave');
-                this.ligaReceptorNotificacao();
-                this.registraVisitaApp(dado, versaoAppId);
-            } else {
-                console.log('Não possui chaveClient');
-                //alert('Dado null');
-                //this.obtemTokenDispostivoUsuario(versaoAppId);
-                this.executaValidacaoRemote(versaoAppId);
-            }
-        });
+        this.monitorSrv.Insere(0,'executaValidacao ' + versaoAppId + this.versaoApp,'')
+            .subscribe((result) => { 
+                this.monitorSrv.Insere(0,'result.executaValidacao ' + JSON.stringify(result) + this.versaoApp,'')
+            })
+        this.storage.get("chave")
+            .then((dado) => {
+                if (dado) {
+                    console.log('Possui chaveCliente:', dado);
+                    //alert('Recuperou Chave');
+                    this.ligaReceptorNotificacao();
+                    this.registraVisitaApp(dado, versaoAppId);
+                } else {
+                    this.monitorSrv.Insere(0,'Não possui chaveClient v0.8.7','')
+                    .subscribe((result) => { 
+                        this.monitorSrv.Insere(0,'result.executaValidacao ' + JSON.stringify(result) + this.versaoApp,'')
+                    })
+        
+                    console.log('Não possui chaveClient');
+                    //alert('Dado null');
+                    //this.obtemTokenDispostivoUsuario(versaoAppId);
+                    this.executaValidacaoRemote(versaoAppId);
+                }
+            })
+            .catch((result) => {
+                this.monitorSrv.Insere(0,'Catch--> this.storage.getchave v0.8.7','')
+                .subscribe((result) => { 
+                    this.monitorSrv.Insere(0,'result.executaValidacao ' + JSON.stringify(result) + this.versaoApp,'')
+                })
+            })
     }
 
 
     public executaValidacaoRemote(versaoAppId: number) {
+        this.monitorSrv.Insere(0,'executaValidacaoRemote v0.8.7','')
+            .subscribe((result) => { 
+                this.monitorSrv.Insere(0,'result.executaValidacao ' + JSON.stringify(result) + this.versaoApp,'')
+            })
         let filtro = { "include": "usuarioProduto", "where": { "and": [{ "uuid": this.device.uuid }] } }
-        console.log('Tentativa recuperação chave por uuid: ', this.device.uuid);
+        console.log('Tentativa recuperação chave por uuid: '+ this.device.uuid);
+        this.monitorSrv.Insere(0,'Tentativa recuperação chave por uuid: '+ this.device.uuid,'')
+            .subscribe((result) => { 
+                this.monitorSrv.Insere(0,'result.executaValidacao ' + JSON.stringify(result) + this.versaoApp,'')
+            })
         //this.dispositivoUsuarioSrv.findOneItem(filtro)
         this.dispositivoUsuarioSrv.FindByUuid(this.device.uuid)
             .subscribe(
@@ -77,7 +106,10 @@ export class AcessaFcmService {
                     						this.registraMobile(dispositivo.usuarioProduto.chave,versaoAppId);
                     						this.registraVisitaApp(dispositivo.usuarioProduto.chave, versaoAppId);
                     					} else {
-                    					 	console.log('Não encontrou usuario por uuid');
+                                             console.log('Não encontrou usuario por uuid');
+                                             this.monitorSrv.Insere(0,'Não encontrou usuario por uuid','')
+                                             .subscribe((result) => { })
+                                     
                     						this.inscreveFcm(versaoAppId)
                     					}
                 },
@@ -107,11 +139,19 @@ export class AcessaFcmService {
 
 
     private inscreveFcm(versaoAppId: number) {
+        this.monitorSrv.Insere(0,'Solicita inscrição em FCM' + this.versaoApp,'')
+            .subscribe((result) => { 
+
+            })
         this.fcm.subscribeToTopic('novo');
         this.fcm.getToken().then(token => {
+            this.monitorSrv.Insere(0,'Recebeu token:' + token + this.versaoApp,'')
+                .subscribe((result) => { 
+        
+                })
             this.registraTokenFcm(token, versaoAppId);
-
         });
+        //this.registraTokenFcm('123456', versaoAppId);
         this.ligaReceptorNotificacao();
         this.fcm.onTokenRefresh().subscribe(token => {
             this.registraTokenFcm(token, versaoAppId);
