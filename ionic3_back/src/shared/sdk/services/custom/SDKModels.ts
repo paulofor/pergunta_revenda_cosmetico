@@ -8,6 +8,7 @@ import { VisitaApp } from '../../models/VisitaApp';
 import { OportunidadeDia } from '../../models/OportunidadeDia';
 import { Usuario } from '../../models/Usuario';
 import { Acao } from '../../models/Acao';
+import { PrecoDiario } from '../../models/PrecoDiario';
 export interface Models { [name: string]: any }
 
 @Injectable()
@@ -17,6 +18,7 @@ export class SDKModels {
 	OportunidadeDia: OportunidadeDia,
 	Usuario: Usuario,
 	Acao: Acao,
+	PrecoDiario: PrecoDiario,
 	User: User,
     Container: Container,
     Visitante : Visitante,

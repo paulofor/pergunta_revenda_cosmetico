@@ -5,12 +5,13 @@ import { FormBuilder } from '@angular/forms';
 import { LoginPageBase } from './login-base';
 import { Storage } from '@ionic/storage';
 import { Page } from 'ionic-angular/navigation/nav-util';
-import { ComandosZeroPage } from '../comandos-zero/comandos-zero';
+//import { ComandosZeroPage } from '../comandos-zero/comandos-zero';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { AcessaFcmService } from "../../servico/acessa-fcm-service";
 import { ListaOportunidadePrecoAssinaturaPage } from '../lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
 import { ListaOportunidadeGenericaPage } from '../lista-oportunidade-generica/lista-oportunidade-generica';
+import { ListaOportunidadeGraficoIncPage } from '../lista-oportunidade-grafico-inc/lista-oportunidade-grafico-inc';
 
 /**
  * Generated class for the LoginPage page.
@@ -32,7 +33,7 @@ export class LoginPage extends LoginPageBase {
 
 
   getPaginaInicial(): Page {
-    var proxima = ListaOportunidadeGenericaPage;
+    var proxima = ListaOportunidadeGraficoIncPage;
     console.log('Proxima: ' , proxima);
     return proxima;
   }

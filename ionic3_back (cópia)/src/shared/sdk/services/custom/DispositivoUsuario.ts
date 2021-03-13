@@ -157,10 +157,13 @@ export class DispositivoUsuarioApi extends BaseLoopBackApi {
     let _method: string = "POST";
     let _url: string = PathValidador + "/" + LoopBackConfig.getApiVersion() +
     "/DispositivoUsuarios/criaComUsuario";
+    console.log( _url);
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
     if (typeof dispositivo !== 'undefined' && dispositivo !== null) _urlParams.dispositivo = dispositivo;
+    console.log(JSON.stringify(_urlParams));
+    console.log(_method);
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }

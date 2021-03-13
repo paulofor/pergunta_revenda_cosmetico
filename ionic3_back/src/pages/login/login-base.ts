@@ -21,7 +21,7 @@ export abstract class LoginPageBase extends ComponenteBase {
 
   abstract getPaginaInicial(): Page;
 
-  chavePagina = '079053c61df3fa29a8c281c38a8a06d0526499f5';
+  chavePagina = '5ba98c46be96c2c398811d168d5a59bd5bee42bd';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     protected formBuilder: FormBuilder, protected srv: UsuarioProdutoApi, protected srvAcao: AcaoApi, protected storage: Storage
@@ -130,3 +130,5 @@ export abstract class LoginPageBase extends ComponenteBase {
   }
 
 }
+
+

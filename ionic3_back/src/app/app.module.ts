@@ -10,8 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { Screenshot } from '@ionic-native/screenshot';
 import { Device } from '@ionic-native/device';
 import { ChartsModule } from 'ng2-charts';
-import { SignupPage } from '../pages/signup/signup';
-import { LoginPage } from '../pages/login/login';
+//import { SignupPage } from '../pages/signup/signup';
+
 //import { ComandosZeroPage } from '../pages/comandos-zero/comandos-zero';
 import { IonicStorageModule } from '@ionic/storage';
 import { BrMaskerModule } from 'brmasker-ionic-3';
@@ -24,6 +24,7 @@ import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/Dispositivo
 import { VisitaAppApi } from '../shared/sdk/services/custom/VisitaApp';
 import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
 import { UsuarioProdutoApi } from '../shared/sdk/services/custom/UsuarioProduto';
+import { MonitorFaseInicialAppApi } from '../shared/sdk/services/custom/MonitorFaseInicialApp';
 import { PagSeguroAssinaturaDadoIdentificacaoPage } from '../pages/pag-seguro-assinatura-dado-identificacao/pag-seguro-assinatura-dado-identificacao';
 import { PagSeguroAssinaturaDadoClientePage } from '../pages/pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
 import { PagSeguroAssinaturaDadoCartaoPage } from '../pages/pag-seguro-assinatura-dado-cartao/pag-seguro-assinatura-dado-cartao';
@@ -34,16 +35,19 @@ import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/li
 import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
 import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
+import { ListaOportunidadeGraficoPrecoPage } from '../pages/lista-oportunidade-grafico-preco/lista-oportunidade-grafico-preco';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OportunidadeDiaApi } from '../shared/sdk';
 import { UsuarioApi } from '../shared/sdk';
 import { AcaoApi } from '../shared/sdk';
+import { PrecoDiarioApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { MonitorFaseInicialAppApi } from '../shared/sdk/services/custom/MonitorFaseInicialApp';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -68,6 +72,12 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeGenericaPage,
 	
     ListaOportunidadePrecoAssinaturaPage,
+	
+    ListaOportunidadeGraficoPrecoPage,
+	
+    LoginPage,
+	
+    SignupPage,
 	
   ],
   imports: [
@@ -101,6 +111,12 @@ registerLocaleData(localePt, 'pt-BR');
 	
     ListaOportunidadePrecoAssinaturaPage,
 	
+    ListaOportunidadeGraficoPrecoPage,
+	
+    LoginPage,
+	
+    SignupPage,
+	
   ],
   providers: [
     StatusBar,
@@ -119,6 +135,8 @@ registerLocaleData(localePt, 'pt-BR');
 	UsuarioApi,
 	
 	AcaoApi,
+	
+	PrecoDiarioApi,
 	
     Screenshot,
     Device,

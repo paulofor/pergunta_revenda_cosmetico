@@ -1,3 +1,4 @@
+
 import { NavController } from "ionic-angular";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Usuario, UsuarioApi, UsuarioProduto } from "../../shared/sdk/index";
@@ -23,7 +24,7 @@ export abstract class SignupPageBase extends ComponenteBase {
   protected msgSenha: string = MSG_CADASTRO_TAMANHO_SENHA;
   protected msgEmail: string = MSG_CADASTRO_EMAIL;
 
-  chavePagina = 'c2b925b0dd233741e199e83a93afc1ad46047828';
+  chavePagina = 'c506fc6e882b0f624cd9cc2f320441b3420d1b55';
 
   abstract getPaginaInicial(): Page;
 

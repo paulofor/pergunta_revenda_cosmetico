@@ -5,7 +5,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
 import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { VERSAO_APP_ID } from './const';
 
@@ -14,6 +13,9 @@ import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/li
 import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
 import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
 import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
+import { ListaOportunidadeGraficoPrecoPage } from '../pages/lista-oportunidade-grafico-preco/lista-oportunidade-grafico-preco';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { timer } from 'rxjs/observable/timer';
 
 @Component({

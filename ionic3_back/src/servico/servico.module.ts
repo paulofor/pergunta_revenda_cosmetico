@@ -9,6 +9,7 @@ import { SocketDriver } from '../shared/sdk/sockets/socket.driver';
 import { OportunidadeDiaApi } from '../shared/sdk';
 import { UsuarioApi } from '../shared/sdk';
 import { AcaoApi } from '../shared/sdk';
+import { PrecoDiarioApi } from '../shared/sdk';
 
 // Nao tem PagSeguroApi pq parece nao ser usado em lugar nenhum.
 
@@ -26,6 +27,7 @@ import { AcaoApi } from '../shared/sdk';
 		OportunidadeDiaApi,
 		UsuarioApi,
 		AcaoApi,
+		PrecoDiarioApi,
 	],
 	declarations: 
 	[

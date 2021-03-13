@@ -21,7 +21,7 @@ export abstract class LoginPageBase extends ComponenteBase {
 
   abstract getPaginaInicial(): Page;
 
-  chavePagina = '079053c61df3fa29a8c281c38a8a06d0526499f5';
+  chavePagina = '5ba98c46be96c2c398811d168d5a59bd5bee42bd';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     protected formBuilder: FormBuilder, protected srv: UsuarioProdutoApi, protected srvAcao: AcaoApi, protected storage: Storage
@@ -36,11 +36,12 @@ export abstract class LoginPageBase extends ComponenteBase {
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad LoginPage');
+    this.fcmSrv.mensagemLog('Tela de login antes de enviar registraVisitaPagina');
+    console.log('ionViewDidLoad LoginPage - vai registrar paginaLogin');
     this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
   }
 
   
-
   onSubmit() {
     var email = this.loginForm.get("login").value;
     var senha = this.loginForm.get("senha").value;
@@ -53,11 +54,11 @@ export abstract class LoginPageBase extends ComponenteBase {
           if (result) {
             console.log('UserLogin: ', result);
             this.usuarioLogado = result;
-            this.executouLogin();
+            //this.executouLogin();
             this.verificaAssinatura();
           } else {
             this.erroMsg = MSG_ERRO_LOGIN;
-            this.errouLogin();
+            //this.errouLogin();
           }
 
         },
@@ -65,6 +66,8 @@ export abstract class LoginPageBase extends ComponenteBase {
           console.log('Erro login: ', erro);
           if (erro == 'Server error') {
             this.erroMsg = MSG_SEM_INTERNET;
+          } else {
+            this.erroMsg = MSG_ERRO_LOGIN;
           }
         }
       )

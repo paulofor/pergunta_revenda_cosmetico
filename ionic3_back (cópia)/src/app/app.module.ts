@@ -12,7 +12,7 @@ import { Device } from '@ionic-native/device';
 import { ChartsModule } from 'ng2-charts';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
-import { ComandosZeroPage } from '../pages/comandos-zero/comandos-zero';
+//import { ComandosZeroPage } from '../pages/comandos-zero/comandos-zero';
 import { IonicStorageModule } from '@ionic/storage';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { PagSeguroApi } from '../shared/sdk/services/integracao/PagSeguro';
@@ -43,6 +43,8 @@ import { AcaoApi } from '../shared/sdk';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { MonitorFaseInicialAppApi } from '../shared/sdk/services/custom/MonitorFaseInicialApp';
+import { ListaOportunidadeGraficoIncPage } from '../pages/lista-oportunidade-grafico-inc/lista-oportunidade-grafico-inc';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -52,7 +54,7 @@ registerLocaleData(localePt, 'pt-BR');
     HomePage,
     LoginPage,
     SignupPage,
-    ComandosZeroPage,
+    //ComandosZeroPage,
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
@@ -67,6 +69,7 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeGenericaPage,
 	
     ListaOportunidadePrecoAssinaturaPage,
+    ListaOportunidadeGraficoIncPage
 	
   ],
   imports: [
@@ -84,7 +87,7 @@ registerLocaleData(localePt, 'pt-BR');
     HomePage,
     LoginPage,
     SignupPage,
-    ComandosZeroPage,
+    //ComandosZeroPage,
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
@@ -99,6 +102,7 @@ registerLocaleData(localePt, 'pt-BR');
     ListaOportunidadeGenericaPage,
 	
     ListaOportunidadePrecoAssinaturaPage,
+    ListaOportunidadeGraficoIncPage
 	
   ],
   providers: [
@@ -126,7 +130,8 @@ registerLocaleData(localePt, 'pt-BR');
     FCM,
     AcessaFcmService,
     DispositivoUsuarioApi,
-    VisitaAppApi
+    VisitaAppApi,
+    MonitorFaseInicialAppApi
   ]
 })
 export class AppModule {}
