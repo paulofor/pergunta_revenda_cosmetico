@@ -3,8 +3,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Assinatura } from '../../shared/assinatura';
 import { PagSeguroAssinaturaDadoClientePage } from '../pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
 import { DatePipe } from '@angular/common';
-import { AcessaFcmService } from '../../servico/acessa-fcm-service';
+import { Storage } from '@ionic/storage';
 import { VERSAO_APP_ID } from '../../app/const';
+import { Device } from '@ionic-native/device';
+import { FCM } from '@ionic-native/fcm';
+import { DispositivoUsuarioApi } from '../../shared/sdk/services/custom/DispositivoUsuario';
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
+import { VisitaAppApi } from '../../shared/sdk/services/custom/VisitaApp';
+import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
+import { BaseComponente } from '../base-component/base-componente';
 /**
  * Generated class for the PagSeguroAssinaturaDadoIdentificacaoPage page.
  *
@@ -17,8 +24,13 @@ import { VERSAO_APP_ID } from '../../app/const';
   selector: 'page-pag-seguro-assinatura-dado-identificacao',
   templateUrl: 'pag-seguro-assinatura-dado-identificacao.html',
 })
-export class PagSeguroAssinaturaDadoIdentificacaoPage {
-
+export class PagSeguroAssinaturaDadoIdentificacaoPage extends BaseComponente{
+  dadosTela(chaveUsuario: any) {
+    //throw new Error('Method not implemented.');
+  }
+  getChavePagina() {
+    return this.chavePagina;
+  }
 
   private chavePagina : string = '3e7a39e09eec3244e6f75189eff5db97e3318bae';
 
@@ -59,13 +71,15 @@ export class PagSeguroAssinaturaDadoIdentificacaoPage {
     ]
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  protected fcmSrv: AcessaFcmService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private pagSrv: PagSeguroApi, protected storage:Storage, private usuarioSrv: UsuarioProdutoApi, protected fcm: FCM, protected device: Device,
+    protected dispositivoUsuarioSrv: DispositivoUsuarioApi, protected visitaAppSrv: VisitaAppApi) {
+      super(storage, fcm,device, dispositivoUsuarioSrv, visitaAppSrv)
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaDadoIdentificacaoPage');
     this.inicializacao();
-    this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
   }
 
   inicializacao() {

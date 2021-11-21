@@ -3,41 +3,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Assinatura, Cartao } from '../../shared/assinatura';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
-
+import { Storage } from '@ionic/storage';
 import { PagSeguroAssinaturaSucessoPage } from '../pag-seguro-assinatura-sucesso/pag-seguro-assinatura-sucesso';
+import { AcessaFcmService } from '../../servico/acessa-fcm-service';
 import { VERSAO_APP_ID } from '../../app/const';
-import { BaseComponente } from '../base-component/base-componente';
-import { Device } from '@ionic-native/device';
-import { FCM } from '@ionic-native/fcm';
-import { DispositivoUsuarioApi } from '../../shared/sdk/services/custom/DispositivoUsuario';
-import { VisitaAppApi } from '../../shared/sdk/services/custom/VisitaApp';
 /**
  * Generated class for the PagSeguroAssinaturaConfirmacaoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
- import { Storage } from '@ionic/storage';
+
 @IonicPage()
 @Component({
   selector: 'page-pag-seguro-assinatura-confirmacao',
   templateUrl: 'pag-seguro-assinatura-confirmacao.html',
 })
-export class PagSeguroAssinaturaConfirmacaoPage extends BaseComponente{
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private pagSrv: PagSeguroApi, protected storage:Storage, private usuarioSrv: UsuarioProdutoApi, protected fcm: FCM, protected device: Device,
-    protected dispositivoUsuarioSrv: DispositivoUsuarioApi, protected visitaAppSrv: VisitaAppApi) {
-      super(storage, fcm,device, dispositivoUsuarioSrv, visitaAppSrv)
-  }
- 
-  dadosTela(chaveUsuario: any) {
-    
-  }
-  getChavePagina() {
-    return this.chavePagina;
-  }
+export class PagSeguroAssinaturaConfirmacaoPage {
 
   chavePagina = '557b4687345609d78d1f48c605d45ddd666a3a3c';
 
@@ -50,10 +32,14 @@ export class PagSeguroAssinaturaConfirmacaoPage extends BaseComponente{
 
   exibeLoading: boolean = false;
 
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              private pagSrv: PagSeguroApi, private storage:Storage, private usuarioSrv: UsuarioProdutoApi
+              ,  protected fcmSrv: AcessaFcmService) {
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagSeguroAssinaturaConfirmacaoPage');
+    //this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
     this.assinatura = Assinatura;
     this.cartao = Cartao;
     this.storage.get("chave")

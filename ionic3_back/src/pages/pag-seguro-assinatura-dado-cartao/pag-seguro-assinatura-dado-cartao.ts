@@ -4,9 +4,15 @@ import { Assinatura, Cartao } from '../../shared/assinatura';
 import { PagSeguroApi } from '../../shared/sdk/services/integracao/PagSeguro';
 import { PagSeguroAssinaturaConfirmacaoPage } from '../pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
 import { PagSeguroAssinaturaDadoClientePage } from '../pag-seguro-assinatura-dado-cliente/pag-seguro-assinatura-dado-cliente';
-import { AcessaFcmService } from '../../servico/acessa-fcm-service';
-import { VERSAO_APP_ID } from '../../app/const';
 
+import { VERSAO_APP_ID } from '../../app/const';
+import { BaseComponente } from '../base-component/base-componente';
+import { Device } from '@ionic-native/device';
+import { FCM } from '@ionic-native/fcm';
+import { DispositivoUsuarioApi } from '../../shared/sdk/services/custom/DispositivoUsuario';
+import { UsuarioProdutoApi } from '../../shared/sdk/services/custom/UsuarioProduto';
+import { VisitaAppApi } from '../../shared/sdk/services/custom/VisitaApp';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the PagSeguroAssinaturaDadoCartaoPage page.
  *
@@ -23,7 +29,13 @@ declare var PagSeguroDirectPayment: any;
 
 
 
-export class PagSeguroAssinaturaDadoCartaoPage {
+export class PagSeguroAssinaturaDadoCartaoPage extends BaseComponente{
+  dadosTela(chaveUsuario: any) {
+    //throw new Error('Method not implemented.');
+  }
+  getChavePagina() {
+    return this.chavePagina;
+  }
 
   chavePagina = '27dbb494777224b5ccf3177f5284171b235812aa';
 
@@ -60,9 +72,10 @@ export class PagSeguroAssinaturaDadoCartaoPage {
   erroBandeira: string;
 
   exibeLoading : boolean = false;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private pagSrv: PagSeguroApi,  protected fcmSrv: AcessaFcmService) {
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private pagSrv: PagSeguroApi, protected storage:Storage, private usuarioSrv: UsuarioProdutoApi, protected fcm: FCM, protected device: Device,
+    protected dispositivoUsuarioSrv: DispositivoUsuarioApi, protected visitaAppSrv: VisitaAppApi) {
+      super(storage, fcm,device, dispositivoUsuarioSrv, visitaAppSrv)
   }
 
   enviar() {
@@ -100,7 +113,6 @@ export class PagSeguroAssinaturaDadoCartaoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestePagSeguroPage');
-    this.fcmSrv.registraVisitaPagina(this.chavePagina, VERSAO_APP_ID);
     this.pagSrv.ObtemSessao()
       .subscribe((resp) => {
         console.log('Resp- Sessao:' + JSON.stringify(resp));

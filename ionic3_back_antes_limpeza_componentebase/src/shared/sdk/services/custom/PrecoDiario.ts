@@ -10,24 +10,17 @@ import { LoopBackFilter,  } from '../../models/BaseModels';
 import { ErrorHandler } from '../core/error.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { OportunidadeDia } from '../../models/OportunidadeDia';
+import { PrecoDiario } from '../../models/PrecoDiario';
 import { SocketConnection } from '../../sockets/socket.connections';
-import { OPORTUNIDADEDIA } from '../../../../dados/oportunidadeDia';
+import { PRECODIARIO } from '../../../../dados/precoDiario';
 //import { of } from 'rxjs';
 //Versao Ionic
 import { of } from 'rxjs/observable/of';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPAGE} from  '../../../../dados/oportunidadeDia';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOPAGE} from  '../../../../dados/oportunidadeDia';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEASSINATURAPAGE} from  '../../../../dados/oportunidadeDia';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEGENERICAPAGE} from  '../../../../dados/oportunidadeDia';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOASSINATURAPAGE} from  '../../../../dados/oportunidadeDia';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEGRAFICOPRECOPAGE} from  '../../../../dados/oportunidadeDia';
-import {OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOTABELAPAGE} from  '../../../../dados/oportunidadeDia';
 /**
  * Api services for the `Aplicacao` model.
  */
 @Injectable()
-export class OportunidadeDiaApi extends BaseLoopBackApi {
+export class PrecoDiarioApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(HttpClient) protected http: HttpClient,
@@ -42,7 +35,7 @@ export class OportunidadeDiaApi extends BaseLoopBackApi {
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/oportunidadeDias";
+    "/precoDiarios";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -73,7 +66,7 @@ export class OportunidadeDiaApi extends BaseLoopBackApi {
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/oportunidadeDias/:id";
+    "/precoDiarios/:id";
     let _routeParams: any = {
       id: id
     };
@@ -90,54 +83,33 @@ export class OportunidadeDiaApi extends BaseLoopBackApi {
    * i.e. `Aplicacao`.
    */
   public getModelName() {
-    return "OportunidadeDia";
+    return "PrecoDiario";
   }
   
-  obtemPrimeiro(filter: LoopBackFilter = {}, customHeaders?: Function) : Observable<OportunidadeDia> {
-    return of(OPORTUNIDADEDIA[0]);
+  obtemPrimeiro(filter: LoopBackFilter = {}, customHeaders?: Function) : Observable<PrecoDiario> {
+    return of(PRECODIARIO[0]);
   }
-  obtemLista(filter: LoopBackFilter = {}, customHeaders?: Function) : Observable<OportunidadeDia[]> {
-    return of(OPORTUNIDADEDIA);
+  obtemLista(filter: LoopBackFilter = {}, customHeaders?: Function) : Observable<PrecoDiario[]> {
+    return of(PRECODIARIO);
   }
-  obtemElemento(filter: LoopBackFilter = {}, customHeaders?: Function) : Observable<OportunidadeDia> {
-    return of(OPORTUNIDADEDIA[filter.where.id]);
+  obtemElemento(filter: LoopBackFilter = {}, customHeaders?: Function) : Observable<PrecoDiario> {
+    return of(PRECODIARIO[filter.where.id]);
   }
 
-	getListaOportunidadePageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPAGE);
-	}
-	getListaOportunidadePrecoPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOPAGE);
-	}
-	getListaOportunidadeAssinaturaPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEASSINATURAPAGE);
-	}
-	getListaOportunidadeGenericaPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEGENERICAPAGE);
-	}
-	getListaOportunidadePrecoAssinaturaPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOASSINATURAPAGE);
-	}
-	getListaOportunidadeGraficoPrecoPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEGRAFICOPRECOPAGE);
-	}
-	getListaOportunidadePrecoTabelaPageLoad(filter: LoopBackFilter = {}) : Observable<OportunidadeDia> {
-		return of (OPORTUNIDADEDIA_LISTAOPORTUNIDADEPRECOTABELAPAGE);
-	}
 
   
 
   // aprender mais para fazer algo que trate falha de conexao --> 25/05/2019
-  public createDg<OportunidadeDia>(data: OportunidadeDia, erroMsg? :string, customHeaders?: Function): Observable<OportunidadeDia> {
-    let result : Observable<OportunidadeDia> = this.create(data,customHeaders);
-    //result.subscribe((result:OportunidadeDia) => {}, (erro:any) => {}); // com isso duplica
+  public createDg<PrecoDiario>(data: PrecoDiario, erroMsg? :string, customHeaders?: Function): Observable<PrecoDiario> {
+    let result : Observable<PrecoDiario> = this.create(data,customHeaders);
+    //result.subscribe((result:PrecoDiario) => {}, (erro:any) => {}); // com isso duplica
     return result;
   }
   /*
   public ListaApp(customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-      "/OportunidadeDia/listaApp";
+      "/PrecoDiario/listaApp";
     let result = this.request(_method, _url, null, null, null, null, customHeaders);
     return result;
   }
@@ -145,7 +117,7 @@ export class OportunidadeDiaApi extends BaseLoopBackApi {
   public ListaApp(customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Cosmetic_OportunidadeDias/listaApp";
+    "/Cosmetic_PrecoDiarios/listaApp";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocketDriver } from '../shared/sdk/sockets/socket.driver';
 import { SDKBrowserModule, SDKModels, LoopBackAuth, InternalStorage } from '../shared/sdk';
 import { MyApp } from './app.component';
-
+import { HomePage } from '../pages/home/home';
 import { Screenshot } from '@ionic-native/screenshot';
 import { Device } from '@ionic-native/device';
 import { ChartsModule } from 'ng2-charts';
@@ -19,7 +19,7 @@ import { PagSeguroApi } from '../shared/sdk/services/integracao/PagSeguro';
 import { VisitanteApi } from '../shared/sdk/services/custom/Visitante';
 import { CookieService } from 'ngx-cookie-service';
 import { FCM } from '@ionic-native/fcm';
-
+import { AcessaFcmService } from '../servico/acessa-fcm-service';
 import { DispositivoUsuarioApi } from '../shared/sdk/services/custom/DispositivoUsuario';
 import { VisitaAppApi } from '../shared/sdk/services/custom/VisitaApp';
 import { NotificacaoAppApi } from '../shared/sdk/services/custom/NotificacaoApp';
@@ -30,7 +30,14 @@ import { PagSeguroAssinaturaDadoClientePage } from '../pages/pag-seguro-assinatu
 import { PagSeguroAssinaturaDadoCartaoPage } from '../pages/pag-seguro-assinatura-dado-cartao/pag-seguro-assinatura-dado-cartao';
 import { PagSeguroAssinaturaConfirmacaoPage } from '../pages/pag-seguro-assinatura-confirmacao/pag-seguro-assinatura-confirmacao';
 import { PagSeguroAssinaturaSucessoPage } from '../pages/pag-seguro-assinatura-sucesso/pag-seguro-assinatura-sucesso';
-
+import { ListaOportunidadePage } from '../pages/lista-oportunidade/lista-oportunidade';
+import { ListaOportunidadePrecoPage } from '../pages/lista-oportunidade-preco/lista-oportunidade-preco';
+import { ListaOportunidadeAssinaturaPage } from '../pages/lista-oportunidade-assinatura/lista-oportunidade-assinatura';
+import { ListaOportunidadeGenericaPage } from '../pages/lista-oportunidade-generica/lista-oportunidade-generica';
+import { ListaOportunidadePrecoAssinaturaPage } from '../pages/lista-oportunidade-preco-assinatura/lista-oportunidade-preco-assinatura';
+import { ListaOportunidadeGraficoPrecoPage } from '../pages/lista-oportunidade-grafico-preco/lista-oportunidade-grafico-preco';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { ListaOportunidadePrecoTabelaPage } from '../pages/lista-oportunidade-preco-tabela/lista-oportunidade-preco-tabela';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -48,12 +55,31 @@ registerLocaleData(localePt, 'pt-BR');
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
+    LoginPage,
+    SignupPage,
     //ComandosZeroPage,
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
     PagSeguroAssinaturaConfirmacaoPage,
     PagSeguroAssinaturaSucessoPage,
+    ListaOportunidadePage,
+	
+    ListaOportunidadePrecoPage,
+	
+    ListaOportunidadeAssinaturaPage,
+	
+    ListaOportunidadeGenericaPage,
+	
+    ListaOportunidadePrecoAssinaturaPage,
+	
+    ListaOportunidadeGraficoPrecoPage,
+	
+    LoginPage,
+	
+    SignupPage,
+	
     ListaOportunidadePrecoTabelaPage,
 	
   ],
@@ -69,13 +95,32 @@ registerLocaleData(localePt, 'pt-BR');
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomePage,
+    LoginPage,
+    SignupPage,
     //ComandosZeroPage,
     PagSeguroAssinaturaDadoIdentificacaoPage,
     PagSeguroAssinaturaDadoClientePage,
     PagSeguroAssinaturaDadoCartaoPage,
     PagSeguroAssinaturaConfirmacaoPage,
     PagSeguroAssinaturaSucessoPage,
-    ListaOportunidadePrecoTabelaPage
+    ListaOportunidadePage,
+	
+    ListaOportunidadePrecoPage,
+	
+    ListaOportunidadeAssinaturaPage,
+	
+    ListaOportunidadeGenericaPage,
+	
+    ListaOportunidadePrecoAssinaturaPage,
+	
+    ListaOportunidadeGraficoPrecoPage,
+	
+    LoginPage,
+	
+    SignupPage,
+	
+    ListaOportunidadePrecoTabelaPage,
 	
   ],
   providers: [
@@ -103,6 +148,7 @@ registerLocaleData(localePt, 'pt-BR');
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     CookieService,
     FCM,
+    AcessaFcmService,
     DispositivoUsuarioApi,
     VisitaAppApi,
     MonitorFaseInicialAppApi
